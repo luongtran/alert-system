@@ -15,25 +15,24 @@
 //= require bootstrap
 //= require_tree .
 //= require registrations
-$(function() {
-    $('.add_item_bt').click(function() {
+$(function () {
+    $('.add_item_bt').click(function () {
         $('.frm_add_item').show();
         $(this).hide();
         $('.cancel_add_item_bt').show();
     });
-    $('.cancel_add_item_bt').click(function() {
+    $('.cancel_add_item_bt').click(function () {
         $('.frm_add_item').hide();
         $('.add_item_bt').show();
         $(this).hide();
     });
-    $('#ecryption-method').mouseover(function() {
+    $('#ecryption-method').mouseover(function () {
         $('#encryption-method-description').show();
     });
 
-    $('.bt-plan').click(function() {
+    $('.bt-plan').click(function () {
         var current_plan = $('#plan').val();
         var plan = $(this).data('value');
-//        @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
         if (plan == "free")
             $('.billing-profile-fields').hide();
         else
@@ -41,22 +40,20 @@ $(function() {
         $('#plan-' + current_plan).removeClass('btn-primary');
         $('#plan').val(plan);
         $(this).addClass('btn-primary');
-
-
     });
-    $('#create_new_recipient_bt').click(function() {
+    $('#create_new_recipient_bt').click(function () {
         $('#frm_create_recipient').show();
         $('#choose-recipient-combox').hide();
         $('#using_exist_address').val(false);
         $(this).hide();
         $('#cancel_create_new_recipient_bt').show();
     });
-    $('#cancel_create_new_recipient_bt').click(function() {
+    $('#cancel_create_new_recipient_bt').click(function () {
         $('#frm_create_recipient').hide();
         $('#using_exist_address').val(true);
         $('#create_new_recipient_bt').show();
         $('#choose-recipient-combox').show();
         $(this).hide();
     });
-    
+
 });

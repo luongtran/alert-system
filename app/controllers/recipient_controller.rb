@@ -14,8 +14,12 @@ class RecipientController < ApplicationController
     end
   end
 
-  def delete
-    
+  def delete_package
+
+
+  end
+
+  def show
 
   end
 end

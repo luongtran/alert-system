@@ -2,27 +2,15 @@ class RegistrationsController < Devise::RegistrationsController
   layout :resolve_layout
 
   def new
-    #    @plan = params[:plan]
-    #    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
-    #      @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
-    #      super
-    #    else
-    #      redirect_to root_path, :notice => 'Please select a subscription plan below'
-    #    end
-    @plan = 'small'
-    @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
-    super
+    @plan = params[:plan]
+    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
+      @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
+      super
+    else
+      redirect_to pricing_path, :notice => 'Please select a subscription plan !'
+    end
   end
 
-  def edit
-    super
-  end
-
-  def create
-    puts "\n\n _______plan : #{params[:plan]}"
-    @signature = Recurly.js.sign :subscription => {:plan_code => params[:plan]}
-    super
-  end
 
   def update_plan
     @user = current_user

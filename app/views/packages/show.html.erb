@@ -1,64 +1,68 @@
-
 <div id="dashbody_items">
   <div class="dashbodyHead">
     <div class="row-fluid">
       <div class="span9">
         <%#*<div class="tipbox"><i class="icon-info-sign pull-left"></i>%>
-          <%#*<p class="pll">%>
-            <%#*Click change view in right side to see more detail information of items. Click in item icon to%>
-            <%#*view items inside.%>
-          <%#*</p>%>
+        <%#*<p class="pll">%>
+        <%#*Click change view in right side to see more detail information of items. Click in item icon to%>
+        <%#*view items inside.%>
+        <%#*</p>%>
         <%#*</div>%>
         <div class="spacing pal"></div>
         <div class="packagedetail clearfix">
           <div class="package pull-left">
             <div class="package-inner"><a href="#"></a></div>
           </div>
-          <div class="packageinfo"><a class="packtitle"><%=@package.name%></a>
+          <div class="packageinfo"><a class="packtitle"><%= @package.name %></a>
             <ul class="unstyled">
-              <li>Created at:  <span><%= @package.created_at %></span></li>
-              <li>Items inside: <span> <%=  @package.items.count%> items</span></li>
-              <li>Recipient:<span class="recipient mlm"><a href="#"><%= Recipient.find(@package.recipient_id).name %></a></li>  
-              <li>  <%=  button_to "Delete", @package, :method => :delete, :class => "btn-danger btn-small",data: {confirm: 'Are you sure?'} %></li>
+              <li>Created at: <span><%= @package.created_at %></span></li>
+              <li>Items inside: <span> <%= @package.items.count %> items</span></li>
+              <li>Recipient:
+                <span class="recipient mlm" style=""><a href="<%="#{packages_viewrecipient_path}?id=#{@package.recipient_id}"%>"><%= Recipient.find(@package.recipient_id).name %></a>  </span>
+              </li>
+
+              <li>  <%= button_to "Delete", @package, :method => :delete, :class => "btn-danger btn-small", data: {confirm: 'Are you sure?'} %></li>
             </ul>
           </div>
         </div>
       </div>
       <%#*<div class="span3">%>
-        <%#*<div class="controlbox pull-right">%>
-          <%#*<ul class="nav nav-pills">%>
-            <%#*<li><a href="#" class="icon-th"></a></li>%>
-            <%#*<li><a href="#" class="icon-list"></a></li>%>
-          <%#*</ul>%>
-        <%#*</div>%>
+      <%#*<div class="controlbox pull-right">%>
+      <%#*<ul class="nav nav-pills">%>
+      <%#*<li><a href="#" class="icon-th"></a></li>%>
+      <%#*<li><a href="#" class="icon-list"></a></li>%>
+      <%#*</ul>%>
+      <%#*</div>%>
       <%#*</div>%>
     </div>
   </div>
 
   <h3> Items </h3>
+
   <div class="dashbodyMain well">
     <div id="listitems" class="clearfix">
       <% @items.each do |i| %>
-        <%
-        css_class = ""
-        case i.item_type
-          when 1
-          css_class = "text"
-          when 2
-          css_class = "zip"
-          when 3
-          css_class = "image"
-          end
-      %>
-        <div class="item">
-          <div class="item-inner <%= css_class %>">
+          <%
+             css_class = ""
+             case i.item_type
+               when 1
+                 css_class = "text"
+               when 2
+                 css_class = "zip"
+               when 3
+                 css_class = "image"
+             end
+          %>
+          <div class="item">
+            <div class="item-inner <%= css_class %>">
 
-            <a href="<%=  package_item_path(@package, i)%>"><span class="title"><%=i.name%></span></a>
+              <a href="<%= package_item_path(@package, i) %>"><span class="title"><%= i.name %></span></a>
+            </div>
           </div>
-        </div>
       <% end %>
       <div class="item addnew">
-        <div class="item-inner"><a href="<%= new_package_item_path(@package) %>"><span class="add"><i class="icon-plus mrl"></i>add</span></a>
+        <div class="item-inner">
+          <a href="<%= new_package_item_path(@package) %>"><span class="add"><i class="icon-plus mrl"></i>add</span></a>
         </div>
       </div>
     </div>

@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
   end
 
   def check_recurly
-    puts "\n\n___________step2"
     customer = Recurly::Account.find(customer_id) unless customer_id.nil?
   rescue Recurly::Resource::NotFound => e
     logger.error e.message

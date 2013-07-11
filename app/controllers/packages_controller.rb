@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
   require 'openssl'
   before_filter :authenticate_user!
   before_filter :get_addresses, :only => [:new, :edit]
-  
+
   # GET /packages
   # GET /packages.json
   respond_to :js, :html
@@ -42,7 +42,7 @@ class PackagesController < ApplicationController
     end
     @package = Package.new
     @recipient = Recipient.new
-   
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @package }
@@ -62,7 +62,7 @@ class PackagesController < ApplicationController
     @recipient = Recipient.new
     @package.name = params[:package][:name]
     @package.description = params[:package][:description]
-    
+
     if current_user.has_role? :large
       @package.key = params[:package][:key]
       @package.custom_key = params[:package][:custom_key]
@@ -70,23 +70,23 @@ class PackagesController < ApplicationController
       @package.custom_key = false
       @package.create_aes_key
     end
-    
+
     @recipients = Recipient.where(:user_id => current_user.id)
-   
+
     if params[:recipient][:using_exist_address] == "true"
       @package.recipient_id = params[:recipient_id]
     else # new address
-      # Recipient     
+         # Recipient
       @recipient.name = params[:recipient][:name]
       @recipient.email = params[:recipient][:email]
       @recipient.user_id = current_user.id
       @recipient.address = params[:recipient][:address]
-      @recipient.phone_number = params[:recipient][:phone_number]     
+      @recipient.phone_number = params[:recipient][:phone_number]
       if @recipient.save
         @package.recipient_id = @recipient.id
       else
         flash[:error] = "Recipient's infor is not valid, create package failed !"
-        render action: "new" 
+        render action: "new"
         return
       end
     end
@@ -96,9 +96,9 @@ class PackagesController < ApplicationController
       return
     else
       flash[:error] = "Package's infor is not valid !"
-      render action: "new"      
+      render action: "new"
       return
-    end   
+    end
   end
 
   # PUT /packages/1
@@ -126,6 +126,18 @@ class PackagesController < ApplicationController
       format.html { redirect_to dashboard_path }
       format.json { head :no_content }
     end
+  end
+
+  def viewrecipient
+    begin
+      @recipient = Recipient.find(params[:id])
+      if @recipient.user_id != current_user.id      # user can't view recipient of another user
+        redirect_to dashboard_path
+      end
+    end
+  rescue StandardError
+    redirect_to dashboard_path
+
   end
 
   private
