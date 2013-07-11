@@ -15,7 +15,6 @@ AlertSystem::Application.routes.draw do
   
   match "dashboard" => "dashboard#index"
   
-  
   match 'packages/:package_id/items/:id/download' => 'items#download', :as => :download_item
 
 

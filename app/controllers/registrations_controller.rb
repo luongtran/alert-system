@@ -1,28 +1,27 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'logged_out'
+  layout :resolve_layout
+
   def new
-    @plan = "small"
-    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
-      @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
-    else
-      redirect_to root_path, :notice => 'Please select a subscription plan below'
-    end
-    super
-  end
-  
-  def create
-    @signature = Recurly.js.sign :subscription => {:plan_code => params[:plan]}
+    #    @plan = params[:plan]
+    #    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
+    #      @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
+    #      super
+    #    else
+    #      redirect_to root_path, :notice => 'Please select a subscription plan below'
+    #    end
+    @plan = 'small'
+    @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
     super
   end
 
-  def new
-    @plan = params[:plan]
-    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
-      @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
-      super
-    else
-      redirect_to root_path, :notice => 'Please select a subscription plan below'
-    end
+  def edit
+    super
+  end
+
+  def create
+    puts "\n\n _______plan : #{params[:plan]}"
+    @signature = Recurly.js.sign :subscription => {:plan_code => params[:plan]}
+    super
   end
 
   def update_plan
@@ -45,4 +44,15 @@ class RegistrationsController < Devise::RegistrationsController
     end
     resource.customer_id ||= SecureRandom.uuid
   end
+
+  def resolve_layout
+    case action_name
+      when "new"
+        "logged_out"
+      else
+        "application"
+    end
+  end
+
+
 end

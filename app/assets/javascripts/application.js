@@ -33,6 +33,7 @@ $(function() {
     $('.bt-plan').click(function() {
         var current_plan = $('#plan').val();
         var plan = $(this).data('value');
+//        @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
         if (plan == "free")
             $('.billing-profile-fields').hide();
         else

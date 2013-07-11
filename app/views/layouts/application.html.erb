@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AlertSystem - Homepage</title>
+    <title>AlertSystem</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
@@ -47,15 +47,15 @@
                       <div id="accountBox" class="text-right">
                         <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
                         <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' if user_signed_in? %>
-                        
+
                         <div class="pas">
-                          
+
                           <ul class="unstyled text-right">
-                              <li>You have <%= current_user.packages.count %> Package(s)</li>
-                               <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
-                            </ul>
+                            <li>You have <%= current_user.packages.count %> Package(s)</li>
+                            <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
+                          </ul>
                         </div>
-  
+
                       </div>
                     </div>
 

@@ -36,25 +36,6 @@
                   <li class="pull-left ">
                     <a href="/pricing">Pricing</a>
                   </li>
-                  <% if user_signed_in? %>
-                    <li class="pull-left ">
-                      <a href="/dashboard">Packages</a>
-                    </li>
-                    <li class="pull-left ">
-                      <a href="/dashboard/items">Items</a>
-                    </li>
-                    <li class="pull-left ">
-                      <a href="/dashboard/setting">Setting</a>
-                    </li>
-                    <div class="pull-left">
-                      <div id="accountBox" class="text-right">
-                        <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
-                        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' if user_signed_in? %>
-                        
-                      </div>
-                    </div>
-
-                  <% end %>
                 </ul>
               </div>
             </div>
