@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
+gem 'heroku'
 gem 'rufus-scheduler'
 
 gem 'aws-sdk'
-gem 'heroku'
+
 #gem 'aws-s3', :require => 'aws/s3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
