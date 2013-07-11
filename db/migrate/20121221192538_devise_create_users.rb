@@ -4,7 +4,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
+      
+      # Live Validate 
+      t.datetime :check_date_time
+      t.string :status
+      t.integer :frequency
+      t.datetime :send_validate_mail_at
+      t.string :validate_code
 
+      #t.string :salt
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -20,10 +28,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       ## Confirmable
-       t.string   :confirmation_token
-       t.datetime :confirmed_at
-       t.datetime :confirmation_sent_at
-       t.string   :unconfirmed_email # Only if using reconfirmable
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, :default => 0 # Only if lock strategy is :failed_attempts
@@ -33,14 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
-      # Still live Validate
-      t.datetime :check_date_time
-      t.string :status
-      t.integer :frequency
-      t.datetime :send_validate_mail_at
-      t.string :validate_code
-
-      t.string :salt
+  
       t.timestamps
     end
 

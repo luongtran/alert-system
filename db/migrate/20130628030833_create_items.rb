@@ -5,9 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :item_type
-
       t.text :text_content
-
       t.string :file_name
       t.string :file_content_type
       t.text :s3_url

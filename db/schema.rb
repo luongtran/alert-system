@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709152917) do
+ActiveRecord::Schema.define(:version => 20130702091239) do
 
   create_table "attachments", :force => true do |t|
     t.string   "filename"
@@ -41,24 +41,24 @@ ActiveRecord::Schema.define(:version => 20130709152917) do
 
   create_table "packages", :force => true do |t|
     t.string   "name"
-    t.string   "description"
     t.integer  "user_id"
+    t.integer  "recipient_id"
     t.boolean  "custom_key",            :default => false
     t.string   "encrypted_key"
+    t.string   "verify_recipient_code"
+    t.string   "description"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
-    t.string   "verify_recipient_code"
-    t.integer  "recipient_id"
   end
 
   create_table "recipients", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
     t.string   "address"
     t.integer  "phone_number"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(:version => 20130709152917) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "check_date_time"
+    t.string   "status"
+    t.integer  "frequency"
+    t.datetime "send_validate_mail_at"
+    t.string   "validate_code"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -89,11 +94,6 @@ ActiveRecord::Schema.define(:version => 20130709152917) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "check_date_time"
-    t.string   "status"
-    t.integer  "frequency"
-    t.datetime "send_validate_mail_at"
-    t.string   "validate_code"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"
