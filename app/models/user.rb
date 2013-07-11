@@ -112,6 +112,7 @@ class User < ActiveRecord::Base
           when 'validating'
             unless u.send_validate_mail_at.nil?
               if (u.send_validate_mail_at + @@max_validate_days.days).past?
+                u.update_attribute(:validate_code, '')
                 # if (u.send_validate_mail_at + 80).past? #Test validating time = 300s#
                 u.update_attribute(:status, "died")
                 # Send mail to reciptients

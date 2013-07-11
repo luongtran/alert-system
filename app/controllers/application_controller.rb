@@ -10,11 +10,14 @@ class ApplicationController < ActionController::Base
     if current_user.has_role? :admin
       users_path
     else
-      @user.update_attributes(:status => 'normal',:check_date_time => DateTime.now)
-      dashboard_path
+
+        @user.update_attributes(:status => 'normal', :check_date_time => DateTime.now)
+        dashboard_path
+
+
     end
   end
-  
+
   def set_default_control_label
     @control_label = "#{params[:controller]} - #{params[:action]}"
   end

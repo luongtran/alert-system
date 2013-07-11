@@ -39,7 +39,6 @@ class Item < ActiveRecord::Base
       unless File.directory? temp_folder_path
         Dir.mkdir(temp_folder_path, 0777)
       end
-
       # Save original file
       origin_file_path = File.join(temp_folder_path, self.file_name)
       File.open(origin_file_path, "wb") { |f| f.write(self.file.read) }
