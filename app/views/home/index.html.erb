@@ -1,0 +1,235 @@
+<div class="headerMid">
+  <div class="container">
+    <div class="headerMid-inner clearfix">
+      <div class="headerCont1">
+        <div class="pull-left">
+          <div id="notepad">
+            <div class="noteText">
+              <p>Dear everyone,</p>
+
+              <p>
+                Bad things happen. Sometimes, they happen to you. If something does happen,
+                you might wish there was something you had told the people around you.
+                How you feel, what you regret, where the money is stashed.<br/>
+                For this, you need this site to keep things most important words wnat to say with your familiers
+                when you can not.
+
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="intro">
+          <div id="introduce">
+            <h3 class="lead">
+              Start your Plan and <br/>
+              keep best stuffs every day!
+            </h3>
+            <ul class="unstyled">
+              <li><i class="icon-info-sign pull-left"></i>
+
+                <p class="pll">
+                  Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was
+                  something you had told the people around you.
+                </p>
+              </li>
+              <li><i class="icon-info-sign pull-left"></i>
+
+                <p class="pll">
+                  You write a few e-mails and choose the recipients. These emails are stored securely, so you can be
+                  sure that no-one except the intended recipient will ever read them.
+                </p>
+              </li>
+              <li><i class="icon-info-sign pull-left"></i>
+
+                <p class="pll">
+                  The emails are sent at certain intervals. By default, the switch will email you 30, 45, and 52 days
+                  after you last showed signs of life.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="rightMid">
+        <div id="loginQuickPanel">
+          <div class="login-inner">
+            <div class="login-inner2">
+              <div class="loginHead">
+                <span class="title mrm">Login Panel</span><a href="#" class="signupLink"><i class="icon-chevron-right mrm"></i>Sign
+                Up</a></div>
+              <div class="loginBody">
+                <%= form_for "user", :as => :user, :url => session_path(:user) do |f| -%>
+                    <fieldset>
+                      <div class="control-group">
+                        <%= f.text_field :email, :placeholder => "Your Email", :class => "input-block-level handwrite", :size => 20 %>
+                        <!--<input type="text" name="email" placeholder="Your Email" class="input-block-level handwrite"/>-->
+                      </div>
+                      <div class="control-group">
+                        <%= f.password_field :password, :placeholder => "Your Password", :class => "input-block-level handwrite", :size => 20 %>
+                        <!--<input type="password" name="password" placeholder="Your Password" class="input-block-level handwrite"/>-->
+                        <br/><a href="#" class="forgot">I
+                        forgot my password</a>
+                      </div>
+                      <div class="control-group submitdiv">
+
+                        <button type="submit" class="btn btn-primary"><i class="icon-leaf mrm"></i>Login Now</button>
+
+                        <a href="users/sign_up" class="btn btn-primary signupsmall">Signup<i class="icon-pencil mlm"></i></a>
+
+                        <div class="rememberme">
+                          <label class="checkbox">
+                            <%= f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable? %>Remember me
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                <% end -%>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pageBody">
+  <div class="container">
+    <div class="whitebox wizard">
+      <div class="row-fluid">
+        <div class="span4">
+          <div id="signupQuick">
+            <div class="signupQuick-inner">
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="control-group">
+                    <label class="control-label">Your name</label>
+
+                    <div class="controls">
+                      <input type="text" name="name" class="input-block-level"/>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Email</label>
+
+                    <div class="controls">
+                      <input type="text" name="email" class="input-block-level"/>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Password</label>
+
+                    <div class="controls">
+                      <input type="password" name="password" class="input-block-level"/>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-primary">Create account</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="notice">
+            <hr class="divider">
+            <p>
+              Notice: this is just to quick way to show you out system work. For more feautures please go to DashBoard
+              page after you login with account!
+            </p>
+          </div>
+        </div>
+        <div class="span5">
+          <div class="halfpage">
+            <div class="halfpage-inner">
+              <h4 class="lead">Taking a tour to find out</h4>
+
+              <p class="lead">How the AlertSystem Work!</p>
+              <hr class="divider">
+              <ul class="unstyled">
+                <li class="clearfix"><a href="#"><i class="icon-chevron-right mrm"></i>Step 1 : Create Account</a></li>
+                <li class="clearfix">
+                  <a href="#"><i class="icon-chevron-right mrm"></i>Step 2 : Setup setting account</a></li>
+                <li class="clearfix">
+                  <a href="#"><i class="icon-chevron-right mrm"></i>Step 3 : Add package and recipients</a></li>
+                <li class="clearfix">
+                  <a href="#"><i class="icon-chevron-right mrm"></i>Step 4 : See your package like recipient</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="contentHalfPage">
+            <p>
+              Please use your name one you like best. This name will be a default name show on every newsletters -
+              notification email we send to you, or package notifs email to your familiers you assigns
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pagefooter">
+  <div id="tipLarge" class="container">
+    <div class="tipUnit">
+      <div class="tipUnit-inner">
+        <%= image_tag "../assets/images/Bulb.png", :class => "pull-left" %>
+        <div class="infoUnit">
+          <h3>Everything started from Idea</h3>
+
+          <p>
+            Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was
+            something you had told the people around you. How you feel, what you regret, where the money is stashed.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tipUnit">
+      <div class="tipUnit-inner">
+        <%= image_tag "../assets/images/Calendar.png", :class => "pull-left" %>
+        <div class="infoUnit">
+          <h3>Keep your love to familiers</h3>
+
+          <p>
+            Let’s us keep watching everyday and send you noticifation over Email - Message - more and more ways in
+            futured.
+            You always know that familiers will have last wish when ever you stop say “now iam not alive!”
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="tipUnit">
+      <div class="tipUnit-inner">
+        <%= image_tag "../assets/images/Shield.png", :class => "pull-left" %>
+        <div class="infoUnit">
+          <h3>Private data 100%</h3>
+
+          <p>
+            We sure all your data save in our system is private with best security! Addition, you also have more and
+            more
+            functions to controll packages - items if upgrade to plane Premium Account.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tipUnit">
+      <div class="tipUnit-inner">
+        <%= image_tag "../assets/images/Camera.png", :class => "pull-left" %>
+        <div class="infoUnit">
+          <h3>Rich media data</h3>
+
+          <p>
+            From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and extensions
+            not
+            excute). We will try to take more kinds of data in future to you!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

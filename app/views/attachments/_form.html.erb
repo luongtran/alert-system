@@ -1,0 +1,13 @@
+<%= simple_form_for(@attachment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :filename %>
+    <%= f.input :content_type %>
+    <%= f.file_field :attachment_file%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  <<%- end -%>

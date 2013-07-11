@@ -1,0 +1,52 @@
+
+
+<div id="dashbody_items">
+  <% if @items.empty? %>
+    <h4>You don't have any package !</h4>
+  <% else %>
+    <div class="dashbodyHead">
+      <div class="row-fluid">
+        <div class="span9">
+          <div class="tipbox"><i class="icon-info-sign pull-left"></i>
+            <h4 class="pll">
+              Total items: <%= @items.count %>
+            </h4>
+            <p class="pll">
+              - Text : <%= @text_item_count %>
+            </p>
+            <p class="pll">
+              - File : <%= @file_item_count %>
+            </p>
+            <p class="pll">
+              - Image : <%= @image_item_count %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dashbodyMain well">
+      <div id="listitems" class="clearfix">
+        <% @items.each do |i| %>
+          <%
+          css_class = ""
+          case i.item_type
+            when 1
+            css_class = "text"
+            when 2
+            css_class = "zip"
+            when 3
+            css_class = "image"
+            end
+        %>
+          <div class="item">
+            <div class="item-inner <%= css_class %>">
+              <a href="<%= package_item_path(i.package_id,i.id) %>"><span class="title"><%=i.name%></span></a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

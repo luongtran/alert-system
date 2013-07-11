@@ -1,0 +1,51 @@
+mixin login
+	#loginQuickPanel
+		.login-inner
+			.login-inner2
+				.loginHead
+					span.title.mrm Login Panel
+					a(href="#").signupLink
+						i.icon-chevron-right.mrm
+						|Sign Up
+				.loginBody
+					form()
+						fieldset
+							.control-group
+								input(type="text", name="email", placeholder="Your Email").input-block-level.handwrite
+							.control-group
+								input(type="password", name="password", placeholder="Your Password").input-block-level.handwrite
+								br
+								a(href="#").forgot I forgot my password
+							.control-group.submitdiv
+								button(type="submit").btn.btn-primary
+									i.icon-leaf.mrm
+									|Login Now
+								a(href="#").btn.btn-primary.signupsmall
+									|Signup
+									i.icon-pencil.mlm
+								.rememberme
+									label.checkbox
+										input(type="checkbox")
+										|Remember me
+
+
+mixin signupQuick
+	#signupQuick
+		.signupQuick-inner
+			form.form-horizontal
+				fieldset
+					.control-group
+						label.control-label Your name
+						.controls
+							input(type="text", name="name").input-block-level
+					.control-group
+						label.control-label Email
+						.controls
+							input(type="text", name="email").input-block-level
+					.control-group
+						label.control-label Password
+						.controls
+							input(type="password", name="password").input-block-level
+					.control-group
+						.controls
+							button(type="submit").btn.btn-primary Create account

@@ -1,0 +1,241 @@
+// * dashboard
+#dashboard {
+	color: @blueLight;
+	hr.divider {
+		height: 0px;
+		border-top: solid 1px #323d54;
+		border-bottom: solid 1px #535967;
+		margin-bottom: 0;
+	}
+	.dashboard-head {
+		h1.lead {
+			font-size: 40px;
+			font-weight: 200;
+			color: @gray;
+		}
+	}
+}
+
+#dashMenu {
+	.shadowVertical;
+	a {
+		display: block;
+		padding: 30px 25px;
+		font-size: 25px;
+		color: @gray;
+		font-weight: 200;
+		text-align: right;
+		background: url('../assets/images/shadowhorizon.png') top right no-repeat;
+		.addTransit();
+	}
+	li:hover, li:focus, li.active {
+		a {
+			color: white;
+		}
+	}
+}
+
+#dashbody_packages {
+	padding-top: 20px;
+	.tipbox {
+		i {
+			margin-top: 5px;
+		}
+	}
+	.controlbox {
+		a {
+			font-size: 30px;
+			color: @blueLight;
+			.addTransit();
+		}
+		li:hover, li.active, li:focus {
+			a {
+				color: white;
+				background: none;
+			}
+		}
+	}
+}
+
+// * style inner package
+.package-inner-style {
+	width: 162px;
+	height: 162px;
+	border: dashed 2px #2e3440;
+	display: table;
+	.border-radius(5px);
+	.box-shadow(~"1px 1px 0 rgba(125, 139, 162, 0.13)");
+	background: url('../assets/images/packageicon.png') center center no-repeat #424a59;
+	.addTransit();
+	a {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		span.title {
+			background-color: fade(black, 60%);
+			padding: 4px;
+			display: block;
+			margin: 0 20px;
+			.border-radius(4px);
+			color: white;
+		}
+	}
+}
+
+#listPackages {
+	.package {
+		float: left;
+		width: 100% / 4;
+		margin-bottom: 25px;
+		.package-inner {
+			.package-inner-style;
+		}
+	}
+	.package.addnew {
+		.package-inner {
+			background-image: none;
+			.add {
+				font-size: 30px;
+				color: white;
+			}
+		}
+	}
+	.package:hover {
+		.package-inner {
+			background-color: darken(#424a59, 5%);
+		}
+	}
+}
+
+
+
+#dashbody_items {
+	.dashbodyMain.well {
+		max-height: 600px;
+	}
+	padding-top: 20px;
+	.tipbox {
+		i {
+			margin-top: 5px;
+		}
+	}
+	.controlbox {
+		a {
+			font-size: 30px;
+			color: @blueLight;
+			.addTransit();
+		}
+		li:hover, li.active, li:focus {
+			a {
+				color: white;
+				background: none;
+			}
+		}
+	}
+
+	.packagedetail {
+		margin-bottom: 20px;
+		.package {
+			float: left;
+				.package-inner {
+					.package-inner-style;
+				}
+		}
+		.packageinfo {
+			padding-left: 200px;
+			.packtitle {
+				color: white;
+				font-size: 30px;
+				font-weight: 200;
+				margin-bottom: 20px;
+				line-height: 18px;
+				display: block;
+			}
+			> ul {
+				li {
+					padding: 0 0 7px 0;
+					font-size: 11px;
+					> span {
+						font-size: 13px;
+					}
+				}
+			}
+			.recipient {
+				a {
+					background-color: #24324c;
+					color: @blueLight;
+					.border-radius(5px);
+					.box-shadow(~"1px 1px rgba(92, 113, 150, 0.46) inset");
+					padding: 4px 10px;
+					margin-right: 5px;
+					.addTransit();
+				}
+				a:hover {
+					color: white;
+					background-color: lighten(#24324c, 5%);
+				}
+			}
+		}
+	}
+}
+
+
+#listitems {
+	.item {
+		float: left;
+		width: 100% / 4;
+		margin-bottom: 25px;
+		.item-inner {
+			width: 162px;
+			height: 162px;
+//			border: dashed 2px #2e3440;
+			display: table;
+			.border-radius(5px);
+//			.box-shadow(~"1px 1px 0 rgba(125, 139, 162, 0.13)");
+			.addTransit();
+			a {
+				display: table-cell;
+				vertical-align: bottom;
+				text-align: center;
+				span.title {
+					background-color: fade(black, 60%);
+					padding: 4px;
+					display: block;
+					margin: 0 20px;
+					.border-radius(4px);
+					color: white;
+				}
+			}
+		}
+		.item-inner.text {
+			background: url('../assets/images/icontext.png') center center no-repeat transparent;
+		}
+		.item-inner.zip {
+			background: url('../assets/images/icontext.png') center center no-repeat transparent;
+		}
+		.item-inner.image {
+			background: url('../assets/images/icontext.png') center center no-repeat transparent;
+		}
+	}
+	.item.addnew {
+		.item-inner {
+			background-image: none;
+			.border-radius(5px);
+			border: dashed 2px darken(#2e3440, 20%);
+			.box-shadow(~"1px 1px 0 rgba(125, 139, 162, 0.13)");
+			background-color: darken(#2e3440, 5%);
+			a{
+				vertical-align: middle;
+			}
+			.add {
+				font-size: 30px;
+				color: white;
+			}
+		}
+	}
+	.item:hover {
+		.item-inner {
+			background-color: darken(#424a59, 5%);
+		}
+	}
+}

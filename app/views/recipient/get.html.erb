@@ -1,0 +1,46 @@
+<div class="pageBody">
+  <div class="container">
+    <div class="whitebox wizard">
+      <div class="row-fluid">
+        <% if @ok %>
+          <h1> Not found !</h1>
+        <% else %>
+          <% if @package.custom_key %>
+            <p>Note: The Package has been encrypted using AES-256, and we haven't key :D </p>
+          <% end %>
+          <h2> Package information </h2>
+          <li> Name: <%= @package.name %></li>
+          <li> Description: <%= @package.description %></li>
+          <li> Have <%= @package.items.count %> items</li>
+          <br/>
+          <hr/>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Type</th>
+
+              <th></th>
+              <th></th>
+            </tr>
+
+            <% @package.items.each do |item| %>
+              <tr>
+                <td><%= item.name %></td>
+                <td><%= item.description %></td>
+                <td><%= item.item_type %></td>
+
+                <td><%#= link_to 'Show', item %></td>
+              </tr>
+            <% end %>
+          </table>
+          <hr/>
+
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+

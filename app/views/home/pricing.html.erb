@@ -1,0 +1,78 @@
+<div class="pageBody">
+  <div class="container">
+    <div class="whitebox wizard">
+      <div class="row-fluid">
+        <div id="welcome" class="row span10">
+          <h2> Welcome ! </h2>
+          <h6>You never know when you might be hit by a bus. Are you prepared for it? Maybe you want to pass on
+            important
+            information, notify some online acquaintances or apologize to an old friend.</h6>
+          <h6>The service is simple. Type an email and optionally attach a few files. Every few days we will send you an
+            email
+            with a link that verifies you are still alive.</h6>
+          <h6>Your emails and files are encrypted on the server using AES-256 encryption to help protect your data.
+            Every effort
+            is made to protect your information and to ensure delivery. Questions? Email us at example@domain.com.</h6>
+        </div>
+
+        <div class="row span10 plans">
+          <div class="pricing-box span3">
+            <div class="pricing-padding">
+              <h2>Free </h2>
+              <ul>
+                <li>$0/month</li>
+                <li>Encryption : Standard</li>
+                <li>Limited : 1 Package</li>
+              </ul>
+              <br/>
+              <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary' %>
+            </div>
+          </div>
+
+          <div class="pricing-box span3">
+            <div class="pricing-padding">
+              <h2>Small </h2>
+              <ul>
+                <li>$5/month</li>
+                <li>Encryption : Standard</li>
+                <li>Limited : 3 Packages</li>
+              </ul>
+              <br/>
+              <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary' %>
+            </div>
+          </div>
+          <div class="pricing-box span3">
+            <div class="pricing-padding">
+              <h2>Medium </h2>
+              <ul>
+                <li>$10/month</li>
+                <li>Encryption : Standard</li>
+                <li>Limited : 10 Packages</li>
+              </ul>
+              <br/>
+              <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary' %>
+            </div>
+          </div>
+          <div class="pricing-box span3">
+            <div class="pricing-padding">
+              <h2>Large </h2>
+              <ul>
+                <li>$15/month</li>
+                <li>Encryption : Custom key</li>
+                <li>Limited : 30 Packages</li>
+              </ul>
+              <br/>
+              <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary' %>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+

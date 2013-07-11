@@ -1,0 +1,479 @@
+<script>
+  // Recurly.js
+// JavaScript library for the Recurly API
+// adapted for the rails-recurly-subscription-saas example application
+// from https://github.com/recurly/recurly-js
+
+  function createObject(o) {
+
+    function F() {
+    }
+    F.prototype = o || this;
+    return new F();
+  }
+  ;
+
+  var Recurly = {};
+
+  $(document).ready(function() {
+    Recurly.settings = {
+      enableGeoIP: true
+              , acceptedCards: ['american_express', 'discover', 'mastercard', 'visa']
+              , oneErrorPerField: true
+              , baseURL: 'https://api.recurly.com/jsonp/' + $('#new_user').data('subdomain') + '/'
+    };
+    Recurly.version = '2.1.8';
+    Recurly.ajax = function(options) {
+      options.data = $.extend({js_version: Recurly.version}, options.data);
+      return $.ajax(options);
+    };
+    Recurly.flattenErrors = function(obj, attr) {
+      var arr = [];
+      var attr = attr || '';
+      if (typeof obj == 'string'
+              || typeof obj == 'number'
+              || typeof obj == 'boolean') {
+        if (attr == 'base') {
+          return [obj];
+        }
+        return ['' + attr + ' ' + obj];
+      }
+      for (var k in obj) {
+        if (obj.hasOwnProperty(k)) {
+          // Inherit parent attribute names when property key
+          // is a numeric string; how we deal with arrays
+          attr = (parseInt(k).toString() == k) ? attr : k;
+          var children = Recurly.flattenErrors(obj[k], attr);
+          for (var i = 0, l = children.length; i < l; ++i) {
+            arr.push(children[i]);
+          }
+        }
+      }
+      return arr;
+    };
+
+    Recurly.Account = {
+      create: createObject
+              , toJSON: function(card) {
+        return {
+          first_name: card.first_name
+                  , last_name: card.last_name
+                  , account_code: card.customer_id
+                  , email: card.email
+        };
+      }
+    };
+
+    Recurly.BillingInfo = {
+      create: createObject
+              , toJSON: function(card) {
+        return {
+          first_name: card.first_name
+                  , last_name: card.last_name
+                  , month: card.expMonth
+                  , year: card.expYear
+                  , number: card.number
+                  , verification_value: card.cvc
+                  , country: card.country
+                  , ip_address: card.ip_address
+        };
+      }
+    };
+
+    Recurly.Subscription = {
+      create: createObject
+              , plan: Recurly.Plan
+              , addOns: []
+
+              , calculateTotals: function() {
+        var totals = {
+          stages: {}
+        };
+
+        // PLAN
+        totals.plan = this.plan.cost.mult(this.plan.quantity);
+
+        // ADD-ONS
+        totals.allAddOns = new Recurly.Cost(0);
+        totals.addOns = {};
+        for (var l = this.addOns.length, i = 0; i < l; ++i) {
+          var a = this.addOns[i],
+                  c = a.cost.mult(a.quantity);
+          totals.addOns[a.code] = c;
+          totals.allAddOns = totals.allAddOns.add(c);
+        }
+
+        totals.stages.recurring = totals.plan.add(totals.allAddOns);
+
+        totals.stages.now = totals.plan.add(totals.allAddOns);
+
+        // FREE TRIAL
+        if (this.plan.trial) {
+          totals.stages.now = Recurly.Cost.FREE;
+        }
+
+        // COUPON
+        if (this.coupon) {
+          var beforeDiscount = totals.stages.now;
+          var afterDiscount = totals.stages.now.discount(this.coupon);
+          totals.coupon = afterDiscount.sub(beforeDiscount);
+          totals.stages.now = afterDiscount;
+        }
+
+        // SETUP FEE
+        if (this.plan.setupFee) {
+          totals.stages.now = totals.stages.now.add(this.plan.setupFee);
+        }
+
+        // VAT
+        if (this.billingInfo && Recurly.isVATChargeApplicable(this.billingInfo.country, this.billingInfo.vatNumber)) {
+          totals.vat = totals.stages.now.mult((Recurly.settings.VATPercent / 100));
+          totals.stages.now = totals.stages.now.add(totals.vat);
+        }
+
+        return totals;
+      }
+      , redeemAddOn: function(addOn) {
+        var redemption = addOn.createRedemption();
+        this.addOns.push(redemption);
+        return redemption;
+      }
+
+      , removeAddOn: function(code) {
+        for (var a = this.addOns, l = a.length, i = 0; i < l; ++i) {
+          if (a[i].code == code) {
+            return a.splice(i, 1);
+          }
+        }
+      }
+
+      , findAddOnByCode: function(code) {
+        for (var l = this.addOns.length, i = 0; i < l; ++i) {
+          if (this.addOns[i].code == code) {
+            return this.addOns[i];
+          }
+        }
+        return false;
+      }
+
+      , toJSON: function(plan, coupon) {
+        var json = {
+          plan_code: plan.plan_code
+                  , quantity: plan.quantity ? plan.quantity : 1
+                  , currency: plan.currency ? plan.quantity : 'USD'
+                  , coupon_code: coupon.coupon_code ? coupon.coupon_code : undefined
+                  , add_ons: []
+        };
+
+        for (var i = 0, l = this.addOns.length, a = json.add_ons, b = this.addOns; i < l; ++i) {
+          a.push({
+            add_on_code: b[i].code
+                    , quantity: b[i].quantity
+          });
+        }
+
+        return json;
+      }
+
+      , save: function(signature, plan, coupon, card, callback) {
+        var json = {
+          subscription: this.toJSON(plan, coupon)
+                  , account: Recurly.Account.toJSON(card)
+                  , billing_info: Recurly.BillingInfo.toJSON(card)
+                  , signature: signature
+        };
+
+        Recurly.ajax({
+          url: Recurly.settings.baseURL + 'subscribe',
+          data: json,
+          dataType: "jsonp",
+          jsonp: "callback",
+          timeout: 60000,
+          success: function(response) {
+            callback(response);
+          },
+          error: function() {
+            console.log(['Unknown error processing transaction. Please try again later.']);
+          }
+        });
+
+      }
+    };
+  });
+
+</script>
+
+<script>
+  $(document).ready(function() {
+    var signature = $('#new_user').data('signature')
+    var ip_address = $('#new_user').data('ip_address')
+    var subscription = {
+      setupForm: function() {
+        return $('.card_form').submit(function() {
+          $('input[type=submit]').prop('disabled', true);
+          if ($('#card_number').length) {
+            subscription.processCard();
+            return false;
+          } else {
+            return true;
+          }
+        });
+      },
+      processCard: function() {
+        var plan;
+        plan = {
+          plan_code: $('#plan').val(),
+        };
+        var coupon;
+        coupon = {
+          coupon_code: $('#coupon').val(),
+        };
+        var card;
+        card = {
+          customer_id: $('#user_customer_id').val(),
+          email: $('#user_email').val(),
+          first_name: $('#user_first_name').val(),
+          last_name: $('#user_last_name').val(),
+          number: $('#card_number').val(),
+          cvc: $('#card_code').val(),
+          expMonth: $('#card_month').val(),
+          expYear: $('#card_year').val(),
+          country: $('#country').val(),
+          ip_address: ip_address
+        };
+        return Recurly.Subscription.save(signature, plan, coupon, card, subscription.handleResponse);
+      },
+      handleResponse: function(response) {
+        if (response.success) {
+          $('#user_card_token').val(response.success.token)
+          $('.card_form')[0].submit()
+        }
+        else if (response.errors) {
+          $('#card_error').text(Recurly.flattenErrors(response.errors)).show();
+          return $('input[type=submit]').prop('disabled', false);
+        }
+      }
+    };
+    return subscription.setupForm();
+  });
+
+</script>
+<div class="headerMid">
+  <div class="container">
+    <div class="headerMid-inner">
+      <div id="dashboard">
+        <div class="dashboard-head">
+          <h1 class="lead">Sign Up</h1>
+          <hr class="divider">
+        </div>
+        <div class="dashboard-body">
+          <div class="row-fluid">
+            <div class="span4">
+              <div class="">
+                <div class="pal">
+                  <h4 class="lead">Choose a plan for your account </h4>
+                  <p>
+                    With higher plan you can add unlimit addresses, unlimit package and items
+                    and long config alive time!
+                  </p>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix">
+                    <h2 class="pull-left">Free</h2>
+
+                    <div class="pull-right">
+                      <p>1 package</p>
+
+                      <p><strong>$0 / month</strong></p>
+                      <button class="btn bt-plan" data-value="free" id="plan-free">
+                        <i class="icon-chevron-right mrm"></i>Choose Plan
+                      </button>
+                    </div>
+                  </div>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix">
+                    <h2 class="pull-left">Small</h2>
+
+                    <div class="pull-right">
+                      <p>3 packages</p>
+
+                      <p><strong>$5 / month</strong></p>
+                      <button class="btn btn-primary bt-plan" data-value="small" id="plan-small">
+                        <i class="icon-chevron-right mrm"></i>Choose Plan
+                      </button>
+                    </div>
+                  </div>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix">
+                    <h3 class="pull-left">Medium</h3>
+
+                    <div class="pull-right">
+                      <p>10 packages</p>
+
+                      <p><strong>$10 / month</strong></p>
+                      <button class="btn bt-plan" data-value="medium" id="plan-medium">
+                        <i class="icon-chevron-right mrm"></i>Choose Plan
+                      </button>
+                    </div>
+                  </div>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix">
+                    <h2 class="pull-left">Large</h2>
+                    <div class="pull-right">
+                      <p>30 packages</p>
+                      <p><strong>$15 / month</strong></p>
+                      <button class="btn bt-plan" data-value="large" id="plan-large">
+                        <i class="icon-chevron-right mrm"></i>Choose Plan
+                      </button>
+                    </div>
+                  </div>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="span8">
+              <div class="pal tiphelp">
+                <div id="accountSignUp">
+                  <div class="accountSignUp-inner">
+                    <div class="row-fluid">
+                      <div class="span8 offset1">
+                        <!--<form class="form-horizontal">-->
+                        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-horizontal', 'data-subdomain' => RECURLY_SUBDOMAIN, 'data-signature' => @signature, 'data-ip_address' => request.remote_ip}) do |f| %>
+                          <fieldset>
+                            <% resource.errors.each do |type, message| %>
+                              <% if !message.blank? %>
+                                <div class="alert <%= bootstrap_class_for(type) %>">
+                                  <a class="close" data-dismiss="alert">&#215;</a>
+                                  <%= content_tag :div, "#{type} #{message}", :id => "flash_#{type}" %>
+
+                                </div>
+                              <% end %>
+                            <% end %>
+
+  <%#= f.error_notification %>
+  <%#= display_base_errors resource %>
+                            <%= hidden_field_tag :plan, "small" %>
+                            <%= f.hidden_field :customer_id %>
+
+
+                            <legend>Account Information</legend>
+                            <div class="control-group">
+                              <label class="control-label">First name <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.text_field :first_name, :required => true, :class => "input-block-level handwrite" %>
+                                <!--<input type="text" name="first_name" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Last name <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.text_field :last_name, :required => true, :class => "input-block-level handwrite" %>
+                                <!--<input type="text" name="last_name" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Email <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.text_field :email, :required => true, :class => "input-block-level handwrite" %>
+                                <!--<input type="text" name="email" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Password <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.password_field :password, :required => true, :class => "input-block-level handwrite" %>
+                                <!--<input type="password" name="password" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Password Confirm <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level handwrite" %>
+                                <!--<input type="password" name="password_confirm" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Frequency <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.text_field :frequency, :required => true, :class => "handwrite input-block-level" %>
+                                <!--<input type="number" name="frequency" class="handwrite input-block-level"/>-->
+                              </div>
+                            </div>
+  <%# if @user.card_token %>
+  <%#*<!--<p>Credit card acceptance is pending.</p>-->%>
+  <%# else %>
+                            <div class="billing-profile-fields">
+                              <legend>Billing Profile</legend>
+                              <div class="control-group">
+                                <label class="control-label">Country :</label>
+
+                                <div class="controls">
+                                  <%= select_tag 'country', country_options_for_select(selected = 'US', priority_countries = 'US'), :class => "input-block-level" %>
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <label class="control-label">Credit card Number :</label>
+
+                                <div class="controls">
+                                  <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
+                                  <%= text_field_tag :card_number, "4111 1111 1111 1111", name: nil, :class => "handwrite input-block-level" %>
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <label class="control-label">Card Security Code :</label>
+
+                                <div class="controls">
+                                  <%= text_field_tag :card_code, "123", name: nil, :class => "handwrite input-block-level" %>
+                                  <!--<input type="number" name="card_security_code" class="handwrite input-block-level"/>-->
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <label class="control-label">Card Expiration :</label>
+
+                                <div class="controls">
+                                  <div class="row-fluid">
+                                    <!--<div class="span6">-->
+                                    <%= select_month 10, {add_month_numbers: true}, {name: "card_month"} %>
+                                    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: "card_year"} %>
+                                    <!--</div>-->
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <label class="control-label">Promotion Coupon :</label>
+
+                                <div class="controls">
+                                  <input type="number" name="promotion_coupon" class="handwrite input-block-level"/>
+                                </div>
+                              </div>
+                            </div>
+  <%# end %>
+                            <%= f.hidden_field :card_token %>
+                            <div class="control-group">
+                              <label class="control-label"></label>
+                              <div class="controls">
+                                <button type="submit" class="btn btn-primary span5">Signup</button>
+                              </div>
+                            </div>
+                          </fieldset>
+                        <% end %>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

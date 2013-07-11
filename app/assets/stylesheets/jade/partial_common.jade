@@ -1,0 +1,10 @@
+mixin logo
+	#logo
+		img(alt="AlertSystem", src="img/logo.png")
+
+
+mixin pageNavigator(o)
+	.pageNavigator
+		ul.unstyled.clearfix
+			-each i in o
+				li.pull-left(class="#{i.active}"): a(href="#{i.href}") #{i.label}

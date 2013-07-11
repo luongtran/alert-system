@@ -1,0 +1,10 @@
+
+<% flash.each do |type, message| %>
+  <% if !message.blank? %>
+    <div class="alert <%= bootstrap_class_for(type) %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, message, :id => "flash_#{type}" %>
+     
+    </div>
+  <% end %>
+<% end %>

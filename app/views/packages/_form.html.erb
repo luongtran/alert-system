@@ -1,0 +1,24 @@
+<%= simple_form_for(@package) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name, :required => true %>
+      <%= f.input :description %>
+      <%= label_tag 'Encryption Option' %>
+      <label class="checkbox">
+        <%= f.check_box :custom_key %>  Using a custom key
+      </label>
+      <%= f.input :key, :placeholder => '32 characters' %>
+    </div>
+    <h4> Recipient Infor </h4>
+    <%= fields_for(@recipient) do |r| %>
+        <%= r.label :name %>
+        <%= r.text_field :name %>
+        <%= r.label :email %>
+        <%= r.text_field :email, :required => true %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+<% end %>

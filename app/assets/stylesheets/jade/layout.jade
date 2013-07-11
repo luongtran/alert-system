@@ -1,0 +1,30 @@
+- var titleSite = "AlertSystem"
+- var titlePage = "none"
+block jadeCode
+
+!!! 5
+html
+	head
+		title #{titleSite} - #{titlePage}
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		- var css = []
+		- css[0] = "css/bootstrap.min.css"
+		- css[1] = "css/bootstrap-responsive.min.css"
+		- css[2] = "css/openSan/font.css"
+		- css[3] = "css/Chalkduster/font.css"
+		- css[4] = "css/awesome/css/font-awesome.min.css"
+		- css[5] = "css/combine.css"
+		- each href in css
+			link(rel="stylesheet", media="all", href="#{href}")
+		//if lt ie 8
+			link(rel="stylesheet", media="all", href="css/awesome/css/font-awesome-ie7.min.css")
+
+		- var js = []
+		- js[0] = "js/jquery-2.0.2.min.js"
+		- js[1] = "js/angular.min.js"
+		- js[2] = "js/bootstrap.min.js"
+		- each src in js
+			script(type="javascript", src="#{src}")
+
+	body.pan.man
+		block body

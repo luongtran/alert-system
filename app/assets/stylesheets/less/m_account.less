@@ -1,0 +1,127 @@
+#loginQuickPanel {
+	.border-radius(10px);
+	.box-shadow(~"1px 1px 0 rgba(171, 171, 171, 0.09)");
+	form {
+		margin-bottom: 0;
+	}
+	.login-inner {
+		background-color: #394252;
+		.border-radius(10px);
+		padding: 3px;
+
+		.login-inner2 {
+			.border-radius(7px);
+			background: url("../img/bluepaper.png") left top repeat;
+			padding: 13px;
+			.box-shadow(~"1px 1px 0 rgba(171, 171, 171, 0.09) inset");
+			.loginHead {
+				margin-bottom: 20px;
+				.title {
+					color: @blueLighter;
+					text-transform: uppercase;
+					font-weight: 200;
+					font-size: 15px;
+				}
+				.signupLink {
+					font-size: 13px;
+					color: @blueLight;
+					.addTransit(0.1);
+				}
+				.signupLink:hover {
+					cursor: pointer;
+					color: #ffffff;
+				}
+			}
+			.loginBody {
+				input[type="text"], input[type="password"] {
+					.inputBlack;
+				}
+				button {
+					position: relative;
+					z-index: 1;
+					margin-left: 30px;
+				}
+				.signupsmall {
+					position: relative;
+					margin-left: -50px;
+					@media (max-width: @phone-max) {
+						margin-left: 10px;
+					}
+					z-index: 0;
+					background-color: @blueDeep;
+					padding: 3px 10px;
+					font-size: 11px;
+					color: darken(@gray, 15%);
+					.transition(~"all 0.25s ease-in-out");
+				}
+				.signupsmall:hover {
+					margin-left: -5px;
+					@media (max-width: @phone-max) {
+						margin-left: 10px;
+					}
+					color: @gray;
+				}
+				.submitdiv {
+					padding-top: 30px;
+				}
+				.forgot {
+					color: @blueLighter;
+					font-size: 11px;
+					line-height: 1;
+					.addTransit(0.1);
+				}
+				.forgot:hover {
+					color: @blueLight;
+				}
+			}
+			.rememberme {
+				width: 70%;
+				padding-top: 10px;
+				color: @blueLighter;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+
+#accountBox {
+	.accTitle {
+		color: @blueDesaturate;
+		.handwrite;
+		font-size: 15px;
+		padding-bottom: 10px;
+	}
+	ul {
+		font-size: 11px;
+	}
+}
+
+#accountSignIn {
+	.minHeight;
+	input[type="text"], input[type="password"] {
+		.inputBlack;
+	}
+	.accountSignIn-inner {
+		padding-top: 100px;
+	}
+}
+
+.tiphelp {
+	.shadowVertical;
+	padding:0;
+	padding-left: 27px;
+	background-position: top left;
+}
+
+#accountSignUp {
+	input[type="text"], input[type="password"], input[type="number"] {
+		.inputBlack;
+	}
+	select {
+		.inputBlack;
+	}
+	legend {
+		color: white;
+	}
+}

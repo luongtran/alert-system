@@ -1,0 +1,51 @@
+
+mixin dashMenu()
+	#dashMenu
+		ul.unstyled
+			li(class=""): a(href="#") Packages
+				i.icon-briefcase.mlm
+			li(class=""): a(href="#") Items
+				i.icon-file.mlm
+			li(class=""): a(href="#") Setting
+				i.icon-wrench.mlm
+
+
+
+mixin dashbody_packages()
+	#dashbody_packages
+		.dashbodyHead
+			.row-fluid
+				.span9
+					.tipbox
+						i.icon-info-sign.pull-left
+						p.pll.
+							Click change view in right side to see more detail information of packages. Click in package icon to
+							view items inside.
+				.span3
+					.controlbox.pull-right
+						ul.nav.nav-pills
+							li: a(href="#").icon-th
+							li: a(href="#").icon-list
+
+		.dashbodyMain
+			#listPackages.clearfix
+				.package
+					.package-inner: a(href="#")
+						span.title To mary with Love
+				.package
+					.package-inner: a(href="#")
+						span.title Constatines
+				.package
+					.package-inner: a(href="#")
+						span.title I love you, my darling
+				.package
+					.package-inner: a(href="#")
+						span.title yes, it’s for you, my son
+				.package
+					.package-inner: a(href="#")
+						span.title Father, i want you know that i love you so much
+				.package.addnew
+					.package-inner: a(href="#")
+						span.add
+							i.icon-plus.mrl
+							| add
