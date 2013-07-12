@@ -29,10 +29,10 @@ user3.add_role :small
 
 user5 = User.find_or_create_by_email :first_name => 'Large', :last_name => 'User', :email => 'large@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
 user5.add_role :large
-puts " Created users :#{user.name} #{user2.name}, #{user3.name}, #{user4.name},#{user5.name}"
+
 
 ItemType.create(:name => 'Text')
 ItemType.create(:name => 'File')
 ItemType.create(:name => 'Image')
 
-
+puts " Seed completed !"

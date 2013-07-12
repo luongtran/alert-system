@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_control_label
-    @control_label = "#{params[:controller]} - #{params[:action]}"
+    first = params[:controller]
+    second = params[:action]
+    if second == 'index'
+      second = ""
+    end
+    @control_label = "#{first} - #{second}"
   end
 end
