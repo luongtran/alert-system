@@ -7,15 +7,6 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   respond_to :js, :html
-
-  def index
-    @packages = current_user.packages
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @packages }
-    end
-  end
-
   # GET /packages/1
   # GET /packages/1.json
   def show
@@ -130,12 +121,12 @@ class PackagesController < ApplicationController
   def viewrecipient
     begin
       @recipient = Recipient.find(params[:id])
-      if @recipient.user_id != current_user.id      # user can't view recipient of another user
-        redirect_to dashboard_path
+      if @recipient.user_id != current_user.id # user can't view another user' recipient
+        redirect_to dashboard_packages_path
       end
     end
   rescue StandardError
-    redirect_to dashboard_path
+    redirect_to dashboard_packages_path
 
   end
 

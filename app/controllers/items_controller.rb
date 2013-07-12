@@ -22,17 +22,6 @@ class ItemsController < ApplicationController
     end
     #redirect_to
   end
-  # GET /items
-  # GET /items.json
-  def index
-    @items = Item.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @items }
-    end
-
-  end
-
 
   def show
     @item = Item.find(params[:id])
@@ -137,6 +126,5 @@ class ItemsController < ApplicationController
     flash[:notice] = "Oops, something wrong in your request !"
     redirect_to packages_path
   end
-
 
 end
