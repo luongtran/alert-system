@@ -30,17 +30,17 @@ $(function () {
         $('#encryption-method-description').show();
     });
 
-    $('.bt-plan').click(function () {
-        var current_plan = $('#plan').val();
-        var plan = $(this).data('value');
-        if (plan == "free")
-            $('.billing-profile-fields').hide();
-        else
-            $('.billing-profile-fields').show();
-        $('#plan-' + current_plan).removeClass('btn-primary');
-        $('#plan').val(plan);
-        $(this).addClass('btn-primary');
-    });
+//    $('.bt-plan').click(function () {
+//        var current_plan = $('#plan').val();
+//        var plan = $(this).data('value');
+//        if (plan == "free")
+//            $('.billing-profile-fields').hide();
+//        else
+//            $('.billing-profile-fields').show();
+//        $('#plan-' + current_plan).removeClass('btn-primary');
+//        $('#plan').val(plan);
+//        $(this).addClass('btn-primary');
+//    });
     $('#create_new_recipient_bt').click(function () {
         $('#frm_create_recipient').show();
         $('#choose-recipient-combox').hide();

@@ -10,11 +10,8 @@ class ApplicationController < ActionController::Base
     if current_user.has_role? :admin
       users_path
     else
-
-        @user.update_attributes(:status => 'normal', :check_date_time => DateTime.now)
-        dashboard_path
-
-
+      @user.update_attributes(:status => 'normal', :check_date_time => DateTime.now)
+      dashboard_packages_path
     end
   end
 

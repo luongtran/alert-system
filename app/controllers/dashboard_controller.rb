@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   #before_filter :authenticate_user!
 
   def index
-    @packages = current_user.packages
+    redirect_to dashboard_packages_path
   end
   def packages
     @packages = current_user.packages

@@ -11,6 +11,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def create
+    @plan = params[:plan] # use for customize form
+    super
+  end
 
   def update_plan
     @user = current_user
@@ -36,6 +40,8 @@ class RegistrationsController < Devise::RegistrationsController
   def resolve_layout
     case action_name
       when "new"
+        "logged_out"
+      when "create"
         "logged_out"
       else
         "application"
