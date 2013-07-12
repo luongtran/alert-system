@@ -6,6 +6,7 @@ class Recipient < ActiveRecord::Base
   validates :email, :presence => true
   validates :email, :format => /@/
 
+  #validates_numericality_of :phone_number
   validates_uniqueness_of :email, :scope => :user_id
 
   #before_save :check_exist
