@@ -6,7 +6,7 @@ module ItemsHelper
     aes = OpenSSL::Cipher::AES256.new(:ECB)
     aes.decrypt
     aes.key = key
-    
+
     #aes.iv = iv if iv != nil
     aes.update(encrypted_data) + aes.final
   end
@@ -104,15 +104,12 @@ def s3_bucket_delete(bucket_name)
   bucket.delete
 end
 
-def s3_uploader(source_file_path, bucket_name, aeskey)
-    f = File.open(source_file_path, 'rb')
-    s3 = AWS::S3.new
-    bucket = s3.buckets.create(bucket_name)
-    obj = bucket.objects["#{File.basename(source_file_path)}"]
-    obj.write(f, :encryption_key => aeskey)
-    f.close
-
- 
+#
+def s3_uploader(filename, data, bucket_name, aeskey)
+  s3 = AWS::S3.new
+  bucket = s3.buckets.create(bucket_name)
+  obj = bucket.objects[filename]
+  obj.write(data, :encryption_key => aeskey)
 end
 
 def s3_downloader(bucket_name, file_name, aes_key = nil)

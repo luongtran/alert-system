@@ -25,29 +25,15 @@ class Item < ActiveRecord::Base
   def encrypt_item_contents
 
     if self.item_type == 1 # Text item
-      # 1st: encrypt plain text with AES-256-ECB
+                           # 1st: encrypt plain text with AES-256-ECB
       step1 = text_AES_Encryptor(self.text_content, self.aes_key)
-
       # 2nd: encrypt above string with Base64
       step2 = Base64.encode64(step1)
-
       # 3rd: update attribute
       self.text_content = step2
     else # File item
-      # Create temp folder if not exist
-      temp_folder_path = ENV['temp_folder_path']+"#{self[:package_id]}"
-      unless File.directory? temp_folder_path
-        Dir.mkdir(temp_folder_path, 0777)
-      end
-      # Save original file
-      origin_file_path = File.join(temp_folder_path, self.file_name)
-      File.open(origin_file_path, "wb") { |f| f.write(self.file.read) }
-
-      # Upload to s3 and encrypt file at the same time
-      s3_uploader(origin_file_path, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
-
-      # Delete original file
-      File.delete(origin_file_path)
+      puts "\n\n_______#{self.file_name}"
+      s3_uploader(self.file_name, self.file.read, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
     end
   end
 
