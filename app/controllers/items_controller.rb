@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
     end
     #redirect_to
   end
-
   # GET /items
   # GET /items.json
   def index

@@ -8,7 +8,6 @@ class CreateItems < ActiveRecord::Migration
       t.text :text_content
       t.string :file_name
       t.string :file_content_type
-      t.text :s3_url
       t.timestamps
     end
   end
