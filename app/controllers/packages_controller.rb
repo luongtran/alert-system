@@ -38,7 +38,6 @@ class PackagesController < ApplicationController
     max = Role.find(current_user.roles.first.id).maximum_packages
     unless current_user.packages.count < max
       redirect_to packages_path, :notice => "Your subscription allowed only #{max} packages !"
-      return
     end
     @package = Package.new
     @recipient = Recipient.new

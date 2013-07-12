@@ -1,5 +1,4 @@
 AlertSystem::Application.routes.draw do
-  get "dashboard/index"
   get "dashboard/items"
   get "dashboard/packages"
 
@@ -12,8 +11,6 @@ AlertSystem::Application.routes.draw do
   post "recurly/push"
 
   match "pricing" => "home#pricing"
-
-  match "dashboard" => "dashboard#index"
 
   match 'packages/:package_id/items/:id/download' => 'items#download', :as => :download_item
 

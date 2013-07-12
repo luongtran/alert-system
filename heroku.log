@@ -1,0 +1,101 @@
+2013-07-12T07:34:43.222434+00:00 heroku[router]: at=info method=GET path=/assets/openSan/font-0c6fd7627ba592ddd3da0481a6b7c48b.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=15ms status=304 bytes=0
+2013-07-12T07:34:43.222346+00:00 heroku[router]: at=info method=GET path=/assets/Chalkduster/font-a838e8c4b199f89784f075a6184890eb.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=12ms status=304 bytes=0
+2013-07-12T07:34:43.501189+00:00 app[web.1]: Started GET "/assets/awesome/css/font-awesome.min-18d5a388a6ca2a15313dd69f06fd2244.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.505154+00:00 app[web.1]: Started GET "/assets/jquery-2.0.2.min-fa76139b3c80eb4d624a67264995c183.js" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.511764+00:00 app[web.1]: Started GET "/assets/application-a4e68f6d96e224f0daa9c9819a165a8c.js" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.514611+00:00 app[web.1]: Started GET "/assets/bootstrap.min-c361e7e32f1dd21351fb787d5b34c4f1.js" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.502117+00:00 heroku[router]: at=info method=GET path=/assets/awesome/css/font-awesome.min-18d5a388a6ca2a15313dd69f06fd2244.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=4ms status=304 bytes=0
+2013-07-12T07:34:43.511755+00:00 heroku[router]: at=info method=GET path=/assets/jquery-2.0.2.min-fa76139b3c80eb4d624a67264995c183.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=5ms status=304 bytes=0
+2013-07-12T07:34:43.514585+00:00 heroku[router]: at=info method=GET path=/assets/application-a4e68f6d96e224f0daa9c9819a165a8c.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=8ms status=304 bytes=0
+2013-07-12T07:34:43.508588+00:00 app[web.1]: Started GET "/assets/angular.min-2da76816ad8255819ea9f0144ec05c22.js" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.512721+00:00 heroku[router]: at=info method=GET path=/assets/angular.min-2da76816ad8255819ea9f0144ec05c22.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=9ms status=304 bytes=0
+2013-07-12T07:34:43.690138+00:00 app[web.1]: Started GET "/assets/application-14ceb43e73d7be9a3ffde88a908b71f2.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.706143+00:00 heroku[router]: at=info method=GET path=/assets/application-14ceb43e73d7be9a3ffde88a908b71f2.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=19ms status=200 bytes=250
+2013-07-12T07:34:43.748050+00:00 app[web.1]: Started GET "/assets/bootstrap.min-3c1dea40c1ff012b9d8351c626e17547.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.226065+00:00 heroku[router]: at=info method=GET path=/assets/combine-26dc63cf3b3e8ec3de870db675806b83.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=15ms status=304 bytes=0
+2013-07-12T07:34:43.756376+00:00 app[web.1]: Started GET "/assets/bootstrap-responsive.min-5c0e7d41592bc3905e4c9240845647bd.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.769363+00:00 app[web.1]: Started GET "/assets/Chalkduster/font-a838e8c4b199f89784f075a6184890eb.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.785759+00:00 heroku[router]: at=info method=GET path=/assets/openSan/font-0c6fd7627ba592ddd3da0481a6b7c48b.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=32ms status=200 bytes=2050
+2013-07-12T07:34:43.776272+00:00 app[web.1]: Started GET "/assets/openSan/font-0c6fd7627ba592ddd3da0481a6b7c48b.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.789935+00:00 app[web.1]: Started GET "/assets/combine-26dc63cf3b3e8ec3de870db675806b83.css" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.811726+00:00 app[web.1]: Started GET "/assets/images/logo.png" for 42.119.50.163 at 2013-07-12 07:34:43 +0000
+2013-07-12T07:34:43.783299+00:00 heroku[router]: at=info method=GET path=/assets/Chalkduster/font-a838e8c4b199f89784f075a6184890eb.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=33ms status=200 bytes=308
+2013-07-12T07:34:43.820692+00:00 heroku[router]: at=info method=GET path=/assets/images/logo.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=12ms status=304 bytes=0
+2013-07-12T07:34:43.798819+00:00 heroku[router]: at=info method=GET path=/assets/combine-26dc63cf3b3e8ec3de870db675806b83.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=40ms status=200 bytes=20631
+2013-07-12T07:34:43.519298+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap.min-c361e7e32f1dd21351fb787d5b34c4f1.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=5ms status=304 bytes=0
+2013-07-12T07:34:44.018669+00:00 app[web.1]: Started GET "/assets/awesome/css/font-awesome.min-18d5a388a6ca2a15313dd69f06fd2244.css" for 42.119.50.163 at 2013-07-12 07:34:44 +0000
+2013-07-12T07:34:44.024870+00:00 heroku[router]: at=info method=GET path=/assets/awesome/css/font-awesome.min-18d5a388a6ca2a15313dd69f06fd2244.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=11ms status=200 bytes=21255
+2013-07-12T07:34:44.036592+00:00 app[web.1]: Started GET "/assets/application-a4e68f6d96e224f0daa9c9819a165a8c.js" for 42.119.50.163 at 2013-07-12 07:34:44 +0000
+2013-07-12T07:34:44.049016+00:00 app[web.1]: Started GET "/assets/jquery-2.0.2.min-fa76139b3c80eb4d624a67264995c183.js" for 42.119.50.163 at 2013-07-12 07:34:44 +0000
+2013-07-12T07:34:44.057783+00:00 app[web.1]: Started GET "/assets/bootstrap.min-c361e7e32f1dd21351fb787d5b34c4f1.js" for 42.119.50.163 at 2013-07-12 07:34:44 +0000
+2013-07-12T07:34:44.065141+00:00 app[web.1]: Started GET "/assets/angular.min-2da76816ad8255819ea9f0144ec05c22.js" for 42.119.50.163 at 2013-07-12 07:34:44 +0000
+2013-07-12T07:34:44.069182+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap.min-c361e7e32f1dd21351fb787d5b34c4f1.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=36ms status=200 bytes=28464
+2013-07-12T07:34:44.085621+00:00 heroku[router]: at=info method=GET path=/assets/application-a4e68f6d96e224f0daa9c9819a165a8c.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=54ms status=200 bytes=345172
+2013-07-12T07:34:44.082537+00:00 heroku[router]: at=info method=GET path=/assets/angular.min-2da76816ad8255819ea9f0144ec05c22.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=5ms service=44ms status=200 bytes=88015
+2013-07-12T07:34:47.873184+00:00 heroku[router]: at=info method=GET path=/assets/images/Calendar.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=13ms status=200 bytes=3399
+2013-07-12T07:34:47.866228+00:00 app[web.1]: Started GET "/assets/images/Calendar.png" for 42.119.50.163 at 2013-07-12 07:34:47 +0000
+2013-07-12T07:34:47.873727+00:00 app[web.1]: Started GET "/assets/images/Shield.png" for 42.119.50.163 at 2013-07-12 07:34:47 +0000
+2013-07-12T07:34:47.882353+00:00 heroku[router]: at=info method=GET path=/assets/images/Shield.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=19ms status=200 bytes=4358
+2013-07-12T07:34:47.923815+00:00 app[web.1]: Started GET "/assets/images/logo.png" for 42.119.50.163 at 2013-07-12 07:34:47 +0000
+2013-07-12T07:34:47.930134+00:00 app[web.1]: Started GET "/assets/images/Camera.png" for 42.119.50.163 at 2013-07-12 07:34:47 +0000
+2013-07-12T07:34:47.881559+00:00 app[web.1]: Started GET "/assets/images/Bulb.png" for 42.119.50.163 at 2013-07-12 07:34:47 +0000
+2013-07-12T07:34:47.941462+00:00 heroku[router]: at=info method=GET path=/assets/images/Bulb.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=71ms status=200 bytes=6084
+2013-07-12T07:34:47.938617+00:00 heroku[router]: at=info method=GET path=/assets/images/Camera.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=69ms status=200 bytes=7017
+2013-07-12T07:34:47.940032+00:00 heroku[router]: at=info method=GET path=/assets/images/logo.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=72ms status=200 bytes=4357
+2013-07-12T07:34:48.228042+00:00 app[web.1]: Started GET "/assets/images/halftpage.png" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.218904+00:00 app[web.1]: Started GET "/assets/images/bluepaper.png" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.304617+00:00 app[web.1]: Started GET "/assets/images/paperyellow.png" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.324374+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Regular.woff" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.342718+00:00 app[web.1]: Started GET "/assets/awesome/font/fontawesome-webfont.woff?v=3.2.1" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.360230+00:00 app[web.1]: Started GET "/assets/Chalkduster/Chalkduster.woff" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.342627+00:00 heroku[router]: at=info method=GET path=/assets/images/paperyellow.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=3ms service=123ms status=200 bytes=41106
+2013-07-12T07:34:48.338148+00:00 heroku[router]: at=info method=GET path=/assets/images/bluepaper.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=3ms service=132ms status=200 bytes=43211
+2013-07-12T07:34:48.548312+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Semibold.woff" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.560382+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Light.woff" for 42.119.50.163 at 2013-07-12 07:34:48 +0000
+2013-07-12T07:34:48.599533+00:00 heroku[router]: at=info method=GET path=/assets/awesome/font/fontawesome-webfont.woff?v=3.2.1 host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=367ms status=200 bytes=43572
+2013-07-12T07:34:48.623590+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Semibold.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=378ms status=200 bytes=107132
+2013-07-12T07:34:48.622992+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Regular.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=397ms status=200 bytes=108072
+2013-07-12T07:34:48.624185+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Light.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=3ms service=381ms status=200 bytes=104472
+2013-07-12T07:34:48.721133+00:00 heroku[router]: at=info method=GET path=/assets/Chalkduster/Chalkduster.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=486ms status=200 bytes=2084304
+2013-07-12T07:34:48.614987+00:00 heroku[router]: at=info method=GET path=/assets/images/halftpage.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=397ms status=200 bytes=131192
+2013-07-12T07:34:55.296637+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=4ms service=9ms status=200 bytes=0
+2013-07-12T07:34:58.661464+00:00 app[web.1]: Started POST "/packages" for 42.119.50.163 at 2013-07-12 07:34:58 +0000
+2013-07-12T07:34:58.776923+00:00 heroku[router]: at=info method=POST path=/packages host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=119ms status=302 bytes=109
+2013-07-12T07:34:59.312467+00:00 heroku[router]: at=info method=GET path=/dashboard host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=9ms status=302 bytes=118
+2013-07-12T07:34:59.306104+00:00 app[web.1]: Started GET "/dashboard" for 42.119.50.163 at 2013-07-12 07:34:59 +0000
+2013-07-12T07:34:59.789087+00:00 app[web.1]: Started GET "/dashboard/packages" for 42.119.50.163 at 2013-07-12 07:34:59 +0000
+2013-07-12T07:34:59.855903+00:00 heroku[router]: at=info method=GET path=/dashboard/packages host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=4ms service=70ms status=200 bytes=5891
+2013-07-12T07:35:00.202525+00:00 heroku[router]: at=info method=GET path=/assets/application-14ceb43e73d7be9a3ffde88a908b71f2.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=6ms status=200 bytes=250
+2013-07-12T07:35:00.336742+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap-responsive.min-5c0e7d41592bc3905e4c9240845647bd.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=136ms status=200 bytes=16192
+2013-07-12T07:35:00.337417+00:00 heroku[router]: at=info method=GET path=/assets/openSan/font-0c6fd7627ba592ddd3da0481a6b7c48b.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=135ms status=200 bytes=2050
+2013-07-12T07:35:00.339140+00:00 heroku[router]: at=info method=GET path=/assets/combine-26dc63cf3b3e8ec3de870db675806b83.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=128ms status=200 bytes=20631
+2013-07-12T07:35:00.341435+00:00 heroku[router]: at=info method=GET path=/assets/Chalkduster/font-a838e8c4b199f89784f075a6184890eb.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=128ms status=200 bytes=308
+2013-07-12T07:35:00.339276+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap.min-3c1dea40c1ff012b9d8351c626e17547.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=142ms status=200 bytes=106193
+2013-07-12T07:35:00.503672+00:00 heroku[router]: at=info method=GET path=/assets/awesome/css/font-awesome.min-18d5a388a6ca2a15313dd69f06fd2244.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=4ms status=200 bytes=21255
+2013-07-12T07:35:00.637883+00:00 heroku[router]: at=info method=GET path=/assets/jquery-2.0.2.min-fa76139b3c80eb4d624a67264995c183.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=5ms status=200 bytes=83075
+2013-07-12T07:35:00.640255+00:00 heroku[router]: at=info method=GET path=/assets/angular.min-2da76816ad8255819ea9f0144ec05c22.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=6ms status=200 bytes=88015
+2013-07-12T07:35:00.935255+00:00 heroku[router]: at=info method=GET path=/assets/application-a4e68f6d96e224f0daa9c9819a165a8c.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=6ms service=32ms status=200 bytes=345172
+2013-07-12T07:35:00.932100+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap.min-c361e7e32f1dd21351fb787d5b34c4f1.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=14ms status=200 bytes=28464
+2013-07-12T07:35:03.734575+00:00 app[web.1]: Started GET "/assets/images/logo.png" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.748983+00:00 heroku[router]: at=info method=GET path=/assets/images/logo.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=17ms status=200 bytes=4357
+2013-07-12T07:35:03.766213+00:00 app[web.1]: Started GET "/assets/images/bluepaper.png" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.784278+00:00 app[web.1]: Started GET "/assets/images/shadowvertical.png" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.795515+00:00 app[web.1]: Started GET "/assets/images/shadowhorizon.png" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.780874+00:00 heroku[router]: at=info method=GET path=/assets/images/bluepaper.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=18ms status=200 bytes=43211
+2013-07-12T07:35:03.811169+00:00 app[web.1]: Started GET "/assets/images/packageicon.png" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.827586+00:00 heroku[router]: at=info method=GET path=/assets/images/shadowhorizon.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=60ms status=304 bytes=0
+2013-07-12T07:35:03.829798+00:00 heroku[router]: at=info method=GET path=/assets/images/shadowvertical.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=60ms status=304 bytes=0
+2013-07-12T07:35:03.843191+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Regular.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=42ms status=200 bytes=108072
+2013-07-12T07:35:03.832927+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Regular.woff" for 42.119.50.163 at 2013-07-12 07:35:03 +0000
+2013-07-12T07:35:03.824489+00:00 heroku[router]: at=info method=GET path=/assets/images/packageicon.png host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=59ms status=200 bytes=9211
+2013-07-12T07:35:04.054325+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Light.woff" for 42.119.50.163 at 2013-07-12 07:35:04 +0000
+2013-07-12T07:35:04.106149+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Light.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=1ms service=70ms status=200 bytes=104472
+2013-07-12T07:35:04.117837+00:00 app[web.1]: Started GET "/assets/openSan/OpenSans-Semibold.woff" for 42.119.50.163 at 2013-07-12 07:35:04 +0000
+2013-07-12T07:35:04.209370+00:00 app[web.1]: Started GET "/assets/Chalkduster/Chalkduster.woff" for 42.119.50.163 at 2013-07-12 07:35:04 +0000
+2013-07-12T07:35:04.218182+00:00 app[web.1]: Started GET "/assets/awesome/font/fontawesome-webfont.woff?v=3.2.1" for 42.119.50.163 at 2013-07-12 07:35:04 +0000
+2013-07-12T07:35:04.227491+00:00 heroku[router]: at=info method=GET path=/assets/awesome/font/fontawesome-webfont.woff?v=3.2.1 host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=109ms status=200 bytes=43572
+2013-07-12T07:35:04.226657+00:00 heroku[router]: at=info method=GET path=/assets/openSan/OpenSans-Semibold.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=116ms status=200 bytes=107132
+2013-07-12T07:35:04.299270+00:00 heroku[router]: at=info method=GET path=/assets/Chalkduster/Chalkduster.woff host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=193ms status=200 bytes=2084304
+2013-07-12T07:35:10.699956+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=0ms service=2ms status=304 bytes=0
+2013-07-12T07:34:43.783656+00:00 heroku[router]: at=info method=GET path=/assets/bootstrap-responsive.min-5c0e7d41592bc3905e4c9240845647bd.css host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=2ms service=34ms status=200 bytes=16192
+2013-07-12T07:34:44.067120+00:00 heroku[router]: at=info method=GET path=/assets/jquery-2.0.2.min-fa76139b3c80eb4d624a67264995c183.js host=alert-system.herokuapp.com fwd="42.119.50.163" dyno=web.1 connect=3ms service=36ms status=200 bytes=83075
