@@ -23,7 +23,6 @@ class Item < ActiveRecord::Base
   before_destroy :delete_from_s3, :if => lambda { |i| i.item_type == 2 }
 
   def encrypt_item_contents
-
     if self.item_type == 1 # Text item
                            # 1st: encrypt plain text with AES-256-ECB
       step1 = text_AES_Encryptor(self.text_content, self.aes_key)
@@ -50,7 +49,7 @@ class Item < ActiveRecord::Base
   def s3_url
     s3 = AWS::S3.new
     obj = s3.buckets["#{ENV['s3_bucket_prefix']}#{self[:package_id]}"].objects[self.file_name]
-    obj.url_for(:read, :authenticated => true, :expires => 60).to_s
+    obj.url_for(:read, :authenticated => true, :expires => 5*60).to_s
   end
 
   private

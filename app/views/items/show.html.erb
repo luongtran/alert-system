@@ -12,16 +12,16 @@
         <div class="packagedetail clearfix">
           <div class="package pull-left">
             <%
-            css_class = ""
-            case @item.item_type
-              when 1
-              css_class = "text"
-              when 2
-              css_class = "zip"
-              when 3
-              css_class = "image"
-              end
-          %>
+               css_class = ""
+               case @item.item_type
+                 when 1
+                   css_class = "text"
+                 when 2
+                   css_class = "zip"
+                 when 3
+                   css_class = "image"
+               end
+            %>
             <div id="listitems" class="clearfix">
               <div class="item">
                 <div class="item-inner <%= css_class %>">
@@ -29,28 +29,29 @@
               </div>
             </div>
           </div>
-          <div class="packageinfo"><a class="packtitle"><%=@item.name%></a>
+          <div class="packageinfo"><a class="packtitle"><%= @item.name %></a>
             <ul class="unstyled">
-              <li> <span><label>Package:</label>  <%= @package.name %></span></li>
+              <li><span>Package: <%= @package.name %></span></li>
 
-              <li> <span><label>Created at:</label>  <%= @item.created_at %></span></li>
-              <li><span><label>Type: </label> <%= ItemType.find(@item.item_type).name %></span></li>         
+              <li><span>Created at:  <%= @item.created_at %></span></li>
+              <li><span>Type:  <%= ItemType.find(@item.item_type).name %></span></li>
 
               <% if @item.item_type == 1 %>
-                <% if @package.custom_key %>
-                  <li><span><label>Content: (Encrypted)</label>  </span></li>
-                <%  else %> 
-                  <li><span><label>Content:</label> <%=@text_content_decrypted%> </span></li>
-                <% end %>
+                  <% if @package.custom_key %>
+                      <li><span>Content: (Encrypted) </span></li>
+                  <% else %>
+                      <li><span>Content: <%= @text_content_decrypted %> </span></li>
+                  <% end %>
 
               <% else %>
-                <li><span><label>File name:</label> <%=@item.file_name%> </span></li>
-                <% if !@package.custom_key %>
-                  <li><span><%= link_to 'Download decrypted file', download_item_path(@package, @item) %>  </span></li>
-                <% end %>
+                  <li><span><label>File name:</label> <%= @item.file_name %> </span></li>
+                  <% if !@package.custom_key %>
+                      <li><span><%= link_to 'Download decrypted file', download_item_path(@package, @item) %>  </span>
+                      </li>
+                  <% end %>
 
               <% end %>
-              <li><%=  button_to "Delete", nil, :method => :delete, :class => "btn-danger btn-small",data: {confirm: 'Are you sure?'} %></li>
+              <li><%= button_to "Delete", nil, :method => :delete, :class => "btn-danger btn-small", data: {confirm: 'Are you sure?'} %></li>
             </ul>
           </div>
         </div>
