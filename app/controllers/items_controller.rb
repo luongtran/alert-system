@@ -21,8 +21,6 @@ class ItemsController < ApplicationController
       else
         send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
       end
-
-
     end
     #redirect_to
   end
