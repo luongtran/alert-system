@@ -1,110 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AlertSystem</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
-    <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
-    <%= stylesheet_link_tag "openSan/font", :media => "all" %>
-    <%= stylesheet_link_tag "Chalkduster/font", :media => "all" %>
-    <%= stylesheet_link_tag "combine", :media => "all" %>
-    <%= stylesheet_link_tag "awesome/css/font-awesome.min", :media => "all" %>
+<head>
+  <title>AlertSystem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
+  <%= stylesheet_link_tag "openSan/font", :media => "all" %>
+  <%= stylesheet_link_tag "Chalkduster/font", :media => "all" %>
+  <%= stylesheet_link_tag "combine", :media => "all" %>
+  <%= stylesheet_link_tag "awesome/css/font-awesome.min", :media => "all" %>
 
-    <%= javascript_include_tag "jquery-2.0.2.min" %>
-    <%= javascript_include_tag "angular.min" %>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "bootstrap.min" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body class="pan man">
-    <div class="pageHeader">
-      <div class="headerTop clearfix">
-        <div class="container">
-          <div class="pull-left">
-            <div id="logo">
-              <%= image_tag "../assets/images/logo.png", :alt => "AlertSystem" %>
-            </div>
-          </div>
-          <div class="pull-right">
-            <div id="headerRight">
-              <div class="pageNavigator">
-                <ul class="unstyled clearfix">
-                  <li class="pull-left active">
-                    <a href="/">Homepage</a>
+  <%= javascript_include_tag "jquery-2.0.2.min" %>
+  <%= javascript_include_tag "angular.min" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="pan man">
+<div class="pageHeader">
+  <div class="headerTop clearfix">
+    <div class="container">
+      <div class="pull-left">
+        <div id="logo">
+          <%= image_tag "../assets/images/logo.png", :alt => "AlertSystem" %>
+        </div>
+      </div>
+      <div class="pull-right">
+        <div id="headerRight">
+          <div class="pageNavigator">
+            <ul class="unstyled clearfix">
+              <li class="pull-left <%= (params[:controller] == "dashboard" && params[:action] == "index") ? "active" : "" %>">
+                <a href="<%= dashboard_path %>">Dashboard</a>
+              </li>
+              <li class="pull-left ">
+                <a href="<%= dashboard_pricing_path %>">Pricing</a>
+              </li>
+              <% if user_signed_in? %>
+                  <li class="pull-left <%= ((params[:controller] == "dashboard" && params[:action] == "packages") || params[:controller] == "packages") ? "active" : "" %>">
+                    <a href="<%= dashboard_packages_path %>">Packages</a>
                   </li>
-                  <li class="pull-left ">
-                    <a href="/pricing">Pricing</a>
+                  <li class="pull-left <%= ((params[:controller] == "dashboard" && params[:action] == "items") || params[:controller] == "items") ? "active" : "" %>">
+                    <a href="/dashboard/items">Items</a>
                   </li>
-                  <% if user_signed_in? %>
-                    <li class="pull-left ">
-                      <a href="<%= dashboard_packages_path%>">Packages</a>
-                    </li>
-                    <li class="pull-left ">
-                      <a href="/dashboard/items">Items</a>
-                    </li>
-                    <div class="pull-left">
-                      <div id="accountBox" class="text-right">
-                        <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
-                        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' if user_signed_in? %>
+                  <div class="pull-left">
+                    <div id="accountBox" class="text-right">
+                      <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
+                      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' if user_signed_in? %>
 
-                        <div class="pas">
+                      <div class="pas">
 
-                          <ul class="unstyled text-right">
-                            <li>You have <%= current_user.packages.count %> Package(s)</li>
-                            <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
-                          </ul>
-                        </div>
-
+                        <ul class="unstyled text-right">
+                          <li>You have <%= current_user.packages.count %> Package(s)</li>
+                          <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
+                        </ul>
                       </div>
-                    </div>
 
-                  <% end %>
+                    </div>
+                  </div>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%= render 'layouts/messages' %>
+
+<div class="headerMid">
+  <div class="container">
+    <div class="headerMid-inner">
+      <div id="dashboard">
+        <div class="dashboard-head">
+          <h1 class="lead"><%= @control_label.titleize %> </h1>
+          <hr class="divider">
+        </div>
+        <div class="dashboard-body">
+          <div class="row-fluid">
+            <div class="span3">
+              <div id="dashMenu">
+                <ul class="unstyled">
+                  <li class=""><a href="<%= dashboard_packages_path %>">Packages<i class="icon-briefcase mlm"></i></a>
+                  </li>
+                  <li class=""><a href="<%= dashboard_items_path %>">Items<i class="icon-file mlm"></i></a></li>
+                  <li class=""><a href="<%= edit_user_registration_path %>">Setting<i class="icon-wrench mlm"></i></a>
+                  </li>
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <%= render 'layouts/messages' %>
-
-    <div class="headerMid">
-      <div class="container">
-        <div class="headerMid-inner">
-          <div id="dashboard">
-            <div class="dashboard-head">
-              <h1 class="lead"><%= @control_label.titleize  %> </h1>
-              <hr class="divider">
-            </div>
-            <div class="dashboard-body">
-              <div class="row-fluid">
-                <div class="span3">
-                  <div id="dashMenu">
-                    <ul class="unstyled">
-                      <li class=""><a href="<%= dashboard_packages_path %>">Packages<i class="icon-briefcase mlm"></i></a></li>
-                      <li class=""><a href="<%= dashboard_items_path %>">Items<i class="icon-file mlm"></i></a></li>
-                      <li class=""><a href="<%= edit_user_registration_path%>">Setting<i class="icon-wrench mlm"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="span9">
-                  <%= yield %>
-                </div>
-              </div>
+            <div class="span9">
+              <%= yield %>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
+<div class="footerline container">
+  <p>Alert System - a short project by Trent Scott | blog | twitter | g+</p>
 
-    <div class="footerline container">
-      <p>Alert System - a short project by Trent Scott | blog | twitter | g+</p>
-
-    </div>
-  </body>
+</div>
+</body>
 </html>

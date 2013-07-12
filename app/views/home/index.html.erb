@@ -55,17 +55,17 @@
           <div class="login-inner">
             <div class="login-inner2">
               <div class="loginHead">
-                <span class="title mrm">Login Panel</span><a href="#" class="signupLink"><i class="icon-chevron-right mrm"></i>Sign
+                <span class="title mrm">Login Panel</span><a href="<%= pricing_path%>" class="signupLink"><i class="icon-chevron-right mrm"></i>Sign
                 Up</a></div>
               <div class="loginBody">
                 <%= form_for "user", :as => :user, :url => session_path(:user) do |f| -%>
                     <fieldset>
                       <div class="control-group">
-                        <%= f.text_field :email, :placeholder => "Your Email", :class => "input-block-level handwrite", :size =>25 %>
+                        <%= f.text_field :email, :placeholder => "Your Email", :class => "input-block-level", :size =>25 %>
                         <!--<input type="text" name="email" placeholder="Your Email" class="input-block-level handwrite"/>-->
                       </div>
                       <div class="control-group">
-                        <%= f.password_field :password, :placeholder => "Your Password", :class => "input-block-level handwrite", :size => 25 %>
+                        <%= f.password_field :password, :placeholder => "Your Password", :class => "input-block-level", :size => 25 %>
                         <!--<input type="password" name="password" placeholder="Your Password" class="input-block-level handwrite"/>-->
                         <br/><a href="#" class="forgot">I
                         forgot my password</a>

@@ -2,6 +2,12 @@ require 'rubygems'
 require 'rufus/scheduler'
 
 scheduler = Rufus::Scheduler.start_new
-scheduler.every("1h") do
+
+#scheduler.cron("0 59 23 * * 1-5") do
+#  User.daily_checker
+#end
+
+# cron test
+scheduler.every("1m") do
   User.daily_checker
 end

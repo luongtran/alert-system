@@ -304,7 +304,6 @@
                           <div class="alert <%= bootstrap_class_for(type) %>">
                             <a class="close" data-dismiss="alert">&#215;</a>
                             <%= content_tag :div, "#{type} #{message}", :id => "flash_#{type}" %>
-
                           </div>
                       <% end %>
                   <% end %>
@@ -319,7 +318,7 @@
                     <label class="control-label">First name <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :first_name, :required => true, :class => "input-block-level handwrite" %>
+                      <%= f.text_field :first_name, :required => true, :class => "input-block-level" %>
                       <!--<input type="text" name="first_name" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -327,7 +326,7 @@
                     <label class="control-label">Last name <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :last_name, :required => true, :class => "input-block-level handwrite" %>
+                      <%= f.text_field :last_name, :required => true, :class => "input-block-level" %>
                       <!--<input type="text" name="last_name" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -335,7 +334,7 @@
                     <label class="control-label">Email <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :email, :required => true, :class => "input-block-level handwrite" %>
+                      <%= f.text_field :email, :required => true, :class => "input-block-level" %>
                       <!--<input type="text" name="email" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -343,7 +342,7 @@
                     <label class="control-label">Password <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.password_field :password, :required => true, :class => "input-block-level handwrite" %>
+                      <%= f.password_field :password, :required => true, :class => "input-block-level" %>
                       <!--<input type="password" name="password" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -351,7 +350,7 @@
                     <label class="control-label">Password Confirm <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level handwrite" %>
+                      <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level" %>
                       <!--<input type="password" name="password_confirm" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -359,7 +358,7 @@
                     <label class="control-label">Frequency <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :frequency, :required => true, :class => "handwrite input-block-level" %>
+                      <%= f.text_field :frequency, :required => true, :class => "input-block-level" %>
                       <!--<input type="number" name="frequency" class="handwrite input-block-level"/>-->
                     </div>
                   </div>
@@ -379,14 +378,14 @@
                           <label class="control-label">Credit card Number :</label>
                           <div class="controls">
                             <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
-                            <%= text_field_tag :card_number, "4111 1111 1111 1111", name: nil, :class => "handwrite input-block-level" %>
+                            <%= text_field_tag :card_number, "4111 1111 1111 1111", name: nil, :class => "input-block-level" %>
                           </div>
                         </div>
                         <div class="control-group">
                           <label class="control-label">Card Security Code :</label>
 
                           <div class="controls">
-                            <%= text_field_tag :card_code, "123", name: nil, :class => "handwrite input-block-level" %>
+                            <%= text_field_tag :card_code, "123", name: nil, :class => "input-block-level" %>
                             <!--<input type="number" name="card_security_code" class="handwrite input-block-level"/>-->
                           </div>
                         </div>

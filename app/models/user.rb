@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
 
 
   def self.daily_checker
-    @users = User.find(:all)
+    @users = User.all
     @users.each do |u|
       unless u.has_role? :admin
         case u.status

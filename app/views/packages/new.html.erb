@@ -40,9 +40,11 @@
                     <div class="control-group">
                       <% if current_user.has_role? :large %>
                         <label class="checkbox">
-                          <%= f.check_box :custom_key %>  Encrypt using a custom key
+                          <%= f.check_box :custom_key , :hint => "blah"%> Custom encrypt key
+                          <br/>
+                          <p> (Note: if you select this option, you must supply the key everytime you create new item!)</p>
                         </label>
-                        <%= f.text_field :key, :placeholder => '32 characters', :class => "input-block-level" %>
+                        <!--<%#= f.text_field :key, :placeholder => '32 characters', :class => "input-block-level" %>-->
                       <% end %>
                     </div>
                     <h4> Recipient </h4>

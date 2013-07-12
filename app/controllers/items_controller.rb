@@ -65,23 +65,34 @@ class ItemsController < ApplicationController
       @item.item_type = 1
       @item.text_content = params[:item][:text_content]
     else
-      if params[:type] == "file"
-        @item.item_type = 2
+      if params[:item][:file].nil?
+        flash[:notice] = "Please select a file first!"
+        redirect_to new_package_item_path
+        return
       else
-        @item.item_type = 3
+        if params[:type] == "file"
+          @item.item_type = 2
+        else
+          @item.item_type = 3
+        end
+        @item.file = params[:item][:file]
+        @item.filename = params[:item][:file].original_filename
+        @item.file_content_type = params[:item][:file].content_type
       end
-      @item.file = params[:item][:file]
-      @item.filename = params[:item][:file].original_filename
-      @item.file_content_type = params[:item][:file].content_type
-
     end
 
-
+    #______________________
     if @package.custom_key
-      @item.aes_key = @package.key
+      #if params[:item][:aes_key].blank? || params[:item][:aes_key]
+      #
+      #else
+      #
+      #end
+      @item.aes_key = params[:item][:aes_key]
     else
       @item.aes_key = Base64.decode64(@package.encrypted_key)
     end
+
 
     if @item.save
       flash[:notice] = "Item was created successfuly !"

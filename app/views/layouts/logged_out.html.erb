@@ -30,10 +30,10 @@
             <div id="headerRight">
               <div class="pageNavigator">
                 <ul class="unstyled clearfix">
-                  <li class="pull-left active">
+                  <li class="pull-left  <%= (params[:controller] == "home" && params[:action] == "index") ? "active" : "" %>">
                     <a href="/">Homepage</a>
                   </li>
-                  <li class="pull-left ">
+                  <li class="pull-left  <%= (params[:controller] == "home" && params[:action] == "pricing") ? "active" : "" %>">
                     <a href="/pricing">Pricing</a>
                   </li>
                 </ul>

@@ -57,8 +57,10 @@ class PackagesController < ApplicationController
     @package.description = params[:package][:description]
 
     if current_user.has_role? :large
-      @package.key = params[:package][:key]
-      @package.custom_key = params[:package][:custom_key]
+      @package.custom_key = params[:package][:custom_key] # true/false
+      if !@package.custom_key
+        @package.create_aes_key
+      end
     else
       @package.custom_key = false
       @package.create_aes_key

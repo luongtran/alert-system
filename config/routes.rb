@@ -1,6 +1,8 @@
 AlertSystem::Application.routes.draw do
   get "dashboard/items"
   get "dashboard/packages"
+  get "dashboard/index", :as => :dashboard
+  get "dashboard/pricing"
 
   get "recipient/get"
   get "recipient/delete"

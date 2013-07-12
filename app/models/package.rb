@@ -6,14 +6,10 @@ class Package < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :name, :uniqueness => {:scope => :user_id}
 
-  validates_length_of :key, :is => 32, :if => lambda { |i| i.custom_key == true }
-
   belongs_to :user
   has_many :items, :dependent => :destroy
 
-  #has_one :recipient
-
-  # before_save :create_aes_key, :if => lambda { |i| i.custom_key == false }
+  #before_save :create_aes_key, :if => lambda { |i| i.custom_key == false }
 
   def create_aes_key
     key = OpenSSL::Cipher.new("AES-256-ECB").random_key

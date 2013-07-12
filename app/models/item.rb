@@ -6,7 +6,8 @@ class Item < ActiveRecord::Base
 
   validates :name, :presence => true, :length => 3...30
 
-  validates_uniqueness_of :name
+  validates_length_of :aes_key, :is => 32
+  validates_uniqueness_of :name, :scope => :package_id
 
   validates :item_type, :presence => true
 
@@ -14,7 +15,7 @@ class Item < ActiveRecord::Base
 
   validates :file_name, :presence => true, :if => lambda { |i| i.item_type == 2 }
 
-  validates_format_of :file_name, :with => %r{\.(png|jpg|jpeg)$}i,:message => "Image file is invalid! ", :if => lambda { |i| i.item_type == 3 }
+  validates_format_of :file_name, :with => %r{\.(png|jpg|jpeg)$}i, :message => "Image file is invalid! ", :if => lambda { |i| i.item_type == 3 }
 
   validates_uniqueness_of :file_name, :scope => :package_id, :if => lambda { |i| i.item_type == 2 }
 
@@ -36,7 +37,10 @@ class Item < ActiveRecord::Base
       self.text_content = step2
       # File item
     else
-       s3_uploader(self.file_name, self.file.read, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
+
+
+
+      s3_uploader(self.file_name, self.file.read, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
     end
   end
 
