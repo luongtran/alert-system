@@ -106,10 +106,12 @@ end
 
 #
 def s3_uploader(filename, data, bucket_name, aeskey)
-  s3 = AWS::S3.new
-  bucket = s3.buckets.create(bucket_name)
-  obj = bucket.objects[filename]
-  obj.write(data, :encryption_key => aeskey)
+  Thread.new do
+    s3 = AWS::S3.new
+    bucket = s3.buckets.create(bucket_name)
+    obj = bucket.objects[filename]
+    obj.write(data, :encryption_key => aeskey)
+  end
 end
 
 def s3_downloader(bucket_name, file_name, aes_key = nil)
