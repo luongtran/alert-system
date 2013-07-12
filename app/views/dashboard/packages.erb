@@ -2,36 +2,40 @@
   <div class="dashbodyHead">
     <div class="row-fluid">
       <div class="span9">
-        <div class="tipbox"><i class="icon-info-sign pull-left"></i>
-          <p class="pll">
-            Click change view in right side to see more detail information of packages. Click in package
-            icon to
-            view items inside.
-          </p>
-        </div>
+        <% if @packages.empty? %>
+            <h4>You don't have any package !</h4>
+        <% end %>
+        <p class="pll">
+        <!--<div class="tipbox"><i class="icon-info-sign pull-left"></i>-->
+           <!--<p class="pll">-->
+            <!--Click change view in right side to see more detail information of packages. Click in package-->
+            <!--icon to-->
+            <!--view items inside.-->
+          <!--</p>-->
+        <!--</div>-->
       </div>
-      <div class="span3">
-        <div class="controlbox pull-right">
-          <ul class="nav nav-pills">
-            <li><a href="#" class="icon-th"></a></li>
-            <li><a href="#" class="icon-list"></a></li>
-          </ul>
-        </div>
-      </div>
+      <!--<div class="span3">-->
+      <!--<div class="controlbox pull-right">-->
+      <!--<ul class="nav nav-pills">-->
+      <!--<li><a href="#" class="icon-th"></a></li>-->
+      <!--<li><a href="#" class="icon-list"></a></li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
   <div class="dashbodyMain">
     <div id="listPackages" class="clearfix">
       <% @packages.each do |p| %>
-        <div class="package">
-          <div class="package-inner">
-            <a href="<%= package_path(p) %>">
+          <div class="package">
+            <div class="package-inner">
+              <a href="<%= package_path(p) %>">
               <span class="title">
                 <%= p.name %>
               </span>
-            </a>
+              </a>
+            </div>
           </div>
-        </div>
       <% end %>
       <div class="package addnew">
         <div class="package-inner">

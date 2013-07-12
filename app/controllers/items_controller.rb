@@ -3,7 +3,25 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_package
   respond_to :js, :html
-  
+
+
+  # GET /items/1
+  # GET /items/1.json
+  def download
+    @item = Item.find(params[:id])
+    if @item.item_type != 1
+      if !@package.custom_key
+        aes_key = Base64.decode64(@package.encrypted_key)
+        data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name, aes_key)
+        if data.nil?
+          flash[:notice] = "An error has occurred, please try again later !"
+        else
+          send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
+        end
+      end
+    end
+    #redirect_to
+  end
 
   # GET /items
   # GET /items.json
@@ -16,21 +34,6 @@ class ItemsController < ApplicationController
 
   end
 
-  # GET /items/1
-  # GET /items/1.json
-  def download
-    @item = Item.find(params[:id])
-    if @item.item_type == 2
-      if !@package.custom_key
-        aes_key = Base64.decode64(@package.encrypted_key)
-        data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name, aes_key)
-        send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
-      end
-    end
-    url_to_download = ""
-    #redirect_to url_to_download
-    # redirect_to package_path(@package)
-  end
 
   def show
     @item = Item.find(params[:id])
@@ -40,7 +43,7 @@ class ItemsController < ApplicationController
         @text_content_encrypted = temp
       else
       end
-    else  # key stored in db
+    else # key stored in db
       if @item.item_type == 1
         temp = Base64.decode64(@item.text_content)
         key = Base64.decode64(@package.encrypted_key)
@@ -82,10 +85,10 @@ class ItemsController < ApplicationController
       @item.file = params[:item][:file]
       @item.filename = params[:item][:file].original_filename
       @item.file_content_type = params[:item][:file].content_type
-      
+
     end
-    
-    
+
+
     if @package.custom_key
       @item.aes_key = @package.key
     else
@@ -96,7 +99,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "Item was created successfuly !"
       redirect_to package_path(@package)
     else
-       i = 0
+      i = 0
       @item.errors.full_messages.each do |message|
         flash["error#{i}"] = message
         i+=1
