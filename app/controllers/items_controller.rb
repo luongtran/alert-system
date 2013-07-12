@@ -13,14 +13,36 @@ class ItemsController < ApplicationController
       if !@package.custom_key
         aes_key = Base64.decode64(@package.encrypted_key)
         data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name, aes_key)
-        if data.nil?
-          flash[:notice] = "An error has occurred, please try again later !"
-        else
-          send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
-        end
+      else
+        data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name)
       end
+      if data.nil?
+        flash[:notice] = "An error has occurred, please try again later !"
+      else
+        send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
+      end
+
+
     end
     #redirect_to
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    puts "\n\n__________Update"
+    respond_to do |format|
+      if @item.update_attributes(params[:item])
+        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
@@ -80,19 +102,12 @@ class ItemsController < ApplicationController
         @item.file_content_type = params[:item][:file].content_type
       end
     end
-
     #______________________
     if @package.custom_key
-      #if params[:item][:aes_key].blank? || params[:item][:aes_key]
-      #
-      #else
-      #
-      #end
       @item.aes_key = params[:item][:aes_key]
     else
       @item.aes_key = Base64.decode64(@package.encrypted_key)
     end
-
 
     if @item.save
       flash[:notice] = "Item was created successfuly !"

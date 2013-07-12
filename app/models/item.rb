@@ -37,9 +37,6 @@ class Item < ActiveRecord::Base
       self.text_content = step2
       # File item
     else
-
-
-
       s3_uploader(self.file_name, self.file.read, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
     end
   end
