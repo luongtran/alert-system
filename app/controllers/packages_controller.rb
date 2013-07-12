@@ -19,7 +19,7 @@ class PackagesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound
       flash[:notice] = "Oops, something wrong in your request !"
-      redirect_to packages_path
+      redirect_to dashboard_packages_path
     end
   end
 
@@ -27,16 +27,19 @@ class PackagesController < ApplicationController
   # GET /packages/new.json
   def new
     max = Role.find(current_user.roles.first.id).maximum_packages
-    unless current_user.packages.count < max
-      redirect_to packages_path, :notice => "Your subscription allowed only #{max} packages !"
-    end
-    @package = Package.new
-    @recipient = Recipient.new
+    if current_user.packages.count+1 > max
+      redirect_to dashboard_packages_path, :notice => "Your subscription allowed only #{max} packages !"
+      return
+    else
+      @package = Package.new
+      @recipient = Recipient.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @package }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @package }
+      end
     end
+
   end
 
   # GET /packages/1/edit
@@ -82,7 +85,7 @@ class PackagesController < ApplicationController
     end
     if @package.save
       flash[:notice] = "Package created successfuly !"
-      redirect_to dashboard_path
+      redirect_to dashboard_packages_path
       return
     else
       flash[:error] = "Package's infor is not valid !"

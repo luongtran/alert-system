@@ -105,7 +105,7 @@ class ItemsController < ApplicationController
         Package.find(@package.id).destroy
 
         flash[:notice] = "Package deleted !"
-        redirect_to packages_path
+        redirect_to dashboard_packages_path
         return
       end
     end
@@ -124,7 +124,7 @@ class ItemsController < ApplicationController
     end
   rescue StandardError => e
     flash[:notice] = "Oops, something wrong in your request !"
-    redirect_to packages_path
+    redirect_to dashboard_packages_path
   end
 
 end
