@@ -116,7 +116,7 @@ class PackagesController < ApplicationController
     @package.destroy
 
     respond_to do |format|
-      format.html { redirect_to dashboard_path }
+      format.html { redirect_to dashboard_packages_path }
       format.json { head :no_content }
     end
   end
