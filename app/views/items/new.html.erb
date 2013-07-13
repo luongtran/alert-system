@@ -18,7 +18,11 @@
         });
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("Create new item");
+    });
+</script>
 <div class="ptl">
   <h5> <%= link_to "< Back to package",package_path(@package) %>     </h5>
   <div id="chooseItemKind">

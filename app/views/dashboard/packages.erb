@@ -1,10 +1,18 @@
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("All packages");
+    });
+</script>
 <div id="dashbody_packages">
   <div class="dashbodyHead">
     <div class="row-fluid">
       <div class="span9">
         <% if @packages.empty? %>
             <h4>You don't have any package !</h4>
+            <% else %>
+            <h4>You currently have <%= "#{@packages.count} #{@packages.count > 1 ? 'packages' : 'package'}." %></h4>
         <% end %>
+        <br/>
         <p class="pll">
         <!--<div class="tipbox"><i class="icon-info-sign pull-left"></i>-->
            <!--<p class="pll">-->

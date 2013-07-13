@@ -1,4 +1,8 @@
-
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("All Items");
+    });
+</script>
 
 <div id="dashbody_items">
   <% if @items.empty? %>
@@ -7,9 +11,9 @@
     <div class="dashbodyHead">
       <div class="row-fluid">
         <div class="span9">
-          <div class="tipbox"><i class="icon-info-sign pull-left"></i>
+          <div class="tipbox">
             <h4 class="pll">
-              Total items: <%= @items.count %>
+              You currently have <%= "#{@items.count} #{@items.count > 1 ? 'items' : 'item'}." %>
             </h4>
             <p class="pll">
               - Text : <%= @text_item_count %>
