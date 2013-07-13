@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       users_path
     else
       @user.update_attributes(:status => 'normal', :check_date_time => DateTime.now)
-      dashboard_packages_path
+      dashboard_path
     end
   end
 

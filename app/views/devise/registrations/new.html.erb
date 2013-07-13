@@ -1,3 +1,9 @@
+<style type="text/css">
+    .plan-active {
+        pointer-events: none;
+        cursor: default;
+    }
+</style>
 <script>
     // Recurly.js
     // JavaScript library for the Recurly API
@@ -220,6 +226,11 @@
     });
 
 </script>
+<script>
+    $(document).ready(function () {
+        $('#link_' + $('#plan').val()).addClass('plan-active').removeClass('btn-primary');
+    });
+</script>
 <div class="headerMid">
 <div class="container">
 <div class="headerMid-inner">
@@ -240,40 +251,40 @@
       </p>
 
       <div class="spacing pbl"></div>
-      <div class="well clearfix">
+      <div class="well clearfix" id="free">
         <h2 class="pull-left">Free</h2>
 
         <div class="pull-right">
           <p>1 package</p>
 
           <p><strong>$0 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary' %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary', :id => "link_free" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
-      <div class="well clearfix">
+      <div class="well clearfix" id="small">
         <h2 class="pull-left">Small</h2>
 
         <div class="pull-right">
           <p>3 packages</p>
 
           <p><strong>$5 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary' %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary', :id => "link_small" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
-      <div class="well clearfix">
+      <div class="well clearfix" id="medium">
         <h3 class="pull-left">Medium</h3>
 
         <div class="pull-right">
           <p>10 packages</p>
 
           <p><strong>$10 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary' %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary', :id => "link_medium" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
-      <div class="well clearfix">
+      <div class="well clearfix" id="large">
         <h2 class="pull-left">Large</h2>
 
         <div class="pull-right">
@@ -282,7 +293,7 @@
           <p><strong>$15 / month</strong></p>
 
           <p><strong>Custom key option</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary' %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary', :id => "link_large" %>
         </div>
       </div>
       <p></p>
@@ -318,7 +329,7 @@
                     <label class="control-label">First name <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :first_name, :required => true, :class => "input-block-level" %>
+                      <%= f.text_field :first_name, :class => "input-block-level", :required => true %>
                       <!--<input type="text" name="first_name" class="handwrite input-block-level"/>-->
                     </div>
                   </div>

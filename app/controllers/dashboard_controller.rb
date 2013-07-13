@@ -2,7 +2,9 @@ class DashboardController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-
+    @packages_count = current_user.packages.count
+    @items_count = current_user.items.count
+    @next_validate_at =  DateTime.now + current_user.frequency.days
   end
 
   def pricing

@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout 'logged_out'
   def index
     if user_signed_in?
-      redirect_to dashboard_packages_path
+      redirect_to dashboard_path
     end
   end
 
