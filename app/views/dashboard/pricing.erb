@@ -4,10 +4,7 @@
     });
 </script>
 <br/>
-<p>
-  Need to update billing information?
-  <%= link_to 'Update here', users_edit_billing_path, :class => 'btn btn-primary' %>
-</p>
+
 
 <h3>Subscription Plan</h3>
 <% if false %>
@@ -16,9 +13,6 @@
       <%= link_to "Change plan", "#plan-options", class: "btn btn-primary", data: {toggle: "modal"} %>
     </p>
 <% end %>
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-danger' %></p>
 
 <div id="plan-options" class="modal" style="display: none; ">
   <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
@@ -35,4 +29,8 @@
       </div>
   <% end %>
 </div>
+<p>
+  <h5>Need to update billing information? <%= link_to 'Update here', users_edit_billing_path, :class => 'btn btn-primary' %></h5>
+
+</p>
 

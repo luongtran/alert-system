@@ -6,6 +6,7 @@
 <br/>
 <%= simple_form_for "billing_inf", {url: {controller: "users", action: "update_billing"}} do |b| %>
     <div class="field">
+      <%= label_tag :last_name, "First Name" %>
       <%= b.text_field :first_name, :value => "#{@billing_infor.first_name}" %>
     </div>
     <div class="field">
