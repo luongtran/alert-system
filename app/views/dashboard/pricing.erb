@@ -3,22 +3,22 @@
         $('#label-leader').text("Plan and Pricing");
     });
 </script>
-<h3>Card</h3>
+<br/>
 <p>
-  Need to use a different credit card?
-  <%= link_to "Change Card", "https://#{RECURLY_SUBDOMAIN}.recurly.com/", class: "btn btn-mini" %>
+  Need to update billing information?
+  <%= link_to 'Update here', users_edit_billing_path, :class => 'btn btn-primary' %>
 </p>
 
 <h3>Subscription Plan</h3>
 <% if false %>
     <p>
       <%= current_user.roles.first.name.titleize %>
-      <%= link_to "Change plan", "#plan-options", class: "btn btn-mini", data: {toggle: "modal"} %>
+      <%= link_to "Change plan", "#plan-options", class: "btn btn-primary", data: {toggle: "modal"} %>
     </p>
 <% end %>
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-mini' %></p>
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-danger' %></p>
 
 <div id="plan-options" class="modal" style="display: none; ">
   <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
@@ -35,3 +35,4 @@
       </div>
   <% end %>
 </div>
+

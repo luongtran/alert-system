@@ -11,6 +11,8 @@ AlertSystem::Application.routes.draw do
   get "home/pricing"
   get "recurly/test"
   post "recurly/push"
+  post "users/update_billing"
+  get "users/edit_billing"
 
   match "pricing" => "home#pricing"
 

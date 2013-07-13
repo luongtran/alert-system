@@ -1,0 +1,36 @@
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("Update Billing Information");
+    });
+</script>
+<br/>
+<%= simple_form_for "billing_inf", {url: {controller: "users", action: "update_billing"}} do |b| %>
+    <div class="field">
+      <%= b.text_field :first_name, :value => "#{@billing_infor.first_name}" %>
+    </div>
+    <div class="field">
+      <%= label_tag :last_name, "Last Name" %>
+      <%= b.text_field :last_name, :value => "#{@billing_infor.last_name}" %>
+    </div>
+    <div class="field">
+      <%= label_tag :number, "Credit Card Number" %>
+      <%= b.text_field :number %>
+    </div>
+    <div class="field">
+      <%= label_tag :verification_value, "Card Security Code (CVV)" %>
+      <%= b.text_field :verification_value, :type => "number" %>
+    </div>
+    <div class="field">
+      <%= label_tag :month, "Card Expiration" %>
+      <%= select_month @billing_infor.month, {add_month_numbers: true}, {name: nil, id: "month"} %>
+      <%= select_year @billing_infor.year, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "year"} %>
+    </div>
+    <button type="submit" class="btn btn-primary span5">Update</button>
+<% end %>
+
+
+
+
+
+
+

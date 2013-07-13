@@ -2,12 +2,17 @@
     $(document).ready(function () {
         $('.item').click(function () {
             var type = $(this).data('value');
+            var tmp = type + "";
+            tmp = tmp.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                return letter.toUpperCase();
+            });
+            $('#item-type-title').text(tmp);
             $.each($('#listitems').children('.item'), function () {
                 $(this).removeClass('selected');
             });
             $(this).addClass('selected');
             $('#type').val(type);
-            //$('#item-type-title').val(type);
+
             if (type === "file" || type === "image") {
                 $('#item_file_type').show();
                 $('#item_note_type').hide();
@@ -24,19 +29,20 @@
     });
 </script>
 <div class="ptl">
-  <h5> <%= link_to "< Back to package",package_path(@package) %>     </h5>
+  <h5> <%= link_to "< Back to package", package_path(@package) %>     </h5>
+
   <div id="chooseItemKind">
     <div id="listitems">
       <h2>Please Select Item Type</h2>
 
       <div class="item selected" data-value="text">
-        <div class="item-inner text"><a href="#"><span class="title">Text Note</span></a></div>
+        <div class="item-inner text"><a href="javascript: void(0)"><span class="title">Text Note</span></a></div>
       </div>
       <div class="item" data-value="file">
-        <div class="item-inner zip"><a href="#"><span class="title">File (zip | other extension)</span></a></div>
+        <div class="item-inner zip"><a href="javascript: void(0)"><span class="title">File (zip | other extension)</span></a></div>
       </div>
       <div class="item" data-value="image">
-        <div class="item-inner image"><a href="#"><span class="title">Image</span></a></div>
+        <div class="item-inner image"><a href="javascript: void(0)"><span class="title">Image</span></a></div>
       </div>
     </div>
   </div>
@@ -44,7 +50,7 @@
   <div class="spacing ptl"></div>
   <hr class="divider"/>
 
-  <h2 id="item-type-title">Text Note</h2>
+  <h2 id="item-type-title">Text</h2>
   <hr class="divider"/>
   <div id="addttem">
     <%= form_for [@package, @item], :class => "create_new_item_frm", :enctype => "multipart/form-data" do |f| %>
@@ -57,14 +63,16 @@
         </div>
         <div class="control-group">
           <label class="control-label">Description</label>
+
           <div class="controls">
             <%= f.text_area :description, :class => "input-block-level", :rows => 2 %>
           </div>
         </div>
         <div class="control-group" id="item_note_type">
           <label class="control-label">Content</label>
+
           <div class="controls">
-            <%= f.text_area :text_content, :class => "input-block-level", :rows => 5  %>
+            <%= f.text_area :text_content, :class => "input-block-level", :rows => 5 %>
           </div>
         </div>
         <div class="control-group" id="item_file_type">
@@ -73,14 +81,15 @@
             <!-- accept: 'image/png,image/gif,image/jpeg' -->
           </div>
         </div>
-         <% if @package.custom_key %>
-        <div class="control-group">
-          <label class="control-label">Encryption key</label>
-          <div class="controls">
-            <%= f.text_field :aes_key, :class => "input-block-level", :placeholder => "must be 32 characters length", :required => true %>
-          </div>
-        </div>
-            <% end %>
+        <% if @package.custom_key %>
+            <div class="control-group">
+              <label class="control-label">Encryption key</label>
+
+              <div class="controls">
+                <%= f.text_field :aes_key, :class => "input-block-level", :placeholder => "must be 32 characters length", :required => true %>
+              </div>
+            </div>
+        <% end %>
 
         <div class="control-group">
           <hr class="divider"/>

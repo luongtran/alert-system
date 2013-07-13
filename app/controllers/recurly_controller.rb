@@ -20,6 +20,12 @@ class RecurlyController < ApplicationController
     logger.error "Customer record not found: #{e.message}"
   end
 
+  def close_account
+    @account.close_account
+    @result_object = Recurly::Account.find(@account.account_code)
+    render :action => 'index'
+  end
+
   def test
     xml = <<XML
 <expired_subscription_notification>

@@ -23,6 +23,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_billing
+    account = Recurly::Account.find(current_user.customer_id)
+    @billing_infor = account.billing_info
+  end
+
+  def update_billing
+    account = Recurly::Account.find(current_user.customer_id)
+    account.billing_info = params[:billing_inf]
+    account.billing_info.save
+  rescue Recurly::Resource::Invalid => e
+    puts "\n\n__________fuck"
+    flash[:notice] = "failed !"
+    redirect_to dashboard_path
+  end
 
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
