@@ -5,13 +5,23 @@
         $('.pricing-box#planbox' + $('#current_role').val()).remove();
     });
 </script>
+<script>
+    $(function () {
+        $('#downgrade-to-free-plan-btn').click(function () {
+//            alert('alert msg');
+            $('#plan-options').removeAttr();
+        });
+
+    });
+</script>
+
 <br/>
 <h4>Need to update billing
   information? <%= link_to 'Update here', users_edit_billing_path, :class => 'btn btn-primary' %></h4>
 <br/>
 <hr class="divider">
 
- <h4>Your currently subscription: <%= @current_user_role_name.titleize %></h4>
+<h4>Your currently subscription: <%= @current_user_role_name.titleize %></h4>
 <br/>
 <h4>Change plan?</h4>
 <%= hidden_field_tag :current_role, @current_user_role_id, :id => "current_role" %>
@@ -25,7 +35,7 @@
         <li>Limited : 1 Package</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 2 ? 'Downgrade!' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%= link_to 'Downgrade!', "#plan-options", :class => 'btn btn-danger', :id => "downgrade-to-free-plan-btn", data: {toggle: "modal"} %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox3">
@@ -37,7 +47,7 @@
         <li>Limited : 3 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 3 ? 'Downgrade!' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%= link_to @current_user_role_id > 3 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-large' %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox4">
@@ -49,7 +59,7 @@
         <li>Limited : 10 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 4 ? 'Downgrade!' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%= link_to @current_user_role_id > 4 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox5">
@@ -61,11 +71,9 @@
         <li>Limited : 30 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 5 ? 'Downgrade!' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%= link_to @current_user_role_id > 5 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
     </div>
   </div>
-
-
 </div>
 
 
@@ -82,15 +90,20 @@
 
 <div id="plan-options" class="modal" style="display: none; ">
   <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
-      <div class="modal-header">
-        <%= link_to "&#215;".html_safe, "#", class: "close", data: {dismiss: "modal"} %>
-        <h3>Change Plan</h3>
-      </div>
-      <div class="modal-body">
-        <%= f.input :role_ids, collection: Role.all.delete_if { |i| i.name == 'admin'|| i.name == current_user.roles.first.name }, as: :radio_buttons, label_method: lambda { |t| t.name.titleize }, label: false, item_wrapper_class: 'inline', checked: resource.role_ids.first %>
-      </div>
+      <br>
+      <p> If you downgrade your subscription to Free, all packages will be destroy .... blah .. </p>
+      <h3> Confirm </h3>
+      <% if false %>
+          <div class="modal-header">
+            <%= link_to "&#215;".html_safe, "#", class: "close", data: {dismiss: "modal"} %>
+            <h3>Change Plan</h3>
+          </div>
+          <div class="modal-body">
+            <%= f.input :role_ids, collection: Role.all.delete_if { |i| i.name == 'admin'|| i.name == current_user.roles.first.name }, as: :radio_buttons, label_method: lambda { |t| t.name.titleize }, label: false, item_wrapper_class: 'inline', checked: resource.role_ids.first %>
+          </div>
+      <% end %>
       <div class="modal-footer">
-        <%= f.submit "Change Plan", class: "btn btn-primary", :disabled => true %>
+        <%= f.submit "Update Plan", class: "btn btn-primary", :disabled => true %>
         <%= link_to "Close", "#", class: "btn", data: {dismiss: "modal"} %>
       </div>
   <% end %>
