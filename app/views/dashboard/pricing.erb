@@ -47,7 +47,7 @@
         <li>Limited : 3 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 3 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-large' %>
+      <%= link_to @current_user_role_id > 3 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox4">
@@ -77,9 +77,6 @@
 </div>
 
 
-
-
-
 <% if false %>
     <h3>Subscription Plan</h3>
     <p>
@@ -91,7 +88,9 @@
 <div id="plan-options" class="modal" style="display: none; ">
   <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
       <br>
-      <p> If you downgrade your subscription to Free, all packages will be destroy .... blah .. </p>
+
+      <p> If you downgrade your subscription to Free, all packages will be destroy ... blah .. </p>
+
       <h3> Confirm </h3>
       <% if false %>
           <div class="modal-header">
