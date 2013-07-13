@@ -330,7 +330,7 @@
 
                     <div class="controls">
                       <%= f.text_field :first_name, :class => "input-block-level", :required => true %>
-                      <!--<input type="text" name="first_name" class="handwrite input-block-level"/>-->
+
                     </div>
                   </div>
                   <div class="control-group">
@@ -338,7 +338,7 @@
 
                     <div class="controls">
                       <%= f.text_field :last_name, :required => true, :class => "input-block-level" %>
-                      <!--<input type="text" name="last_name" class="handwrite input-block-level"/>-->
+
                     </div>
                   </div>
                   <div class="control-group">
@@ -346,7 +346,7 @@
 
                     <div class="controls">
                       <%= f.text_field :email, :required => true, :class => "input-block-level" %>
-                      <!--<input type="text" name="email" class="handwrite input-block-level"/>-->
+
                     </div>
                   </div>
                   <div class="control-group">
@@ -354,7 +354,7 @@
 
                     <div class="controls">
                       <%= f.password_field :password, :required => true, :class => "input-block-level" %>
-                      <!--<input type="password" name="password" class="handwrite input-block-level"/>-->
+
                     </div>
                   </div>
                   <div class="control-group">
@@ -362,28 +362,22 @@
 
                     <div class="controls">
                       <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level" %>
-                      <!--<input type="password" name="password_confirm" class="handwrite input-block-level"/>-->
+
                     </div>
                   </div>
                   <% if @plan == 'free' %>
                       <div class="control-group">
                         <label class="control-label">Frequency <span>*</span> :</label>
-
                         <div class="controls">
                           <%= f.text_field :frequency, :type => "number", :readonly => true, :class => "input-block-level", :value => 30 %>
-
                           <label>Free plan can't edit this option</label>
-
                         </div>
                       </div>
                   <% else %>
                       <div class="control-group">
                         <label class="control-label">Frequency <span>*</span> :</label>
-
                         <div class="controls">
-                          <%#= f.input :frequency, :required => true, :class => "input-block-level" %>
-
-                          <input type="number" name="user[frequency]" class="input-block-level"/>
+                          <%= f.text_field :frequency, :type => "number",:class => "input-block-level", :value => 30 %>
                         </div>
                       </div>
                   <% end %>
