@@ -370,7 +370,7 @@
                         <label class="control-label">Frequency <span>*</span> :</label>
 
                         <div class="controls">
-                          <%= f.text_field :frequency, :value => 30, :class => "input-block-level", :readonly => true %>
+                          <%= f.input :frequency, :value => 30, :class => "input-block-level", :readonly => true %>
                           <label>Free plan can't edit this option</label>
                           <!--<input type="number" name="frequency" class="handwrite input-block-level"/>-->
                         </div>
@@ -380,8 +380,9 @@
                         <label class="control-label">Frequency <span>*</span> :</label>
 
                         <div class="controls">
-                          <%= f.text_field :frequency, :required => true, :class => "input-block-level" %>
-                          <!--<input type="number" name="frequency" class="handwrite input-block-level"/>-->
+                          <%#= f.input :frequency, :required => true, :class => "input-block-level" %>
+
+                          <input type="number" name="user[frequency]" class="input-block-level"/>
                         </div>
                       </div>
                   <% end %>
@@ -393,7 +394,6 @@
                         <legend>Billing Profile</legend>
                         <div class="control-group">
                           <label class="control-label">Country :</label>
-
                           <div class="controls">
                             <%= select_tag 'country', country_options_for_select(selected = 'US', priority_countries = 'US'), :class => "input-block-level" %>
                           </div>
@@ -403,14 +403,14 @@
 
                           <div class="controls">
                             <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
-                            <%= text_field_tag :card_number, "4111 1111 1111 1111", name: nil, :class => "input-block-level" %>
+                            <%= text_field_tag :card_number, nil, name: nil, :class => "input-block-level" %>
                           </div>
                         </div>
                         <div class="control-group">
                           <label class="control-label">Card Security Code :</label>
 
                           <div class="controls">
-                            <%= text_field_tag :card_code, "123", name: nil, :class => "input-block-level" %>
+                            <%= text_field_tag :card_code, nil, name: nil, :class => "input-block-level" %>
                             <!--<input type="number" name="card_security_code" class="handwrite input-block-level"/>-->
                           </div>
                         </div>

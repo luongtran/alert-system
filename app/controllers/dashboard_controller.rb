@@ -4,11 +4,25 @@ class DashboardController < ApplicationController
   def index
     @packages_count = current_user.packages.count
     @items_count = current_user.items.count
-    @next_validate_at =  DateTime.now + current_user.frequency.days
+    @next_validate_at = DateTime.now + current_user.frequency.days
   end
 
   def pricing
 
+
+  end
+
+  def update_billing_infor
+    account = Recurly::Account.find(current_user.customer_id)
+    billing_infor = account.billing_info
+    #account.billing_info = {
+    #    :first_name => "#{self.first_name}-tenmoine",
+    #    :last_name => self.last_name,
+    #    :number => '4111-1111-1111-1111',
+    #    :verification_value => '123',
+    #    :month => 11,
+    #    :year => 2015
+    #}
   end
 
   def packages

@@ -7,7 +7,7 @@ AlertSystem::Application.routes.draw do
   get "recipient/get"
   get "recipient/delete"
   get "check_in/welcomeback"
-  #get 'items/download'
+
   get "home/pricing"
   get "recurly/test"
   post "recurly/push"

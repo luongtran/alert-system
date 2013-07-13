@@ -6,15 +6,18 @@
     <%= f.input :first_name, autofocus: true %>
     <%= f.input :last_name %>
     <%= f.input :email, required: true, :readonly => true %>
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    <label>Password : (leave it blank if you don't want to change it)</label>
+    <%= f.password_field :password, autocomplete: "off", required: false %>
+
     <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
     <% if current_user.has_role? 'free' %>
         <%= f.input :frequency, :required => true, :readonly => true, hint: " upgrade your subscription to customize " %>
     <% else %>
         <%= f.input :frequency, :required => true %>
-
     <% end %>
+    <label>* Current password : (we need your current password to confirm your changes)</label>
+    <%= f.password_field :current_password, required: true %>
+    <br/>
     <%= f.button :submit, 'Update Account', class: 'btn-primary' %>
-
 <% end %>

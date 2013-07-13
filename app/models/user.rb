@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
     false
   end
 
+
   def update_plan(role)
     self.role_ids = []
     self.add_role(role.name)
@@ -59,6 +60,7 @@ class User < ActiveRecord::Base
   end
 
   def update_recurly
+    puts "\n\n_______vo update_recurly \n"
     customer = Recurly::Account.find(customer_id) unless customer_id.nil?
     unless customer.nil?
       customer.email = email
