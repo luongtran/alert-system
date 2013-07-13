@@ -13,16 +13,18 @@ class DashboardController < ApplicationController
   end
 
   def update_billing_infor
+
     account = Recurly::Account.find(current_user.customer_id)
-    billing_infor = account.billing_info
-    #account.billing_info = {
-    #    :first_name => "#{self.first_name}-tenmoine",
-    #    :last_name => self.last_name,
-    #    :number => '4111-1111-1111-1111',
-    #    :verification_value => '123',
-    #    :month => 11,
-    #    :year => 2015
-    #}
+    #billing_infor = account.billing_info
+
+    account.billing_info = {
+        :first_name => "value",
+        :last_name => 'value',
+        :number => '4111-1111-1111-1111',
+        :verification_value => '123',
+        :month => 11,
+        :year => 2015
+    }
   end
 
   def packages
