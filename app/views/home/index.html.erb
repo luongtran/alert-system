@@ -67,7 +67,7 @@
                       <div class="control-group">
                         <%= f.password_field :password, :placeholder => "Your Password", :class => "input-block-level", :size => 25 %>
                         <!--<input type="password" name="password" placeholder="Your Password" class="input-block-level handwrite"/>-->
-                        <br/><a href="#" class="forgot">I
+                        <br/><a href="<%= new_password_path(resource_name)%>" class="forgot">I
                         forgot my password</a>
                       </div>
                       <div class="control-group submitdiv">

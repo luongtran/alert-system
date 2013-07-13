@@ -368,6 +368,7 @@
                   <% if @plan == 'free' %>
                       <div class="control-group">
                         <label class="control-label">Frequency <span>*</span> :</label>
+
                         <div class="controls">
                           <%= f.text_field :frequency, :type => "number", :readonly => true, :class => "input-block-level", :value => 30 %>
                           <label>Free plan can't edit this option</label>
@@ -376,8 +377,9 @@
                   <% else %>
                       <div class="control-group">
                         <label class="control-label">Frequency <span>*</span> :</label>
+
                         <div class="controls">
-                          <%= f.text_field :frequency, :type => "number",:class => "input-block-level", :value => 30 %>
+                          <%= f.text_field :frequency, :type => "number", :class => "input-block-level", :value => 30 %>
                         </div>
                       </div>
                   <% end %>

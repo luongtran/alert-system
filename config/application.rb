@@ -39,6 +39,10 @@ module AlertSystem
     
     config.to_prepare do
       Devise::SessionsController.layout "logged_out"
+      Devise::PasswordsController.layout "logged_out"
+      Devise::UnlocksController.layout "logged_out"
+      Devise::ConfirmationsController.layout "logged_out"
+      Devise::OmniauthCallbacksController.layout "logged_out"
     end
 
 
