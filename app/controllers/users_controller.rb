@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     account = Recurly::Account.find(current_user.customer_id)
     @billing_infor = account.billing_info
   rescue Recurly::Resource::NotFound => e
-    flash[:notice] = "Your account not found in Recurly !"
+    flash[:notice] = "Your account code not found!"
     redirect_to :back
   end
 
