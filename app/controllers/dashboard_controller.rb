@@ -8,15 +8,12 @@ class DashboardController < ApplicationController
   end
 
   def pricing
-
-
+    @current_user_role_id = current_user.roles.first.id
+    @current_user_role_name =  current_user.roles.first.name
   end
-
-
 
   def packages
     @packages = current_user.packages
-    puts "\n\n___________________#{current_page}"
   end
 
   def items
