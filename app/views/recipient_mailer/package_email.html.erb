@@ -13,7 +13,7 @@
 
     </b>
     <br/>
-    Click the link to access them: <%= "http://localhost:3000/recipient/get?code=#{@package.verify_recipient_code}" %>
+    Click the link to access them: <%= verify_path(@package.verify_recipient_code) %>
     <br/>
 
   </body>
