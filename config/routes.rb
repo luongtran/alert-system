@@ -4,7 +4,7 @@ AlertSystem::Application.routes.draw do
   get "dashboard/index", :as => :dashboard
   get "dashboard/pricing"
 
-  get "recipient/get/(:code)", :as => :verify
+  get "recipient/get/(:code)" => "Recipient#get", :as => :verify
   get "recipient/delete"
   get "check_in/welcomeback"
 
