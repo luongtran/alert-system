@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "Alert System Stuff <alert-system@example.com>"
+  default :from => ENV['MAIL_SENDER_ADDR']
 
   def expire_email(user)
     mail(:to => user.email, :subject => "Subscription Cancelled")

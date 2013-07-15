@@ -1,12 +1,12 @@
 class RecipientMailer < ActionMailer::Base
-  default :from => "Alert System Stuff <alert-system@example.com>"
+  default :from => ENV['MAIL_SENDER_ADDR']
 
   def package_email(package, recipient)
     @package = package
     @recipient = recipient
     @user = User.find(@package.user_id)
     # Find package's recipient
-    mail(:to => @recipient.email, :subject => " Send Switch Package ")
+    mail(:to => @recipient.email, :subject => "Package Alert System")
   end
 
 end

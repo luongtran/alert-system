@@ -8,7 +8,9 @@
 # Add application configuration variables here, as shown below.
 #
 
-ROOT_SITE_URL: http://alert-system.herokuapp.com
+ROOT_SITE_URL: alert-system.herokuapp.com
+MAIL_SENDER_ADDR: Alert System Stuff <alert-system-noreply@example.com>
+
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
 ADMIN_FIRST_NAME: Thanh
