@@ -6,7 +6,7 @@ class RecipientMailer < ActionMailer::Base
     @recipient = recipient
     @user = User.find(@package.user_id)
     # Find package's recipient
-    mail(:to => @recipient.email, :subject => "Package Alert System")
+    mail(:to => @recipient.email, :subject => "Package from Alert System")
   end
 
 end
