@@ -116,9 +116,9 @@ class User < ActiveRecord::Base
             unless u.send_validate_mail_at.nil?
               if (u.send_validate_mail_at + @@max_validate_days.days).past?
                 #  if (u.send_validate_mail_at + 80).past? #Test validating time = 300s#
-                u.update_attribute(:validate_code, '')
+                u.update_attribute(:validate_code, nil)
                 u.update_attribute(:status, "died")
-                # Send mail to reciptients
+                # Send package mail to reciptients
                 u.packages.each do |p|
                   unless p.items.count == 0
                     # Generate random verify code

@@ -15,7 +15,7 @@
     </div>
     <div class="field">
       <%= label_tag :number, "Credit Card Number" %>
-      <%= b.text_field :number %>
+      <%= b.text_field :number, :value => "#{@billing_infor.first_six}****#{@billing_infor.last_four}" %>
     </div>
     <div class="field">
       <%= label_tag :verification_value, "Card Security Code (CVV)" %>
@@ -28,10 +28,5 @@
     </div>
     <button type="submit" class="btn btn-primary span5">Update</button>
 <% end %>
-
-
-
-
-
 
 

@@ -57,6 +57,8 @@ class UsersController < ApplicationController
   def admin_layout
     if current_user.has_role? :admin
       "logged_out"
+    else
+      "application"
     end
   end
 end
