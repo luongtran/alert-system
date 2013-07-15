@@ -7,6 +7,8 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
+
+ROOT_SITE_URL: http://alert-system.herokuapp.com
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
 ADMIN_FIRST_NAME: Thanh
@@ -23,8 +25,8 @@ RECURLY_SUBDOMAIN: send-switch
 MANDRILL_USERNAME: htluan2605@gmail.com
 MANDRILL_API_KEY: ASF7neJ4xHzq6xnDjxLkAw
 
+AWS3_BUCKET_PREFIX: alert-system-package-
 
-#AWS_BUCKET: send-switch-bucket
 AWS_ACCESS_KEY_ID: AKIAIZTAI53YBVILFSTQ
 AWS_SECRET_ACCESS_KEY: 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
 

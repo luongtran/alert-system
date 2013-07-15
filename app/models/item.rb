@@ -37,7 +37,7 @@ class Item < ActiveRecord::Base
       self.text_content = step2
       # File item
     else
-      s3_uploader(self.file_name, self.file.read, "#{ENV['s3_bucket_prefix']}#{self[:package_id]}", self.aes_key)
+      s3_uploader(self.file_name, self.file.read, "#{ENV['AWS3_BUCKET_PREFIX']}#{self[:package_id]}", self.aes_key)
     end
   end
 
@@ -47,13 +47,13 @@ class Item < ActiveRecord::Base
 
   def delete_from_s3
     s3 = AWS::S3.new
-    obj = s3.buckets["#{ENV['s3_bucket_prefix']}#{self[:package_id]}"].objects[self.file_name]
+    obj = s3.buckets["#{ENV['AWS3_BUCKET_PREFIX']}#{self[:package_id]}"].objects[self.file_name]
     obj.delete
   end
 
   #def s3_url
   #  s3 = AWS::S3.new
-  #  obj = s3.buckets["#{ENV['s3_bucket_prefix']}#{self[:package_id]}"].objects[self.file_name]
+  #  obj = s3.buckets["#{ENV['AWS3_BUCKET_PREFIX']}#{self[:package_id]}"].objects[self.file_name]
   #  obj.url_for(:read, :authenticated => true, :expires => 5*60).to_s
   #end
 

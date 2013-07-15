@@ -7,33 +7,36 @@
     <list default="true" id="0887baa8-076f-40b3-867d-ef9e154191b3" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\README" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\README.textile" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recipient/get.html.erb" afterPath="$PROJECT_DIR$/app/views/recipient/get.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/items_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/items_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/logged_out.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/logged_out.html.erb" />
+      <change type="DELETED" beforePath="C:\Sites\AlertSystem\config\initializers\create_userdata_folder.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.yml" afterPath="$PROJECT_DIR$/config/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/cron_job.rb" afterPath="$PROJECT_DIR$/config/initializers/cron_job.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/item.rb" afterPath="$PROJECT_DIR$/app/models/item.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/package.rb" afterPath="$PROJECT_DIR$/app/models/package.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recipient_mailer/package_email.html.erb" afterPath="$PROJECT_DIR$/app/views/recipient_mailer/package_email.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/recipient_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/recipient_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/recipient_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/recipient_mailer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_mailer/validate_email.html.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/validate_email.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlertSystem.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373851226546" ignored="false" />
     <file path="/registrations_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373716474319" ignored="false" />
-    <file path="/a.dummy" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373857921911" ignored="false" />
+    <file path="/a.dummy" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373870844331" ignored="false" />
     <file path="/new.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373852436346" ignored="false" />
     <file path="/index.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373707928045" ignored="false" />
     <file path="/_links.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373535055572" ignored="false" />
-    <file path="/recipient_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373866985319" ignored="false" />
+    <file path="/recipient_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373870704257" ignored="false" />
     <file path="/show.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373629324391" ignored="false" />
     <file path="/packages_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373621165370" ignored="false" />
     <file path="/view_recipient.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373537287081" ignored="false" />
     <file path="/routes.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373861351557" ignored="false" />
     <file path="/viewrecipient.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373536980873" ignored="false" />
-    <file path="/cron_job.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373620317238" ignored="false" />
-    <file path="/user.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373700352719" ignored="false" />
+    <file path="/cron_job.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373870778893" ignored="false" />
+    <file path="/user.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373869510028" ignored="false" />
     <file path="/Gemfile" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373537792918" ignored="false" />
     <file path="/application_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373855233678" ignored="false" />
     <file path="/item.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373626219716" ignored="false" />
@@ -57,11 +60,14 @@
     <file path="/application.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373706923559" ignored="false" />
     <file path="/edit_billing.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373725703521" ignored="false" />
     <file path="/_messages.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373725934042" ignored="false" />
-    <file path="/package_email.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373768376340" ignored="false" />
+    <file path="/package_email.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373869434016" ignored="false" />
     <file path="/confirmation_instructions.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373852318601" ignored="false" />
     <file path="/reset_password_instructions.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373852334200" ignored="false" />
     <file path="/admin.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373855163322" ignored="false" />
     <file path="/get.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373858564984" ignored="false" />
+    <file path="/recipient_mailer.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373868518570" ignored="false" />
+    <file path="/application.yml" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373869267489" ignored="false" />
+    <file path="/validate_email.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373869286028" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,25 +95,43 @@
       <file leaf-file-name="get.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/recipient/get.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="66" selection-start="1216" selection-end="1216" vertical-scroll-proportion="-9.807693">
+            <state line="31" column="66" selection-start="1216" selection-end="1216" vertical-scroll-proportion="-20.26923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recipient_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/recipient_controller.rb">
+      <file leaf-file-name="package_email.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/recipient_mailer/package_email.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.08027923">
+            <state line="14" column="113" selection-start="615" selection-end="616" vertical-scroll-proportion="-9.153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
+      <file leaf-file-name="validate_email.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/user_mailer/validate_email.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="46" selection-end="67" vertical-scroll-proportion="0.0">
+            <state line="16" column="5" selection-start="552" selection-end="575" vertical-scroll-proportion="0.57995737">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expire_email.text.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/user_mailer/expire_email.text.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="33" selection-start="4079" selection-end="4079" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,22 +155,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/devise/mailer/unlock_instructions.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/devise/unlocks/new.html.erb" />
-        <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.users" />
-        <option value="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
-        <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.packages" />
-        <option value="$PROJECT_DIR$/app/views/layouts/logged_out.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.items" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/helpers/items_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/recipient/get.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/mailers/recipient_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/item.rb" />
+        <option value="$PROJECT_DIR$/app/models/package.rb" />
+        <option value="$PROJECT_DIR$/config/application.yml" />
+        <option value="$PROJECT_DIR$/app/views/user_mailer/validate_email.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/recipient_mailer/package_email.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/recipient_controller.rb" />
+        <option value="$PROJECT_DIR$/config/initializers/cron_job.rb" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
       </list>
     </option>
   </component>
@@ -212,20 +236,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlertSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlertSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -254,15 +264,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
+              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,7 +308,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="recipient" />
+              <option name="myItemId" value="user_mailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipient_mailer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,7 +577,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Database.TableEditor.Splitter" value="0.90762126" />
+    <property name="Database.TableEditor.Splitter" value="0.9076305" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="ruby.project.structure" />
@@ -625,6 +653,22 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
@@ -797,14 +841,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12687813" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11969697" sideWeight="0.87312186" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13021703" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18712121" sideWeight="0.87312186" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21742424" sideWeight="0.87312186" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.869783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19765495" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -879,62 +923,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/check_in_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/items/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="71" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.3501048">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/packages_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.7801048">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="38" selection-start="3712" selection-end="3712" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs193/object.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="4" selection-start="834" selection-end="834" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/create_userdata_folder.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.packages">
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -943,6 +931,13 @@
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="33" selection-start="4079" selection-end="4079" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.items">
@@ -955,37 +950,93 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/recipient/get.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/initializers/cron_job.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="66" selection-start="1216" selection-end="1216" vertical-scroll-proportion="-9.807693">
+        <state line="9" column="34" selection-start="163" selection-end="163" vertical-scroll-proportion="0.2771739">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/items_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/mailers/recipient_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="65" selection-end="65" vertical-scroll-proportion="0.118673645">
+        <state line="10" column="59" selection-start="349" selection-end="349" vertical-scroll-proportion="0.307971">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/package.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="1" selection-start="1673" selection-end="1681" vertical-scroll-proportion="0.6143106">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="46" selection-end="67" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="705" selection-end="705" vertical-scroll-proportion="0.68237346">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/recipient_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.08027923">
+        <state line="32" column="74" selection-start="623" selection-end="623" vertical-scroll-proportion="0.94938916">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/expire_email.text.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/recipient_mailer/package_email.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="113" selection-start="615" selection-end="616" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs193/object.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="4" selection-start="834" selection-end="834" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="38" selection-start="510" selection-end="520" vertical-scroll-proportion="0.29746836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="57" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.4620253">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="41" selection-start="1096" selection-end="1096" vertical-scroll-proportion="0.3131313">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="8" selection-start="105" selection-end="105" vertical-scroll-proportion="-0.2020202">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/validate_email.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="5" selection-start="552" selection-end="575" vertical-scroll-proportion="0.57995737">
           <folding />
         </state>
       </provider>

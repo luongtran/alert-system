@@ -1,20 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-  </head>
-  <body>
-    <h3>Hi, <%=  @recipient.name  %> !</h3>
-    <p><%= "#{@user.first_name} #{@user.last_name}" %> has died and send you some files. </p>
-    <b><p>Information : </p>
-      <li> Package name: <%= @package.name %></li>
-      <li> Desciption: <%=@package.description%></li> 
-      <li> Items count: <%= @package.items.count %> </li>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h3>Hi, <%= @recipient.name %> !</h3>
 
-    </b>
-    <br/>
-    Click the link to access them: <%= verify_path(@package.verify_recipient_code) %>
-    <br/>
+<p><%= "#{@user.first_name} #{@user.last_name} <#{@user.email}>" %> has died and send you some files. </p>
+<b><p>Information : </p>
+  <li> Package name: <%= @package.name %></li>
+  <li> Desciption: <%= @package.description %></li>
+</b>
+<br/>
+Click the link to access them: <%= "#{ENV['ROOT_SITE_URL']}/recipient/get?code=#{@package.verify_recipient_code}" %>
+<br/>
 
-  </body>
+</body>
 </html>

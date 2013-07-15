@@ -8,6 +8,6 @@ scheduler = Rufus::Scheduler.start_new
 #end
 
 # cron test
-scheduler.every("1m") do
+scheduler.every("5m") do
   User.daily_checker
 end

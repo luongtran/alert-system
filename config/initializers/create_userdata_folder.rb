@@ -1,1 +1,0 @@
-ENV['s3_bucket_prefix'] = "alert-system-package-"

@@ -12,9 +12,9 @@ class ItemsController < ApplicationController
     if @item.item_type != 1
       if !@package.custom_key
         aes_key = Base64.decode64(@package.encrypted_key)
-        data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name, aes_key)
+        data = s3_downloader("#{ENV['AWS3_BUCKET_PREFIX']}#{@item[:package_id]}", @item.file_name, aes_key)
       else
-        data = s3_downloader("#{ENV['s3_bucket_prefix']}#{@item[:package_id]}", @item.file_name)
+        data = s3_downloader("#{ENV['AWS3_BUCKET_PREFIX']}#{@item[:package_id]}", @item.file_name)
       end
       if data.nil?
         flash[:notice] = "An error has occurred, please try again later !"

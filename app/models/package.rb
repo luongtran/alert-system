@@ -21,7 +21,7 @@ class Package < ActiveRecord::Base
 
   def delete_from_s3 # put in controller ?
     Thread.new do
-      s3_bucket_delete("#{ENV['s3_bucket_prefix']}#{self.id}")
+      s3_bucket_delete("#{ENV['AWS3_BUCKET_PREFIX']}#{self.id}")
     end
   end
 end
