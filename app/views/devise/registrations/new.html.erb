@@ -318,7 +318,6 @@
                           </div>
                       <% end %>
                   <% end %>
-
                   <%#= f.error_notification %>
                   <%#= display_base_errors resource %>
                   <%= hidden_field_tag :plan, params[:plan] %>
@@ -383,10 +382,10 @@
                         </div>
                       </div>
                   <% end %>
-                  <%# if @user.card_token %>
-                  <%#*<!--<p>Credit card acceptance is pending.</p>-->%>
-                  <%# else %>
-                  <% if @plan != 'free' %>
+                  <% if @user.card_token %>
+                      <p>Credit card acceptance is pending.</p>
+                  <% else %>
+
                       <div class="billing-profile-fields">
                         <legend>Billing Profile</legend>
                         <div class="control-group">
@@ -432,9 +431,8 @@
                           </div>
                         </div>
                       </div>
-                      <%# end %>
-                      <%= f.hidden_field :card_token %>
                   <% end %>
+                  <%= f.hidden_field :card_token %>
                   <div class="control-group">
                     <label class="control-label"></label>
 
@@ -444,8 +442,6 @@
                   </div>
                 </fieldset>
             <% end %>
-
-
           </div>
         </div>
       </div>

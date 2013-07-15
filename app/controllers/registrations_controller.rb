@@ -18,12 +18,24 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update_plan
     @user = current_user
-    role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
-    if @user.update_plan(role)
-      redirect_to edit_user_registration_path, :notice => 'Updated plan.'
+    old_role = current_user.roles.first.id
+    #role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
+    new_role = Role.find(params[:role_ids])
+    #2	free
+    #3	small   5
+    #4	medium   10
+    #5	large      15
+
+    if @user.update_plan(new_role)
+      # Delete package
+      if current_user.packages.count > Role.find(new_role).maximum_packages
+
+      end
+
+      redirect_to :back, :notice => 'Your plan updated successfully!'
     else
       flash.alert = 'Unable to update plan.'
-      render :edit
+      redirect_to :back
     end
   end
 
@@ -31,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
   def build_resource(*args)
     super
     if params[:plan]
-      resource.skip_check_recurly = true if params[:plan]=='free' # Free user không cần check_recurly
+      # resource.skip_check_recurly = true if params[:plan]=='free' # Free user không cần check_recurly
       resource.add_role(params[:plan])
     end
     resource.customer_id ||= SecureRandom.uuid

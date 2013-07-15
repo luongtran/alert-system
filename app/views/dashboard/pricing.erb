@@ -21,7 +21,7 @@
 <br/>
 <hr class="divider">
 
-<h4>Your currently subscription: <%= @current_user_role_name.titleize %></h4>
+<h4>Your currently subscription plan: <%= @current_user_role_name.titleize %></h4>
 <br/>
 <h4>Change plan?</h4>
 <%= hidden_field_tag :current_role, @current_user_role_id, :id => "current_role" %>
@@ -35,7 +35,11 @@
         <li>Limited : 1 Package</li>
       </ul>
       <br/>
-      <%= link_to 'Downgrade!', "#plan-options", :class => 'btn btn-danger', :id => "downgrade-to-free-plan-btn", data: {toggle: "modal"} %>
+      <%
+         label = 'Downgrade'
+         message = "Note: Free plan limited only 1 package, if you downgrade to free plan, some older packages may be deleted \n\n  Are you sure to continue?"
+      %>
+      <%= link_to label, update_plan_path(:role_ids => 2), :class => 'btn btn-danger', :id => "downgrade-to-free-plan-btn", :data => {:confirm => message}, :method => :put %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox3">
@@ -47,7 +51,20 @@
         <li>Limited : 3 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 3 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%
+         label = ""
+         message = ""
+         if @current_user_role_id > 3
+           label = 'Downgrade'
+           message = "Note: Small plan limited 3 packages, if you downgrade to this plan, some older packages may be deleted !\n\n  Are you sure to continue?"
+         else
+           label = 'Upgrade'
+           message = "Small Plan : with $5/month\n Are you sure ?"
+         end
+      %>
+      <%= link_to label, update_plan_path(:role_ids => 3), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
+
+
     </div>
   </div>
   <div class="pricing-box span4" id="planbox4">
@@ -59,7 +76,18 @@
         <li>Limited : 10 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 4 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%
+         label = ""
+         message = ""
+         if @current_user_role_id > 4
+           label = 'Downgrade'
+           message = "Note: Medium plan limited 10 packages, some older packages may be deleted if you downgrade to this plan !\n\n Are you sure to continue?"
+         else
+           label = 'Upgrade'
+           message = "Medium Plan with $10/month\n Are you sure to continue?"
+         end
+      %>
+      <%= link_to label, update_plan_path(:role_ids => 4), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
     </div>
   </div>
   <div class="pricing-box span4" id="planbox5">
@@ -71,14 +99,18 @@
         <li>Limited : 30 Packages</li>
       </ul>
       <br/>
-      <%= link_to @current_user_role_id > 5 ? 'Downgrade' : 'Upgrade', "javascript: void(0)", :class => 'btn btn-primary' %>
+      <%
+         label = 'Upgrade'
+         message = "Large Plan with $15/month\n Are you sure to continue?"
+      %>
+      <%= link_to label, update_plan_path(:role_ids => 5), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
     </div>
   </div>
 </div>
 
-
 <% if false %>
     <h3>Subscription Plan</h3>
+
     <p>
       <%= current_user.roles.first.name.titleize %>
       <%= link_to "Change plan", "#plan-options", class: "btn btn-primary", data: {toggle: "modal"} %>
@@ -89,6 +121,7 @@
   <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
       <br>
       <h5> If you downgrade your subscription to Free, all packages will be destroy</h5>
+
       <h3> Confirm </h3>
       <% if false %>
           <div class="modal-header">

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :card_token, :skip_check_recurly
 
-  before_create :check_recurly, :unless => :skip_check_recurly
+  before_create :check_recurly
 
   before_destroy :cancel_subscription
 
@@ -45,6 +45,11 @@ class User < ActiveRecord::Base
   def update_plan(role)
     self.role_ids = []
     self.add_role(role.name)
+
+    if customer_id.nil?
+      errors.add :base, "Unable to update your subscription."
+      return false
+    end
     customer = Recurly::Account.find(customer_id) unless customer_id.nil?
     unless customer.nil?
       subscription = customer.subscriptions.first
@@ -58,7 +63,6 @@ class User < ActiveRecord::Base
   end
 
   def update_recurly
-    puts "\n\n_______vo update_recurly \n"
     customer = Recurly::Account.find(customer_id) unless customer_id.nil?
     unless customer.nil?
       customer.email = email
