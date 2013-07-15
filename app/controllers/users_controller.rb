@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  layout :admin_layout
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -49,6 +50,13 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "User deleted."
     else
       redirect_to users_path, :notice => "Can't delete yourself."
+    end
+  end
+
+  private
+  def admin_layout
+    if current_user.has_role? :admin
+      "logged_out"
     end
   end
 end

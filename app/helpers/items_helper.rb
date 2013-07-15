@@ -118,6 +118,7 @@ def s3_downloader(bucket_name, file_name, aes_key = nil)
   s3 = AWS::S3.new
   bucket = s3.buckets.create(bucket_name)
   obj = bucket.objects[file_name]
+  data = obj.read
   if aes_key.nil?
     data = obj.read
   else

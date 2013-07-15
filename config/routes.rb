@@ -6,6 +6,7 @@ AlertSystem::Application.routes.draw do
 
   get "recipient/get/(:code)" => "Recipient#get", :as => :verify
   get "recipient/delete"
+  get "recipient/download_item/(:code)" => "Recipient#download_item"
   get "check_in/welcomeback"
 
   get "home/pricing"
@@ -18,6 +19,7 @@ AlertSystem::Application.routes.draw do
 
   match 'packages/:package_id/items/:id/download' => 'items#download', :as => :download_item
 
+
   get 'packages/viewrecipient'
   authenticated :user do
     root :to => 'home#index'
@@ -27,6 +29,7 @@ AlertSystem::Application.routes.draw do
   devise_scope :user do
     put 'update_plan', :to => 'registrations#update_plan'
   end
+
   resources :attachments
   resources :users
 

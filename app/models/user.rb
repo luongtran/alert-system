@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :confirmable
 
-
-
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me,
                   :card_token, :customer_id, :frequency, :status, :check_date_time, :validate_code
 
@@ -106,7 +104,6 @@ class User < ActiveRecord::Base
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"
               u.update_attribute(:validate_code, validate_code)
-
               # Send validate mail
               UserMailer.validate_email(u).deliver
               u.update_attribute(:send_validate_mail_at, DateTime.now)
@@ -123,7 +120,6 @@ class User < ActiveRecord::Base
                     # Generate random verify code
                     verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
                     p.update_attribute(:verify_recipient_code, verify_recipient_code)
-
                     # Send mail
                     recipient = Recipient.find(p.recipient_id)
                     RecipientMailer.package_email(p, recipient).deliver

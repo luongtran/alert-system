@@ -3,42 +3,48 @@
     <div class="whitebox wizard">
       <div class="row-fluid">
         <% if @ok %>
-          <h1> Not found !</h1>
-        <% else %>
-          <% if @package.custom_key %>
-            <p>Note: The Package has been encrypted using AES-256, and we haven't key :D </p>
-          <% end %>
-          <h2> Package information </h2>
-          <li> Name: <%= @package.name %></li>
-          <li> Description: <%= @package.description %></li>
-          <li> Have <%= @package.items.count %> items</li>
-          <br/>
-          <hr/>
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Type</th>
-
-              <th></th>
-              <th></th>
-            </tr>
-
-            <% @package.items.each do |item| %>
-              <tr>
-                <td><%= item.name %></td>
-                <td><%= item.description %></td>
-                <td><%= item.item_type %></td>
-
-                <td><%#= link_to 'Show', item %></td>
-              </tr>
+            <% if @package.custom_key %>
+                <p>Note: The Package has been encrypted using AES with 256 bits key and ECB mode.</p>
+                <br/>
             <% end %>
-          </table>
-          <hr/>
+            <h2> Package information </h2>
+            <li> Name: <%= @package.name %></li>
+            <li> Description: <%= @package.description %></li>
 
-
+            <% if @package.items.empty? %>
+                <p> The package does not have any items !</p>
+            <% else %>
+                <li> Have <%= @package.items.count %> items</li>
+                <br/>
+                <hr/>
+                <table>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Download</th>
+                    <th></th>
+                  </tr>
+                  <% @package.items.each do |item| %>
+                      <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.description %></td>
+                        <td><%= ItemType.find(item.item_type).name %></td>
+                        <td>
+                          <% if item.item_type == 1 %>
+                              <%= link_to 'Download as text file', "/recipient/download_item?code=#{@package.verify_recipient_code}-#{item.id}" %>
+                          <% else %>
+                              <%= link_to 'Download', "/recipient/download_item?code=#{@package.verify_recipient_code}-#{item.id}" %>
+                          <% end %>
+                        </td>
+                      </tr>
+                  <% end %>
+                </table>
+                <hr/>
+            <% end %>
+        <% else %>
+            <h1> Not found !</h1>
         <% end %>
-
       </div>
     </div>
   </div>

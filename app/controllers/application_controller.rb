@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_default_control_label
+  before_filter :admin_site, :only => [:packages, :items]
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
@@ -23,4 +24,12 @@ class ApplicationController < ActionController::Base
     end
     @control_label = "#{first} - #{second}"
   end
+
+  private
+  def admin_site
+    if current_user.has_role? :admin
+      redirect_to users_path
+    end
+  end
+
 end
