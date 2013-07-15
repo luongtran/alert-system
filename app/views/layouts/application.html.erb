@@ -33,7 +33,7 @@
               <li class="pull-left <%= (params[:controller] == "dashboard" && params[:action] == "index") ? "active" : "" %>">
                 <a href="<%= dashboard_path %>">Dashboard</a>
               </li>
-              <li class="pull-left ">
+              <li class="pull-left <%= ((params[:controller] == "dashboard" && params[:action] == "pricing")) ? "active" : "" %>">
                 <a href="<%= dashboard_pricing_path %>">Pricing</a>
               </li>
               <% if user_signed_in? %>

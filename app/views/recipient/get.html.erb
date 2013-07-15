@@ -17,14 +17,13 @@
             <% else %>
                 <li> Have <%= @package.items.count %> items</li>
                 <br/>
-                <hr/>
-                <table>
+
+                <table class ="table table-bordered table-hover">
                   <tr>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Type</th>
                     <th>Download</th>
-                    <th></th>
                   </tr>
                   <% @package.items.each do |item| %>
                       <tr>
@@ -42,7 +41,7 @@
                   <% end %>
                 </table>
                 <hr/>
-                <%= link_to 'Delete the package !', "/recipient/delete?code=#{@package.verify_recipient_code}", :class => 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+                <%= link_to 'Delete the package!', "/recipient/delete?code=#{@package.verify_recipient_code}", :class => 'btn btn-danger', data: {confirm: 'Are you sure you want to permanently delete the package?'} %>
             <% end %>
         <% else %>
             <h1> Not found !</h1>
