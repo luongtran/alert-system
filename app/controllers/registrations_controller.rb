@@ -21,18 +21,16 @@ class RegistrationsController < Devise::RegistrationsController
     old_role = current_user.roles.first.id
     #role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
     new_role = Role.find(params[:role_ids])
-    #2	free
-    #3	small   5
-    #4	medium   10
-    #5	large      15
-
     if @user.update_plan(new_role)
       # Delete package
-      if current_user.packages.count > Role.find(new_role).maximum_packages
-
+      have = current_user.packages.count
+      max = Role.find(new_role).maximum_packages
+      if have > max
+        Package.where(:user_id => current_user.id).all(:order => 'created_at', :limit => (have - max)).each do |p|
+          p.destroy
+        end
       end
-
-      redirect_to :back, :notice => 'Your plan updated successfully!'
+      redirect_to :back, :notice => "Your plan updated successfully, #{have - max} package(s) has been deleted !"
     else
       flash.alert = 'Unable to update plan.'
       redirect_to :back
