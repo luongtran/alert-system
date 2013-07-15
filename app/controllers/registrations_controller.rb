@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
   def build_resource(*args)
     super
     if params[:plan]
-      # resource.skip_check_recurly = true if params[:plan]=='free' # Free user không cần check_recurly
+      resource.skip_check_recurly = true if params[:plan]=='free' # Free user không cần check_recurly
       resource.add_role(params[:plan])
     end
     resource.customer_id ||= SecureRandom.uuid

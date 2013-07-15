@@ -17,15 +17,24 @@ class RecipientController < ApplicationController
     end
   end
 
-  def delete_package
-
-
+  def delete
+    code = params[:code]
+    package_code = code[0..39]
+    @package = Package.where(:verify_recipient_code => package_code).first
+    @package.destroy
+    flash[:notice] = "Package deleted!"
+    redirect_to root_path
+  rescue Exception => e
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+      format.xml { head :not_found }
+      format.any { head :not_found }
+    end
   end
 
   def show
 
   end
-
 
   def download_item
     code = params[:code]
@@ -43,13 +52,14 @@ class RecipientController < ApplicationController
         end
         if data.nil?
           flash[:notice] = "An error has occurred, please try again later !"
-          redirect_to :back
+          redirect_to root_path
         else
           send_data(data, :filename => @item.file_name, :type => @item.file_content_type)
         end
       else # Text item
         if @package.custom_key
           text_content_encrypted = Base64.decode64(@item.text_content)
+          send_data(text_content_encrypted, :filename => "#{@item.name}-encrypted.txt")
         else
           temp = Base64.decode64(@item.text_content)
           key = Base64.decode64(@package.encrypted_key)
@@ -57,7 +67,6 @@ class RecipientController < ApplicationController
           send_data(text_content_decrypted, :filename => "#{@item.name}.txt")
         end
       end
-
     else
       flash[:notice] = "Page not found !"
       redirect_to root_path

@@ -4,8 +4,8 @@ AlertSystem::Application.routes.draw do
   get "dashboard/index", :as => :dashboard
   get "dashboard/pricing"
 
-  get "recipient/get/(:code)" => "Recipient#get", :as => :verify
-  get "recipient/delete"
+  get "recipient/get/(:code)" => "recipient#get", :as => :verify
+  # get "recipient/delete"
   get "recipient/download_item/(:code)" => "Recipient#download_item"
   get "check_in/welcomeback"
 
@@ -16,7 +16,7 @@ AlertSystem::Application.routes.draw do
   get "users/edit_billing"
 
   match "pricing" => "home#pricing"
-
+  match "recipient/delete/(:code)" => "recipient#delete"
   match 'packages/:package_id/items/:id/download' => 'items#download', :as => :download_item
 
 

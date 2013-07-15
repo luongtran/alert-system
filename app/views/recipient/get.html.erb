@@ -3,12 +3,13 @@
     <div class="whitebox wizard">
       <div class="row-fluid">
         <% if @ok %>
-            <% if @package.custom_key %>
-                <p>Note: The Package has been encrypted using AES with 256 bits key and ECB mode.</p>
-                <br/>
-            <% end %>
             <h2> Package information </h2>
+
+            <% if @package.custom_key %>
+                <p>Note: All items in the package has been encrypted using AES-ECB with 256 bits key.</p>
+            <% end %>
             <li> Name: <%= @package.name %></li>
+            <li> Created at: <%= @package.created_at.to_date %></li>
             <li> Description: <%= @package.description %></li>
 
             <% if @package.items.empty? %>
@@ -41,6 +42,7 @@
                   <% end %>
                 </table>
                 <hr/>
+                <%= link_to 'Delete the package !', "/recipient/delete?code=#{@package.verify_recipient_code}", :class => 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
             <% end %>
         <% else %>
             <h1> Not found !</h1>
@@ -49,4 +51,3 @@
     </div>
   </div>
 </div>
-

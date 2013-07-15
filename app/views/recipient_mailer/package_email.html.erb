@@ -9,6 +9,7 @@
 <p><%= "#{@user.first_name} #{@user.last_name} <#{@user.email}>" %> has died and send you some files. </p>
 <b><p>Information : </p>
   <li> Package name: <%= @package.name %></li>
+  <li> Created at: <%= @package.created_at.to_date %></li>
   <li> Desciption: <%= @package.description %></li>
 </b>
 <br/>
