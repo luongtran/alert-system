@@ -98,8 +98,8 @@ class User < ActiveRecord::Base
       unless u.has_role? :admin
         case u.status
           when 'normal'
-          #  if (u.check_date_time + u.frequency.days).past?
-                if (u.check_date_time + 60).past?           #Test, frequency = 60 second #
+            if (u.check_date_time + u.frequency.days).past?
+              #  if (u.check_date_time + 60).past?           #Test, frequency = 60 second #
               u.update_attribute(:status, "validating")
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"
@@ -110,10 +110,9 @@ class User < ActiveRecord::Base
             end
           when 'validating'
             unless u.send_validate_mail_at.nil?
-             # if (u.send_validate_mail_at + @@max_validate_days.days).past?
-                 if (u.send_validate_mail_at + 80).past? #Test validating time = 300s#
+              if (u.send_validate_mail_at + @@max_validate_days.days).past?
+                #  if (u.send_validate_mail_at + 80).past? #Test validating time = 300s#
                 u.update_attribute(:validate_code, '')
-
                 u.update_attribute(:status, "died")
                 # Send mail to reciptients
                 u.packages.each do |p|
