@@ -1053,6 +1053,10 @@ body a.active {
   #listPackages .package {
     width: 50%;
   }
+  #listPackages .package .package-inner {
+    width: 150px;
+    height: 150px;
+  }
 }
 @media (max-width: 980px) {
   #listitems .item {
