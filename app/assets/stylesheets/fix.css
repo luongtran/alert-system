@@ -1,0 +1,44 @@
+.shadowVertical {
+	background: url('../assets/images/shadowvertical.png') top right no-repeat;
+}
+.headerMid {
+	background: url('../assets/images/bluepaper.png') top left repeat
+}
+.halfpage {
+	background: url('../assets/images/halftpage.png') left top no-repeat;
+}
+#loginQuickPanel .login-inner .login-inner2 {
+	background: url("../assets/images/bluepaper.png") left top repeat;
+}
+.tiphelp {
+	background: url('../assets/images/shadowvertical.png') top right no-repeat;
+}
+#notepad {
+	background: url('../assets/images/paperyellow.png');
+}
+#dashMenu {
+	background: url('../assets/images/shadowvertical.png') top right no-repeat;
+}
+#dashMenu a {
+	background: url('../assets/images/shadowhorizon.png') top right no-repeat;
+}
+.package-inner-style {
+	background: url('../assets/images/packageicon.png') center center no-repeat #424a59;
+}
+#listPackages .package .package-inner {
+	background: url('../assets/images/packageicon.png') center center no-repeat #424a59;
+}
+#dashbody_items .packagedetail .package .package-inner {
+	background: url('../assets/images/packageicon.png') center center no-repeat #424a59;
+}
+#listitems .item .item-inner.text {
+	background: url('/assets/icontext.png') center center no-repeat transparent
+}
+
+#listitems .item .item-inner.zip {
+	background: url('/assets/iconzip.png') center center no-repeat transparent
+}
+
+#listitems .item .item-inner.image {
+	background: url('/assets/iconimage.png') center center no-repeat transparent
+}
