@@ -3,18 +3,24 @@ ActiveAdmin.register MailTemplate do
     column :name
     column :subject
     column :body
+    actions :defaults => false do |p|
+      link_to "View", admin_mail_template_path(p)
+    end
+    actions :defaults => false do |p|
+       link_to "Edit", edit_admin_mail_template_path(p)
+    end
+
   end
+
   show do
     h2 "Name: #{mail_template.name}"
-    h3 "Subject: #{mail_template.subject}"
+    h4 "Subject: #{mail_template.subject}"
     div do
       raw mail_template.body
     end
   end
+
   form do |f|
-    f.inputs "Select Type" do
-      f.select :name, MailTemplate::NAMES.collect { |s| [s.titleize] }, {:prompt => "  Select an email to edit  "}
-    end
     f.inputs "Subject" do
       f.text_field :subject
     end

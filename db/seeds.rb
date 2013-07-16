@@ -31,4 +31,13 @@ ItemType.create(:name => 'Text')
 ItemType.create(:name => 'File')
 ItemType.create(:name => 'Image')
 
+#
+MailTemplate.create(:name => 'Confirmation',:subject => '[Alert-System] Confirmation instruction', :body => '...')
+MailTemplate.create(:name => 'Reset Password',:subject => '[Alert-System] Reset password instruction', :body => '...')
+MailTemplate.create(:name => 'Validate',:subject => '[Alert-System] Are you still alive?', :body => '...')
+MailTemplate.create(:name => 'Disabled Account',:subject => '[Alert-System] Your account has been disabled?', :body => '...')
+MailTemplate.create(:name => 'Recipient',:subject => '[Alert-System] You have a package from someone?', :body => '...')
+MailTemplate.create(:name => 'Expire subscription',:subject => '[Alert-System] Your subscription has been expired !', :body => '...')
+
+
 puts " Seed completed !"
