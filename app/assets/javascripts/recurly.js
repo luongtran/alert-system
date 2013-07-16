@@ -11,11 +11,9 @@ function createObject(o) {
     return new F();
 }
 ;
-
 var Recurly = {};
 
 $('.registrations.new').ready(function() {
-    alert('reculy.js');
     console.log("omg");
     Recurly.settings = {
         enableGeoIP: true

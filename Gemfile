@@ -3,7 +3,9 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'heroku'
 gem 'rufus-scheduler'
-
+gem "activeadmin", :git => "git://github.com/gregbell/active_admin.git"
+gem 'ckeditor', :git => 'git://github.com/pshoukry/ckeditor.git'
+gem "meta_search",    '>= 1.1.0.pre'
 gem 'aws-sdk'
 
 #gem 'aws-s3', :require => 'aws/s3'
@@ -13,7 +15,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'thin'
-gem 'jquery-rails'
+#gem 'jquery-rails'
+gem "jquery-ui-rails"
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test

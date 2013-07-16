@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
-//= require registrations
 $(function () {
     $('.add_item_bt').click(function () {
         $('.frm_add_item').show();

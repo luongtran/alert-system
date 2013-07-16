@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :confirmable
 
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me,
-                  :card_token, :customer_id, :frequency, :status, :check_date_time, :validate_code
+                  :card_token, :customer_id, :frequency, :status, :check_date_time, :validate_code, :blocked
 
   attr_accessor :card_token, :skip_check_recurly
 
@@ -95,7 +95,6 @@ class User < ActiveRecord::Base
     destroy
   end
 
-
   def self.daily_checker
     @users = User.all
     @users.each do |u|
@@ -103,7 +102,7 @@ class User < ActiveRecord::Base
         case u.status
           when 'normal'
             if (u.check_date_time + u.frequency.days).past?
-              #  if (u.check_date_time + 60).past?           #Test, frequency = 60 second #
+              #  if (u.check_date_time + 30).past? #Test, frequency = 60 second #
               u.update_attribute(:status, "validating")
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"
@@ -115,9 +114,8 @@ class User < ActiveRecord::Base
           when 'validating'
             unless u.send_validate_mail_at.nil?
               if (u.send_validate_mail_at + @@max_validate_days.days).past?
-                #  if (u.send_validate_mail_at + 80).past? #Test validating time = 300s#
-                u.update_attribute(:validate_code, nil)
-                u.update_attribute(:status, "died")
+                # if (u.send #_validate_mail_at + 30).past? #Test validating time = 300s#
+                u.update_attributes :status => 'died', :validate_code => nil, :blocked => true
                 # Send package mail to reciptients
                 u.packages.each do |p|
                   unless p.items.count == 0

@@ -1,4 +1,7 @@
 AlertSystem::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   get "dashboard/items"
   get "dashboard/packages"
   get "dashboard/index", :as => :dashboard
@@ -27,6 +30,7 @@ AlertSystem::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => 'registrations'}
+  ActiveAdmin.routes(self)
   devise_scope :user do
     put 'update_plan', :to => 'registrations#update_plan'
   end
@@ -41,4 +45,5 @@ AlertSystem::Application.routes.draw do
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
   end
   devise_for :users, :controllers => {:confirmations => "confirmations"}
+  ActiveAdmin.routes(self)
 end

@@ -1,10 +1,9 @@
-$('.registrations.new').ready(function() {
-    alert('abccc');
+$('.registrations.new').ready(function () {
     var signature = $('#new_user').data('signature')
     var ip_address = $('#new_user').data('ip_address')
     var subscription = {
-        setupForm: function() {
-            return $('.card_form').submit(function() {
+        setupForm: function () {
+            return $('.card_form').submit(function () {
                 $('input[type=submit]').prop('disabled', true);
                 if ($('#card_number').length) {
                     subscription.processCard();
@@ -14,7 +13,7 @@ $('.registrations.new').ready(function() {
                 }
             });
         },
-        processCard: function() {
+        processCard: function () {
             var plan;
             plan = {
                 plan_code: $('#plan').val(),
@@ -38,7 +37,7 @@ $('.registrations.new').ready(function() {
             };
             return Recurly.Subscription.save(signature, plan, coupon, card, subscription.handleResponse);
         },
-        handleResponse: function(response) {
+        handleResponse: function (response) {
             if (response.success) {
                 $('#user_card_token').val(response.success.token)
                 $('.card_form')[0].submit()

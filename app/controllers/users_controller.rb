@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+
   layout :admin_layout
 
   def index
@@ -52,6 +53,8 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+
 
   private
   def admin_layout
