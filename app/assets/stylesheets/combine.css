@@ -1014,7 +1014,7 @@ body a.active {
   #dashMenu ul li a {
     padding-top: 5px;
     padding: 5px 23px 15px;
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 @media (max-width: 768px) {
@@ -1073,6 +1073,21 @@ body a.active {
   #dashbody_items .recipient a {
     display: inline-block;
     margin-bottom: 5px;
+  }
+}
+@media (max-width: 480px) {
+  #tipLarge .tipUnit {
+    width: 100%;
+  }
+  #tipLarge .tipUnit .infoUnit {
+    padding-left: 0;
+  }
+  #tipLarge .tipUnit img {
+    margin: 0 10px 10px 0;
+  }
+  #tipLarge .tipUnit p {
+    display: block;
+    clear: both;
   }
 }
 /* Large desktop */
