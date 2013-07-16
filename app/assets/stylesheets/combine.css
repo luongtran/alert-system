@@ -1064,6 +1064,10 @@ body a.active {
     width: 50%;
   }
 }
+#listitems .item .item-inner {
+  width: 150px;
+  height: 150px;
+}
 @media (max-width: 480px) {
   #dashbody_items .packagedetail .packtitle {
     line-height: 32px !important;
