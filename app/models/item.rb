@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
   validates :name, :presence => true, :length => 3...30
 
   validates_length_of :aes_key, :is => 32
+
   validates_uniqueness_of :name, :scope => :package_id
 
   validates :item_type, :presence => true
@@ -24,7 +25,6 @@ class Item < ActiveRecord::Base
   before_save :encrypt_item_contents
 
   before_destroy :delete_from_s3, :if => lambda { |i| i.item_type == 2 }
-
 
   def encrypt_item_contents
     # Text item
