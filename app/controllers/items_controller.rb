@@ -4,8 +4,7 @@ class ItemsController < ApplicationController
   before_filter :find_package
   respond_to :js, :html
 
-
-  # GET /items/1
+          # GET /items/1
   # GET /items/1.json
   def download
     @item = Item.find(params[:id])
