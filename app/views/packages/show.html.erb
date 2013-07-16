@@ -14,22 +14,7 @@
         <%#*</p>%>
         <%#*</div>%>
         <div class="spacing pal"></div>
-        <div class="packagedetail clearfix">
-          <div class="package pull-left">
-            <div class="package-inner"><a href="#"></a></div>
-          </div>
-          <div class="packageinfo"><a class="packtitle"><%= @package.name %></a>
-            <ul class="unstyled">
-              <li>Created at: <span><%= @package.created_at %></span></li>
-              <li>Items inside: <span> <%= @package.items.count %> items</span></li>
-              <li>Recipient:
-                <span class="recipient mlm" style=""><a href="<%="#{packages_viewrecipient_path}?id=#{@package.recipient_id}"%>"><%= Recipient.find(@package.recipient_id).name %></a>  </span>
-              </li>
 
-              <li>  <%= button_to "Delete", @package, :method => :delete, :class => "btn-danger btn-small", data: {confirm: 'Are you sure?'} %></li>
-            </ul>
-          </div>
-        </div>
       </div>
       <%#*<div class="span3">%>
       <%#*<div class="controlbox pull-right">%>
@@ -40,6 +25,24 @@
       <%#*</div>%>
       <%#*</div>%>
     </div>
+
+    <div class="packagedetail clearfix">
+      <div class="package pull-left">
+        <div class="package-inner"><a href="#"></a></div>
+      </div>
+      <div class="packageinfo"><a class="packtitle"><%= @package.name %></a>
+        <ul class="unstyled">
+          <li>Created at: <span><%= @package.created_at %></span></li>
+          <li>Items inside: <span> <%= @package.items.count %> items</span></li>
+          <li>Recipient:
+            <span class="recipient mlm" style=""><a href="<%="#{packages_viewrecipient_path}?id=#{@package.recipient_id}"%>"><%= Recipient.find(@package.recipient_id).name %></a>  </span>
+          </li>
+
+          <li>  <%= button_to "Delete", @package, :method => :delete, :class => "btn-danger btn-small", data: {confirm: 'Are you sure?'} %></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   <h3> Items </h3>
