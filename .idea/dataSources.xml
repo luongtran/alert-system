@@ -18,9 +18,7 @@
     </data-source>
     <data-source source="LOCAL" name="Rails AlertSystem: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="603217e4-6991-493c-93dd-83db849d4621">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://locahost:5432/AlertSystem_production</jdbc-url>
-      <user-name>postgres</user-name>
-      <user-password>dfe2dfdedfc6dfdfdfeadfc4df98df9cdf9adf9f</user-password>
+      <jdbc-url>jdbc:postgresql:AlertSystem_production</jdbc-url>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.RubyMine50/config/jdbc-drivers/postgresql-driver-license.txt</url>

@@ -26,10 +26,6 @@ production:
   database: AlertSystem_production
   pool: 5
   timeout: 5000
-  host: locahost
-  port: 5432
-  username: postgres
-  password: Htlu@n2605
 
 cucumber:
   <<: *test

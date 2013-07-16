@@ -7,9 +7,9 @@
     <list default="true" id="0887baa8-076f-40b3-867d-ef9e154191b3" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\README" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\README.textile" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/items/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/items/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/item.rb" afterPath="$PROJECT_DIR$/app/models/item.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlertSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -138,10 +138,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="items_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="items_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="34" selection-start="927" selection-end="928" vertical-scroll-proportion="0.5672727">
+            <state line="36" column="54" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/database.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="59" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="combine.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/combine.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="53" selection-start="84" selection-end="84" vertical-scroll-proportion="0.27818182">
               <folding />
             </state>
           </provider>
@@ -210,7 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.admin_users" />
         <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.users" />
         <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.users_roles" />
         <option value="$PROJECT_DIR$/app/mailers/recipient_mailer.rb" />
@@ -226,6 +243,7 @@
         <option value="$PROJECT_DIR$/app/views/items/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/item.rb" />
         <option value="$PROJECT_DIR$/app/controllers/items_controller.rb" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
       </list>
     </option>
   </component>
@@ -279,20 +297,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AlertSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlertSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlertSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -503,6 +507,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -818,7 +844,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -826,7 +852,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12562814" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14772727" sideWeight="0.8308208" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24166666" sideWeight="0.8743719" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19015151" sideWeight="0.8743719" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06700168" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -901,30 +927,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.users">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/logged_out.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="65" selection-start="908" selection-end="908" vertical-scroll-proportion="0.49902153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="51" selection-start="720" selection-end="720" vertical-scroll-proportion="46.346153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/items/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="7" selection-start="199" selection-end="199" vertical-scroll-proportion="-2.4230769">
@@ -1005,6 +1007,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/fix.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="99" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.62363636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/item.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="7" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
@@ -1014,7 +1023,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="34" selection-start="927" selection-end="928" vertical-scroll-proportion="0.5672727">
+        <state line="36" column="54" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="59" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/combine.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="53" selection-start="84" selection-end="84" vertical-scroll-proportion="0.27818182">
           <folding />
         </state>
       </provider>
