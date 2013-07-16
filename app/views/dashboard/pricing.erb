@@ -26,7 +26,7 @@
 <h4>Change plan?</h4>
 <%= hidden_field_tag :current_role, @current_user_role_id, :id => "current_role" %>
 <div class="row span10 plans">
-  <div class="pricing-box span4" id="planbox2">
+  <div class="pricing-box span4" id="planbox1">
     <div class="pricing-padding">
       <h2>Free </h2>
       <ul>
@@ -39,10 +39,10 @@
          label = 'Downgrade'
          message = "Note: Free plan limited only 1 package, if you downgrade to free plan, some older packages may be deleted \n\n  Are you sure to continue?"
       %>
-      <%= link_to label, update_plan_path(:role_ids => 2), :class => 'btn btn-danger', :id => "downgrade-to-free-plan-btn", :data => {:confirm => message}, :method => :put %>
+      <%= link_to label, update_plan_path(:role_ids => Role.find_by_name('free').id), :class => 'btn btn-danger', :id => "downgrade-to-free-plan-btn", :data => {:confirm => message}, :method => :put %>
     </div>
   </div>
-  <div class="pricing-box span4" id="planbox3">
+  <div class="pricing-box span4" id="planbox2">
     <div class="pricing-padding">
       <h2>Small </h2>
       <ul>
@@ -54,7 +54,7 @@
       <%
          label = ""
          message = ""
-         if @current_user_role_id > 3
+         if @current_user_role_id > Role.find_by_name('small').id
            label = 'Downgrade'
            message = "Note: Small plan limited 3 packages, if you downgrade to this plan, some older packages may be deleted !\n\n  Are you sure to continue?"
          else
@@ -62,12 +62,12 @@
            message = "Small Plan : with $5/month\n Are you sure ?"
          end
       %>
-      <%= link_to label, update_plan_path(:role_ids => 3), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
+      <%= link_to label, update_plan_path(:role_ids => Role.find_by_name('small').id), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
 
 
     </div>
   </div>
-  <div class="pricing-box span4" id="planbox4">
+  <div class="pricing-box span4" id="planbox3">
     <div class="pricing-padding">
       <h2>Medium </h2>
       <ul>
@@ -79,7 +79,7 @@
       <%
          label = ""
          message = ""
-         if @current_user_role_id > 4
+         if @current_user_role_id > Role.find_by_name('medium').id
            label = 'Downgrade'
            message = "Note: Medium plan limited 10 packages, some older packages may be deleted if you downgrade to this plan !\n\n Are you sure to continue?"
          else
@@ -87,10 +87,10 @@
            message = "Medium Plan with $10/month\n Are you sure to continue?"
          end
       %>
-      <%= link_to label, update_plan_path(:role_ids => 4), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
+      <%= link_to label, update_plan_path(:role_ids => Role.find_by_name('medium').id), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
     </div>
   </div>
-  <div class="pricing-box span4" id="planbox5">
+  <div class="pricing-box span4" id="planbox4">
     <div class="pricing-padding">
       <h2>Large </h2>
       <ul>
@@ -103,7 +103,7 @@
          label = 'Upgrade'
          message = "Large Plan with $15/month\n Are you sure to continue?"
       %>
-      <%= link_to label, update_plan_path(:role_ids => 5), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
+      <%= link_to label, update_plan_path(:role_ids => Role.find_by_name('large').id), :class => 'btn btn-primary', :method => :put, :data => {:confirm => message} %>
     </div>
   </div>
 </div>
@@ -117,27 +117,7 @@
     </p>
 <% end %>
 
-<div id="plan-options" class="modal" style="display: none; ">
-  <%= simple_form_for resource, as: resource_name, url: update_plan_path, html: {method: :put, class: 'form-horizontal'} do |f| %>
-      <br>
-      <h5> If you downgrade your subscription to Free, all packages will be destroy</h5>
 
-      <h3> Confirm </h3>
-      <% if false %>
-          <div class="modal-header">
-            <%= link_to "&#215;".html_safe, "#", class: "close", data: {dismiss: "modal"} %>
-            <h3>Change Plan</h3>
-          </div>
-          <div class="modal-body">
-            <%= f.input :role_ids, collection: Role.all.delete_if { |i| i.name == 'admin'|| i.name == current_user.roles.first.name }, as: :radio_buttons, label_method: lambda { |t| t.name.titleize }, label: false, item_wrapper_class: 'inline', checked: resource.role_ids.first %>
-          </div>
-      <% end %>
-      <div class="modal-footer">
-        <%= f.submit "Update Plan", class: "btn btn-primary", :disabled => true %>
-        <%= link_to "Close", "#", class: "btn", data: {dismiss: "modal"} %>
-      </div>
-  <% end %>
-</div>
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716030609) do
+ActiveRecord::Schema.define(:version => 20130716065302) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -70,6 +70,12 @@ ActiveRecord::Schema.define(:version => 20130716030609) do
     t.text     "s3_url"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "mail_templates", :force => true do |t|
+    t.string "name"
+    t.string "subject"
+    t.text   "body"
   end
 
   create_table "packages", :force => true do |t|

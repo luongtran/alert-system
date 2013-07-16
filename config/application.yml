@@ -11,14 +11,13 @@
 ROOT_SITE_URL: alert-system.herokuapp.com
 MAIL_SENDER_ADDR: Alert System Stuff <alert-system-noreply@example.com>
 
-GMAIL_USERNAME: Your_Username
-GMAIL_PASSWORD: Your_Password
 ADMIN_FIRST_NAME: Thanh
 ADMIN_LAST_NAME: Luan
-ADMIN_EMAIL: htluan2605@gmail.com
+
+ADMIN_EMAIL: admin@example.com
 ADMIN_PASSWORD: 123123
 
-ROLES: [ admin, free, small, medium, large]
+ROLES: [ free, small, medium, large]
 
 RECURLY_API_KEY: c96ff58bbdbd476699b767dead1850b0
 RECURLY_JS_PRIVATE_KEY: 2508237e0da8460aa754dd2bff073099

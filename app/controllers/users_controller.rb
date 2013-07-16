@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-
-  layout :admin_layout
-
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
@@ -55,13 +52,4 @@ class UsersController < ApplicationController
   end
 
 
-
-  private
-  def admin_layout
-    if current_user.has_role? :admin
-      "logged_out"
-    else
-      "application"
-    end
-  end
 end

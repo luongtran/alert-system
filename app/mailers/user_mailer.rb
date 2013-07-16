@@ -4,9 +4,10 @@ class UserMailer < ActionMailer::Base
   def expire_email(user)
     mail(:to => user.email, :subject => "Subscription Cancelled")
   end
-
   def validate_email(user)
     @user = user
-    mail(:to => @user.email, :subject => "Are you still alive ?")
+    @validate_mail = MailTemplate.find_all_by_email_type("validate_email")
+
+    mail(:to => @user.email, :subject => @validate_mail.subject)
   end
 end

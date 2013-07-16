@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     @plan = params[:plan]
-    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
+    if @plan && ENV["ROLES"].include?(@plan)
       @signature = Recurly.js.sign :subscription => {:plan_code => @plan}
       super
     else

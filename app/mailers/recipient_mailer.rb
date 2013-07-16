@@ -8,5 +8,4 @@ class RecipientMailer < ActionMailer::Base
     # Find package's recipient
     mail(:to => @recipient.email, :subject => "Package from Alert System")
   end
-
 end

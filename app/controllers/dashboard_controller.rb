@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :admin_site
 
   def index
     @packages_count = current_user.packages.count
@@ -28,11 +27,6 @@ class DashboardController < ApplicationController
 
   end
 
-  private
-  def admin_site
-    if current_user.has_role? :admin
-      redirect_to users_path
-    end
-  end
+
 
 end
