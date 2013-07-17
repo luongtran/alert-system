@@ -1,27 +1,27 @@
 #
-#free_role = Role.create(:name => 'free', :maximum_packages => 1, :unit_amount => 0)
-#small_role = Role.create(:name => 'small', :maximum_packages => 3, :unit_amount => 5)
-#medium_role = Role.create(:name => 'medium', :maximum_packages => 10, :unit_amount => 10)
-#large_role = Role.create(:name => 'large', :maximum_packages => 30, :unit_amount => 15)
-#
-#user1 = User.find_or_create_by_email :first_name => 'Free', :last_name => 'User', :email => 'h.tluan2605@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 1, :check_date_time => DateTime.now
-#user1.add_role :free
-#
-#user2 = User.find_or_create_by_email :first_name => 'Small', :last_name => 'User', :email => 'ht.luan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 2, :check_date_time => DateTime.now
-#user2.add_role :small
-#
-#user3 = User.find_or_create_by_email :first_name => 'Large', :last_name => 'User', :email => 'htluan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
-#user3.add_role :large
-#
-#user4 = User.find_or_create_by_email :first_name => 'Luong', :last_name => 'Td', :email => 'luongtranduc@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
-#user4.add_role :large
-#
-#ItemType.create(:name => 'Text')
-#ItemType.create(:name => 'File')
-#ItemType.create(:name => 'Image')
+free_role = Role.create(:name => 'free', :maximum_packages => 1, :unit_amount => 0)
+small_role = Role.create(:name => 'small', :maximum_packages => 3, :unit_amount => 5)
+medium_role = Role.create(:name => 'medium', :maximum_packages => 10, :unit_amount => 10)
+large_role = Role.create(:name => 'large', :maximum_packages => 30, :unit_amount => 15)
 
+user1 = User.find_or_create_by_email :first_name => 'Free', :last_name => 'User', :email => 'h.tluan2605@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 1, :check_date_time => DateTime.now
+user1.add_role :free
 
-HomePageContent.create :name => 'default', :title => 'Alert System',
+user2 = User.find_or_create_by_email :first_name => 'Small', :last_name => 'User', :email => 'ht.luan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 2, :check_date_time => DateTime.now
+user2.add_role :small
+
+user3 = User.find_or_create_by_email :first_name => 'Large', :last_name => 'User', :email => 'htluan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
+user3.add_role :large
+
+user4 = User.find_or_create_by_email :first_name => 'Luong', :last_name => 'Td', :email => 'luongtranduc@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
+user4.add_role :large
+
+ItemType.create(:name => 'Text')
+ItemType.create(:name => 'File')
+ItemType.create(:name => 'Image')
+
+puts " -- > create Homepage content"
+HomePageContent.create :name => 'Default', :title => 'Alert System',
                        :notepad_notetext => %{<p>Dear everyone,</p>
                                             <p>Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was something you had told the people around you. How you feel, what you regret, where the money is stashed.</p>
 <p>For this, you need this site to keep things most important words want to say with your familiers when you can not.</p>
@@ -44,5 +44,5 @@ HomePageContent.create :name => 'default', :title => 'Alert System',
                        :pagefoot_inforunit4_content => "From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and extensions not excute). We will try to take more kinds of data in future to you!",
                        :active => true
 
-#AdminUser.create :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
+AdminUser.create :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
 puts " -- > Seed completed !"

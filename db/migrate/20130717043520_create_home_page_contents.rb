@@ -16,13 +16,13 @@ class CreateHomePageContents < ActiveRecord::Migration
       t.text :pagefoot_inforunit1_content
 
       t.string :pagefoot_inforunit2_head
-      t.text :pagefoot_inforunit2_head_content
+      t.text :pagefoot_inforunit2_content
 
       t.string :pagefoot_inforunit3_head
-      t.text :pagefoot_inforunit3_head_content
+      t.text :pagefoot_inforunit3_content
 
       t.string :pagefoot_inforunit4_head
-      t.text :pagefoot_inforunit4_head_content
+      t.text :pagefoot_inforunit4_content
       t.boolean :active, :default => false
     end
   end
