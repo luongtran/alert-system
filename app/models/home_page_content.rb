@@ -6,8 +6,6 @@ class HomePageContent < ActiveRecord::Base
                   :pagefoot_inforunit3_head, :pagefoot_inforunit3_content,
                   :pagefoot_inforunit4_head, :pagefoot_inforunit4_content,
                   :active
-
-
   validates_uniqueness_of :name
   validates_presence_of :title
 end

@@ -10,11 +10,8 @@ user1.add_role :free
 user2 = User.find_or_create_by_email :first_name => 'Small', :last_name => 'User', :email => 'ht.luan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 2, :check_date_time => DateTime.now
 user2.add_role :small
 
-user3 = User.find_or_create_by_email :first_name => 'Large', :last_name => 'User', :email => 'htluan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
+user3 = User.find_or_create_by_email :first_name => 'Large', :last_name => 'User', :email => 'htl.uan2605.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
 user3.add_role :large
-
-user4 = User.find_or_create_by_email :first_name => 'Luong', :last_name => 'Td', :email => 'luongtranduc@gmail.com', :password => '123123', :password_confirmation => '123123', :status => 'normal', :frequency => 3, :check_date_time => DateTime.now
-user4.add_role :large
 
 ItemType.create(:name => 'Text')
 ItemType.create(:name => 'File')
