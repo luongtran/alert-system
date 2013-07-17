@@ -5,50 +5,50 @@
         <div class="pull-left">
           <div id="notepad">
             <div class="noteText">
-              <%= raw @homepage_content.notepad_notetext %>
-              <!--<p>Dear everyone,</p>-->
+              <%#= raw @homepage_content.notepad_notetext %>
+              <p>Dear everyone,</p>
 
-              <!--<p>-->
-              <!--Bad things happen. Sometimes, they happen to you. If something does happen,-->
-              <!--you might wish there was something you had told the people around you.-->
-              <!--How you feel, what you regret, where the money is stashed.<br/>-->
-              <!--For this, you need this site to keep things most important words wnat to say with your familiers-->
-              <!--when you can not.-->
+              <p>
+              Bad things happen. Sometimes, they happen to you. If something does happen,
+              you might wish there was something you had told the people around you.
+              How you feel, what you regret, where the money is stashed.<br/>
+              For this, you need this site to keep things most important words wnat to say with your familiers
+              when you can not.
 
-              <!--</p>-->
+              </p>
             </div>
           </div>
         </div>
         <div class="intro">
           <div id="introduce">
             <h3 class="lead">
-              <%= raw @homepage_content.introduce_lead %>
-              <!--Start your Plan and <br/>-->
-              <!--keep best stuffs every day!-->
+              <%#= raw @homepage_content.introduce_lead %>
+              Start your Plan and <br/>
+              keep best stuffs every day!
             </h3>
             <ul class="unstyled">
               <li><i class="icon-info-sign pull-left"></i>
 
                 <p class="pll">
-                  <%= raw @homepage_content.introduce_inf_1 %>
-                  <!--Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was-->
-                  <!--something you had told the people around you.-->
+                  <%#= raw @homepage_content.introduce_inf_1 %>
+                  Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was
+                  something you had told the people around you.
                 </p>
               </li>
               <li><i class="icon-info-sign pull-left"></i>
 
                 <p class="pll">
-                  <%= raw @homepage_content.introduce_inf_2 %>
-                  <!--You write a few e-mails and choose the recipients. These emails are stored securely, so you can be-->
-                  <!--sure that no-one except the intended recipient will ever read them.-->
+                  <%#= raw @homepage_content.introduce_inf_2 %>
+                  You write a few e-mails and choose the recipients. These emails are stored securely, so you can be
+                  sure that no-one except the intended recipient will ever read them.
                 </p>
               </li>
               <li><i class="icon-info-sign pull-left"></i>
 
                 <p class="pll">
-                  <%= raw @homepage_content.introduce_inf_3 %>
-                  <!--The emails are sent at certain intervals. By default, the switch will email you 30, 45, and 52 days-->
-                  <!--after you last showed signs of life.-->
+                  <%#= raw @homepage_content.introduce_inf_3 %>
+                  The emails are sent at certain intervals. By default, the switch will email you 30, 45, and 52 days
+                  after you last showed signs of life.
                 </p>
               </li>
             </ul>
@@ -106,7 +106,9 @@
         <div class="span4">
           <div id="signupQuick">
             <div class="signupQuick-inner">
-              <p class="lead"><%= raw @homepage_content.signupquick_lead %></p>
+
+              <p class="lead"> Easy to sign up! Choose a membership plan bellow, fill out the form and ...</p>
+              <!--<p class="lead"><%#= raw @homepage_content.signupquick_lead %></p>-->
               <a href="<%= new_user_registration_path(:plan => 'free') %>" class="btn btn-primary"><i class="icon-edit"></i>
                 Free ($0/month)</a>
             </div>
@@ -114,17 +116,17 @@
           <div class="notice">
             <hr class="divider">
             <p>
-              <%= raw @homepage_content.notice %>
-              <!--Notice: this is just to quick way to show you out system work. For more feautures please go to DashBoard-->
-              <!--page after you login with account!-->
+              <%#= raw @homepage_content.notice %>
+              Notice: this is just to quick way to show you out system work. For more feautures please go to DashBoard
+              page after you login with account!
             </p>
           </div>
         </div>
         <div class="span5">
           <div class="halfpage">
             <div class="halfpage-inner">
-              <h4 class="lead"><%= raw @homepage_content.halfpage_lead %></h4>
-              <h4 class="lead"><!--Taking a tour to find out <br/> How the AlertSystem Work!--> </h4>
+              <h4 class="lead"><%#= raw @homepage_content.halfpage_lead %></h4>
+              <h4 class="lead">Taking a tour to find out <br/> How the AlertSystem Work!</h4>
               <hr class="divider">
               <ul class="unstyled">
                 <li class="clearfix"><a href="#"><i class="icon-chevron-right mrm"></i>Step 1 : Create Account</a></li>
@@ -141,9 +143,9 @@
         <div class="span3">
           <div class="contentHalfPage">
             <p>
-              <%= raw @homepage_content.halfpage_content %>
-              <!--Please use your name one you like best. This name will be a default name show on every newsletters --->
-              <!--notification email we send to you, or package notifs email to your familiers you assigns-->
+              <%#= raw @homepage_content.halfpage_content %>
+              Please use your name one you like best. This name will be a default name show on every newsletters -
+              notification email we send to you, or package notifs email to your familiers you assigns
 
             </p>
           </div>
@@ -158,13 +160,13 @@
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Bulb.png", :class => "pull-left" %>
         <div class="infoUnit" id="inforUnit1">
-          <!--<h3>Everything started from Idea</h3>-->
-          <h3><%= raw @homepage_content.pagefoot_inforunit1_head %></h3>
+          <h3>Everything started from Idea</h3>
+          <h3><%#= raw @homepage_content.pagefoot_inforunit1_head %></h3>
 
           <p>
-            <!--Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was-->
-            <!--something you had told the people around you. How you feel, what you regret, where the money is stashed.-->
-            <%= raw @homepage_content.pagefoot_inforunit1_content %>
+            Bad things happen. Sometimes, they happen to you. If something does happen, you might wish there was
+            something you had told the people around you. How you feel, what you regret, where the money is stashed.
+            <%#= raw @homepage_content.pagefoot_inforunit1_content %>
           </p>
         </div>
       </div>
@@ -173,8 +175,8 @@
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Calendar.png", :class => "pull-left" %>
         <div class="infoUnit" id="inforUnit2">
-          <!--<h3>Keep your love to familiers</h3>-->
-          <h3><%= raw @homepage_content.pagefoot_inforunit2_head %></h3>
+          <h3>Keep your love to familiers</h3>
+          <h3><%#= raw @homepage_content.pagefoot_inforunit2_head %></h3>
 
           <p>
             Let’s us keep watching everyday and send you noticifation over Email - Message - more and more ways in
@@ -190,8 +192,8 @@
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Shield.png", :class => "pull-left" %>
         <div class="infoUnit" id="inforUnit3">
-          <!--<h3>Private data 100%</h3>-->
-          <h3><%= raw @homepage_content.pagefoot_inforunit3_head %></h3>
+          <h3>Private data 100%</h3>
+          <h3><%#= raw @homepage_content.pagefoot_inforunit3_head %></h3>
 
           <p>
             We sure all your data save in our system is private with best security! Addition, you also have more and
@@ -205,8 +207,8 @@
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Camera.png", :class => "pull-left" %>
         <div class="infoUnit" id="inforUnit4">
-          <!--<h3>Rich media data</h3>-->
-          <h3><%= raw @homepage_content.pagefoot_inforunit4_head %></h3>
+          <h3>Rich media data</h3>
+          <h3><%#= raw @homepage_content.pagefoot_inforunit4_head %></h3>
 
           <p>
             From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and extensions

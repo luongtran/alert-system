@@ -13,7 +13,9 @@
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\db\migrate\20130717091235_rename_homepage_content.rb" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\factories\home_page_contents.rb" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\models\home_page_content_spec.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlertSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,7 +23,7 @@
     <file path="/registrations_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374025345959" ignored="false" />
     <file path="/a.dummy" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374045818131" ignored="false" />
     <file path="/new.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374031290259" ignored="false" />
-    <file path="/index.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374049381351" ignored="false" />
+    <file path="/index.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374055073558" ignored="false" />
     <file path="/_links.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373535055572" ignored="false" />
     <file path="/recipient_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373877606445" ignored="false" />
     <file path="/show.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374031386740" ignored="false" />
@@ -45,7 +47,7 @@
     <file path="/application.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373970916685" ignored="false" />
     <file path="/dashboard_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373854651032" ignored="false" />
     <file path="/create_userdata_folder.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373616031480" ignored="false" />
-    <file path="/home_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374050278400" ignored="false" />
+    <file path="/home_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374055088937" ignored="false" />
     <file path="/schema.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374045255312" ignored="false" />
     <file path="/package.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374045143578" ignored="false" />
     <file path="/logged_out.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373947264178" ignored="false" />
@@ -147,19 +149,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="58" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="95" selection-start="2571" selection-end="2571" vertical-scroll-proportion="2.374768">
+            <state line="210" column="17" selection-start="9189" selection-end="9189" vertical-scroll-proportion="-8.769231">
               <folding />
             </state>
           </provider>
@@ -168,14 +161,14 @@
       <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
+            <state line="8" column="5" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
+      <file leaf-file-name="20130716030609_move_admin_notes_to_comments.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20130716030609_move_admin_notes_to_comments.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -183,28 +176,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="4" selection-start="7588" selection-end="7588" vertical-scroll-proportion="-9.730769">
+      <file leaf-file-name="AlertSystem_development.public.schema_migrations" pinned="false" current="true" current-in-tab="true">
+        <entry file="dbDummy://dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.schema_migrations">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
+          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmation_instructions.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/devise/mailer/confirmation_instructions.html.erb">
+      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="30" selection-start="257" selection-end="257" vertical-scroll-proportion="-5.230769">
+            <state line="29" column="120" selection-start="2588" selection-end="2663" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -234,16 +221,16 @@
         <option value="$PROJECT_DIR$/app/admin/user.rb" />
         <option value="$PROJECT_DIR$/app/admin/package.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130717043520_create_home_page_contents.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/home_page_content.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/admin/homepage_content.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130717084128_create_home_page_contents.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130717091235_rename_homepage_content.rb" />
         <option value="dbtable:/7010a456/0652c6a0-ea39-4399-9c03-52bc629efdc9/AlertSystem_development.public.schema_migrations" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
       </list>
     </option>
   </component>
@@ -313,6 +300,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlertSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -790,9 +795,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18196996" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14023373" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13030303" sideWeight="0.7896494" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13030303" sideWeight="0.7896494" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23257576" sideWeight="0.81803006" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35454544" sideWeight="0.81803006" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19318181" sideWeight="0.38731217" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06700168" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -869,30 +874,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130716030609_move_admin_notes_to_comments.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/cron_job.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="38" selection-start="163" selection-end="163" vertical-scroll-proportion="0.2771739">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -918,21 +902,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130716030558_devise_create_admin_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="18" selection-start="668" selection-end="668" vertical-scroll-proportion="0.3877551">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="58" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.4107143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.6938776">
+        <state line="29" column="120" selection-start="2588" selection-end="2663" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="4" selection-start="7588" selection-end="7588" vertical-scroll-proportion="-9.730769">
+        <state line="210" column="17" selection-start="9189" selection-end="9189" vertical-scroll-proportion="-8.769231">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130716030558_devise_create_admin_users.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="5" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130716030609_move_admin_notes_to_comments.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -947,27 +973,6 @@
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="58" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="95" selection-start="2571" selection-end="2571" vertical-scroll-proportion="2.374768">
-          <folding />
-        </state>
       </provider>
     </entry>
   </component>
