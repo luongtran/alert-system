@@ -5,6 +5,7 @@
         <div class="pull-left">
           <div id="notepad">
             <div class="noteText">
+
               <p>Dear everyone,</p>
 
               <p>
@@ -55,26 +56,26 @@
           <div class="login-inner">
             <div class="login-inner2">
               <div class="loginHead">
-                <span class="title mrm">Login Panel</span><a href="<%= pricing_path%>" class="signupLink"><i class="icon-chevron-right mrm"></i>Sign
+                <span class="title mrm">Login Panel</span><a href="<%= pricing_path %>" class="signupLink"><i class="icon-chevron-right mrm"></i>Sign
                 Up</a></div>
               <div class="loginBody">
                 <%= form_for "user", :as => :user, :url => session_path(:user) do |f| -%>
                     <fieldset>
                       <div class="control-group">
-                        <%= f.text_field :email, :placeholder => "Your Email", :class => "input-block-level", :size =>25 %>
+                        <%= f.text_field :email, :placeholder => "Your Email", :class => "input-block-level", :size => 25 %>
                         <!--<input type="text" name="email" placeholder="Your Email" class="input-block-level handwrite"/>-->
                       </div>
                       <div class="control-group">
                         <%= f.password_field :password, :placeholder => "Your Password", :class => "input-block-level", :size => 25 %>
                         <!--<input type="password" name="password" placeholder="Your Password" class="input-block-level handwrite"/>-->
-                        <br/><a href="<%= new_password_path(resource_name)%>" class="forgot">I
+                        <br/><a href="<%= new_password_path(resource_name) %>" class="forgot">I
                         forgot my password</a>
                       </div>
                       <div class="control-group submitdiv">
 
                         <button type="submit" class="btn btn-primary"><i class="icon-leaf mrm"></i>Login Now</button>
 
-                        <a href="<%= pricing_path%>" class="btn btn-primary signupsmall">Signup<i class="icon-pencil mlm"></i></a>
+                        <a href="<%= pricing_path %>" class="btn btn-primary signupsmall">Signup<i class="icon-pencil mlm"></i></a>
 
                         <div class="rememberme">
                           <label class="checkbox">
@@ -101,37 +102,39 @@
         <div class="span4">
           <div id="signupQuick">
             <div class="signupQuick-inner">
+              <p class="lead">Easy to sign up! Choose a membership plan bellow, fill out the form and ...</p>
+              <a href="<%= new_user_registration_path(:plan => 'free') %>" class="btn btn-primary"><i class="icon-edit"></i>
+                Free ($0/month)</a>
 
-              <h3> Editing ...</h3>
               <!--<form class="form-horizontal">-->
-                <!--<fieldset>-->
-                  <!--<div class="control-group">-->
-                    <!--<label class="control-label">Your name</label>-->
+              <!--<fieldset>-->
+              <!--<div class="control-group">-->
+              <!--<label class="control-label">Your name</label>-->
 
-                    <!--<div class="controls">-->
-                      <!--<input type="text" name="name" class="input-block-level"/>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="control-group">-->
-                    <!--<label class="control-label">Email</label>-->
+              <!--<div class="controls">-->
+              <!--<input type="text" name="name" class="input-block-level"/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+              <!--<label class="control-label">Email</label>-->
 
-                    <!--<div class="controls">-->
-                      <!--<input type="text" name="email" class="input-block-level"/>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="control-group">-->
-                    <!--<label class="control-label">Password</label>-->
+              <!--<div class="controls">-->
+              <!--<input type="text" name="email" class="input-block-level"/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+              <!--<label class="control-label">Password</label>-->
 
-                    <!--<div class="controls">-->
-                      <!--<input type="password" name="password" class="input-block-level"/>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="control-group">-->
-                    <!--<div class="controls">-->
-                      <!--<button type="submit" class="btn btn-primary">Create account</button>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                <!--</fieldset>-->
+              <!--<div class="controls">-->
+              <!--<input type="password" name="password" class="input-block-level"/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+              <!--<div class="controls">-->
+              <!--<button type="submit" class="btn btn-primary">Create account</button>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</fieldset>-->
               <!--</form>-->
             </div>
           </div>
@@ -180,7 +183,7 @@
     <div class="tipUnit">
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Bulb.png", :class => "pull-left" %>
-        <div class="infoUnit">
+        <div class="infoUnit" id="inforUnit1">
           <h3>Everything started from Idea</h3>
 
           <p>
@@ -193,7 +196,7 @@
     <div class="tipUnit">
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Calendar.png", :class => "pull-left" %>
-        <div class="infoUnit">
+        <div class="infoUnit" id="inforUnit2">
           <h3>Keep your love to familiers</h3>
 
           <p>
@@ -208,13 +211,10 @@
     <div class="tipUnit">
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Shield.png", :class => "pull-left" %>
-        <div class="infoUnit">
+        <div class="infoUnit" id="inforUnit3">
           <h3>Private data 100%</h3>
-
           <p>
-            We sure all your data save in our system is private with best security! Addition, you also have more and
-            more
-            functions to controll packages - items if upgrade to plane Premium Account.
+            <%= ENV['inforUnit3'] %>
           </p>
         </div>
       </div>
@@ -222,7 +222,7 @@
     <div class="tipUnit">
       <div class="tipUnit-inner">
         <%= image_tag "../assets/images/Camera.png", :class => "pull-left" %>
-        <div class="infoUnit">
+        <div class="infoUnit" id="inforUnit4">
           <h3>Rich media data</h3>
 
           <p>

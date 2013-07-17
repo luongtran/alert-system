@@ -1,0 +1,1 @@
+YAML.load_file("#{Rails.root}/config/homepage_content.yml")[Rails.env]
