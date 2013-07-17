@@ -68,13 +68,10 @@ ActiveRecord::Schema.define(:version => 20130717084128) do
     t.text    "halfpage_content"
     t.string  "pagefoot_inforunit1_head"
     t.text    "pagefoot_inforunit1_content"
-
     t.string  "pagefoot_inforunit2_head"
     t.text    "pagefoot_inforunit2_content"
-
     t.string  "pagefoot_inforunit3_head"
     t.text    "pagefoot_inforunit3_content"
-
     t.string  "pagefoot_inforunit4_head"
     t.text    "pagefoot_inforunit4_content"
     t.boolean "active",                      :default => false
