@@ -10,6 +10,7 @@ class CreateHomePageContents < ActiveRecord::Migration
       t.text :introduce_inf_3
       t.string :signupquick_lead
       t.text :notice
+
       t.string :halfpage_lead
       t.text :halfpage_content
 

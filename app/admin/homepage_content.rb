@@ -24,6 +24,7 @@ ActiveAdmin.register HomePageContent do
     column :pagefoot_inforunit4_head
     column :pagefoot_inforunit4_content
     column :active
+
     default_actions
   end
 end

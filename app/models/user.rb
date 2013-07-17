@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   before_create :check_recurly
 
- # before_destroy :cancel_subscription
+  before_destroy :cancel_subscription
 
   validates_numericality_of :frequency, :greater_than_or_equal_to => 1
 
@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
     errors.add :base, "Unable to create your subscription. #{e.message}"
     false
   end
-
 
   def update_plan(role)
     self.role_ids = []
