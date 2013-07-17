@@ -1,6 +1,7 @@
 ActiveAdmin.register Package do
   index do
     column :id
+    column :user_id
     column :name
     column :description
     column :custom_key
