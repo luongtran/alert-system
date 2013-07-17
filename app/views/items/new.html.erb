@@ -1,5 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
+        $('#item_file_type').hide();
         $('.item').click(function () {
             var type = $(this).data('value');
             var tmp = type + "";
@@ -7,10 +8,10 @@
                 return letter.toUpperCase();
             });
             $('#item-type-title').text(tmp);
-            $.each($('#listitems').children('.item'), function () {
+            $.each($('#listitems').children('.item').children(), function () {
                 $(this).removeClass('selected');
             });
-            $(this).addClass('selected');
+            $(this).children().addClass('selected');
             $('#type').val(type);
 
             if (type === "file" || type === "image") {
@@ -29,17 +30,18 @@
     });
 </script>
 <div class="ptl">
-  <h5> <%= link_to "< Back to package", package_path(@package) %>     </h5>
+  <h5><a href="<%= package_path(@package)%>" class="btn btn-mini"><i class="icon-chevron-left"></i> Back to package</a></h5>
 
   <div id="chooseItemKind">
     <div id="listitems">
-      <h2>Please Select Item Type</h2>
+      <h3>Select Item Type</h3>
 
-      <div class="item selected" data-value="text">
-        <div class="item-inner text"><a href="javascript: void(0)"><span class="title">Text Note</span></a></div>
+      <div class="item" data-value="text">
+        <div class="item-inner text selected"><a href="javascript: void(0)"><span class="title">Text Note</span></a></div>
       </div>
       <div class="item" data-value="file">
-        <div class="item-inner zip"><a href="javascript: void(0)"><span class="title">File (zip | other extension)</span></a></div>
+        <div class="item-inner zip">
+          <a href="javascript: void(0)"><span class="title">File (zip | other extension)</span></a></div>
       </div>
       <div class="item" data-value="image">
         <div class="item-inner image"><a href="javascript: void(0)"><span class="title">Image</span></a></div>
@@ -49,14 +51,14 @@
   <div class="clearfix"></div>
   <div class="spacing ptl"></div>
   <hr class="divider"/>
-
   <h2 id="item-type-title">Text</h2>
-  <hr class="divider"/>
+  <hr class="divider" />
   <div id="addttem">
     <%= form_for [@package, @item], :class => "create_new_item_frm", :enctype => "multipart/form-data" do |f| %>
         <%= hidden_field_tag :type, "text", :class => "item_type_selected" %>
         <div class="control-group">
           <label class="control-label">Name</label>
+
           <div class="controls">
             <%= f.text_field :name, :class => "input-block-level", :required => true %>
           </div>
@@ -78,7 +80,6 @@
         <div class="control-group" id="item_file_type">
           <div class="controls">
             <%= f.file_field :file, :class => "btn btn-large btn-success" %>
-            <!-- accept: 'image/png,image/gif,image/jpeg' -->
           </div>
         </div>
         <% if @package.custom_key %>
@@ -92,7 +93,6 @@
         <% end %>
 
         <div class="control-group">
-          <hr class="divider"/>
           <div class="spacing ptl"></div>
           <div class="row-fluid">
             <div class="span6 offset3">

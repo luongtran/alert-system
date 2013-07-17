@@ -19,7 +19,6 @@ class RegistrationsController < Devise::RegistrationsController
   def update_plan
     @user = current_user
     old_role = current_user.roles.first.id
-    #role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
     new_role = Role.find(params[:role_ids])
     if @user.update_plan(new_role)
       # Delete package
@@ -30,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
           p.destroy
         end
       end
-      redirect_to :back, :notice => "Your plan updated successfully, #{have - max} package(s) has been deleted !"
+      redirect_to :back, :notice => "Your plan updated successfully#{have > max ? ", #{have - max} package(s) has been deleted" : ""} !"
     else
       flash.alert = 'Unable to update plan.'
       redirect_to :back
@@ -41,7 +40,6 @@ class RegistrationsController < Devise::RegistrationsController
   def build_resource(*args)
     super
     if params[:plan]
-      # resource.skip_check_recurly = true if params[:plan]=='free' # Free user không cần check_recurly
       resource.add_role(params[:plan])
     end
     resource.customer_id ||= SecureRandom.uuid
