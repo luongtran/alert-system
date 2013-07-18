@@ -24,6 +24,14 @@ class ItemsController < ApplicationController
     #redirect_to
   end
 
+  def new_independent
+    @item = Item.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @item }
+    end
+  end
+
   def edit
     @item = Item.find(params[:id])
   end

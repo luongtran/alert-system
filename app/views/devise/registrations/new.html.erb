@@ -4,6 +4,51 @@
         cursor: default;
     }
 </style>
+<script>
+    $(document).ready(function () {
+        $('.btn-plan').click(function () {
+            $.cookie('user_first_name', $('#user_first_name').val())
+            $.cookie('user_last_name', $('#user_last_name').val())
+            $.cookie('user_email', $('#user_email').val())
+            $.cookie('card_number', $('#card_number').val())
+            $.cookie('card_code', $('#card_code').val())
+            $.cookie('country', $('#country').val())
+        })
+        $('#btn-submit').click(function () {
+            $.cookie('user_first_name', '')
+            $.cookie('user_last_name', '')
+            $.cookie('user_email', '')
+            $.cookie('card_number', '')
+            $.cookie('card_code', '')
+            $.cookie('country', '')
+        })
+
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        if ($.cookie('user_first_name') != '')
+            $('#user_first_name').val($.cookie('user_first_name'));
+
+        if ($.cookie('user_last_name') != '')
+            $('#user_last_name').val($.cookie('user_last_name'));
+
+        if ($.cookie('user_email') != '')
+            $('#user_email').val($.cookie('user_email'));
+
+        if ($.cookie('card_number') != '')
+            $('#card_number').val($.cookie('card_number'));
+        if ($.cookie('card_code') != '')
+            $('#card_code').val($.cookie('card_code'));
+        if ($.cookie('country') != '')
+            $('#country').val($.cookie('country'));
+
+
+    });
+</script>
+
+<script src="/assets/jquery.cookie.js"></script>
 <script src="/assets/recurly.js?body=1" type="text/javascript"></script>
 <script src="/assets/registrations.js?body=1" type="text/javascript"></script>
 <script>
@@ -38,7 +83,7 @@
           <p>1 package</p>
 
           <p><strong>$0 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary', :id => "link_free" %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary btn-plan', :id => "link_free" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
@@ -49,7 +94,7 @@
           <p>3 packages</p>
 
           <p><strong>$5 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary', :id => "link_small" %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary btn-plan', :id => "link_small" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
@@ -60,7 +105,7 @@
           <p>10 packages</p>
 
           <p><strong>$10 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary', :id => "link_medium" %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary btn-plan', :id => "link_medium" %>
         </div>
       </div>
       <div class="spacing pbl"></div>
@@ -73,7 +118,7 @@
           <p><strong>$15 / month</strong></p>
 
           <p><strong>Custom key option</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary', :id => "link_large" %>
+          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary btn-plan', :id => "link_large" %>
         </div>
       </div>
       <p></p>
@@ -115,7 +160,7 @@
                     <label class="control-label">Last name <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :last_name, :required => true, :class => "input-block-level" %>
+                      <%= f.text_field :last_name, :required => true, :class => "input-block-level", :required => true %>
 
                     </div>
                   </div>
@@ -123,7 +168,7 @@
                     <label class="control-label">Email <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.text_field :email, :required => true, :class => "input-block-level" %>
+                      <%= f.text_field :email, :required => true, :class => "input-block-level", :required => true %>
 
                     </div>
                   </div>
@@ -131,7 +176,7 @@
                     <label class="control-label">Password <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.password_field :password, :required => true, :class => "input-block-level" %>
+                      <%= f.password_field :password, :required => true, :class => "input-block-level", :required => true %>
 
                     </div>
                   </div>
@@ -139,7 +184,7 @@
                     <label class="control-label">Password Confirm <span>*</span> :</label>
 
                     <div class="controls">
-                      <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level" %>
+                      <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level", :required => true %>
 
                     </div>
                   </div>
@@ -157,7 +202,7 @@
                         <label class="control-label">Frequency <span>*</span> :</label>
 
                         <div class="controls">
-                          <%= f.select :frequency, 1..52 , :prompt => "A number of weeks to validate"%>
+                          <%= f.select :frequency, 1..52, :prompt => "A number of weeks" %>
                         </div>
                       </div>
                   <% end %>
@@ -216,7 +261,7 @@
                     <label class="control-label"></label>
 
                     <div class="controls">
-                      <button type="submit" class="btn btn-primary span5">Signup</button>
+                      <button type="submit" class="btn btn-primary span5" id="btn-submit">Signup</button>
                     </div>
                   </div>
                 </fieldset>

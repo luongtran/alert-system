@@ -32,7 +32,7 @@
       </div>
       <div class="packageinfo"><a class="packtitle"><%= @package.name %></a>
         <ul class="unstyled">
-          <li> <a href="#" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> </li>
+          <li> <a href="<%= edit_package_path%>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> </li>
           <li>Created at: <span><%= @package.created_at %></span></li>
           <li>Items inside: <span> <%= @package.items.count %> items</span></li>
           <li>Recipient:

@@ -1,6 +1,19 @@
-<h1>Editing package</h1>
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("Edit Package");
+    });
+</script>
+<br/><br/>
 
-<%= render 'form' %>
+<%= simple_form_for(@package) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <label class="control-label">Name</label>
+      <%= f.text_field :name, :required => true, :style => "background-color: #3d4555;border: solid 1px #343c4b;color: #aab3c6;" %>
+      <label class="control-label">Description</label>
+      <%= f.text_area :description, :rows => 4, :style => "background-color: #3d4555;border: solid 1px #343c4b;color: #aab3c6;" %>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="icon-save mrm"></i>Update</button>
+    <a href="<%= package_path %>" class="btn btn-primary"> Cancel</a>
 
-<%= link_to 'Show', @package %> |
-<%= link_to 'Back', dashboard_packages_path %>
+<% end %>
