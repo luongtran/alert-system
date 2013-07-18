@@ -11,14 +11,15 @@ class ApplicationController < ActionController::Base
       admin_dashboard_path
     else
       @user = User.find(current_user.id)
-        if resource.is_a?(User) && resource.blocked?
-          sign_out resource
-          flash[:notice] = "Your account has been blocked for you didn't validated after ...."
-          root_path
-        else
-          @user.update_attributes(:status => 'normal', :check_date_time => DateTime.now)
-          dashboard_path
-        end
+      if resource.is_a?(User) && resource.blocked?
+        sign_out resource
+        flash[:notice] = "Your account has been blocked. We sent you an email to verify that you're still alive,
+                          but you didn't verified during waiting time. So we blocked your account. Please contact admin to resolve"
+        root_path
+      else
+        @user.update_attributes :status => 'normal', :check_date_time => DateTime.now
+        dashboard_path
+      end
     end
   end
 

@@ -9,8 +9,8 @@ class CheckInController < ApplicationController
         @ok = false
       else
         if @user.status == 'validating'
-          @user.update_attributes(:status => "normal", :check_date_time => DateTime.now)
-          @user.update_attribute(:validate_code, "")
+          @user.update_attributes :status => "normal", :check_date_time => DateTime.now
+          @user.update_attribute :validate_code, ""
           @ok = true
         else # status = died !!??
           @ok = false

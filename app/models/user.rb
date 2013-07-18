@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
         case u.status
           when 'normal'
             if (u.check_date_time + u.frequency.days).past?
-              #  if (u.check_date_time + 30).past? #Test, frequency = 60 second #
+              # if (u.check_date_time + 40).past? #Test, frequency = 60 second #
               u.update_attribute(:status, "validating")
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"
@@ -110,22 +110,25 @@ class User < ActiveRecord::Base
               # Send validate mail
               UserMailer.validate_email(u).deliver
               number_emails_sent += 1
-              u.update_attribute(:send_validate_mail_at, DateTime.now)
+              u.update_attribute :send_validate_mail_at, DateTime.now
             end
           when 'validating'
             unless u.send_validate_mail_at.nil?
-              # if (u.send_validate_mail_at + @@max_validate_days.days).past?
-              if (u.send_validate_mail_at + 3600).past? #Test validating time = 300s#
+              if (u.send_validate_mail_at + @@max_validate_days.days).past?
+                #if (u.send_validate_mail_at + 60).past? #Test validating time = 300s#
                 u.update_attributes :status => 'died', :validate_code => nil, :blocked => true
                 # Send package mail to reciptients
                 u.packages.each do |p|
                   #unless p.items.count == 0
                   # Generate random verify code
                   verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
-                  p.update_attribute(:verify_recipient_code, verify_recipient_code)
+                  p.update_attribute :verify_recipient_code, verify_recipient_code
+
                   # Send mail
                   recipient = Recipient.find(p.recipient_id)
                   RecipientMailer.package_email(p, recipient).deliver
+                  p.update_attribute :send_to_recipient_at, DateTime.now
+                  logger.infor "Package[#{p.id} - #{p.name}] was send to recipient[#{recipient.id} - #{recipient.name}]"
                   number_emails_sent += 1
                   #end
                 end
