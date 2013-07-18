@@ -1,4 +1,5 @@
 class RecurlyController < ApplicationController
+
   protect_from_forgery :except => :push
 
   def push

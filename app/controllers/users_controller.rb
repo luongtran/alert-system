@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
@@ -22,6 +23,30 @@ class UsersController < ApplicationController
     end
   end
 
+#  first_name
+#  First name on the credit card/billing address
+#  last_name
+#  Last name on the credit card/billing address
+#  address1
+#  Street address line 1. This may be optional or required, depending on your address verification settings.
+#  address2
+#  Street address line 2
+#  city
+#  City
+#  state
+#  2-letter state or province code
+#  country
+#  2-letter ISO country code
+### zip
+#  Zip code or postal code
+###  phone
+#  Phone number for the billing address
+### ip_address
+#   User's IP address when providing billing information. Optional but very highly recommended for fraud detection.
+#vat_number
+#Customer's VAT Number
+
+
   def edit_billing
     account = Recurly::Account.find(current_user.customer_id)
     @billing_infor = account.billing_info
@@ -32,7 +57,16 @@ class UsersController < ApplicationController
 
   def update_billing
     account = Recurly::Account.find(current_user.customer_id)
+    # validate
     account.billing_info = params[:billing_inf]
+    puts "\n\n________Billing_________________________"
+    params[:billing_inf].each { |key, value|
+      if !value.blank?
+        account.billing_info[key]= value
+        puts "#{key}"
+      end
+    }
+    puts "\n\n________________________________________"
     account.billing_info.save
     redirect_to :back
   rescue Recurly::Resource::Invalid => e

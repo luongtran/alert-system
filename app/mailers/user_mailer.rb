@@ -6,8 +6,6 @@ class UserMailer < ActionMailer::Base
   end
   def validate_email(user)
     @user = user
-    @validate_mail = MailTemplate.find_all_by_email_type("validate_email")
-
-    mail(:to => @user.email, :subject => @validate_mail.subject)
+    mail(:to => @user.email, :subject => "Are you still alive ?")
   end
 end
