@@ -1,7 +1,15 @@
 class RecurlyController < ApplicationController
-
   protect_from_forgery :except => :push
 
+  # The expired_subscription_notification is sent when a subscription is no longer valid.
+  # This can happen if a canceled subscription expires or if an active subscription is refunded (and terminated immediately).
+  # If you receive this message, the account no longer has a subscription.
+
+
+  # The canceled_subscription_notification is sent when a subscription is canceled.
+  # This means the subscription will not renew.
+  # The subscription state is set to canceled but the subscription is still valid until the expires_at date.
+  # The next notification is sent when the subscription is completely terminated.
   def push
     notification = Hash.from_xml(request.body())
     render :text => "Request accepted."
@@ -21,11 +29,11 @@ class RecurlyController < ApplicationController
     logger.error "Customer record not found: #{e.message}"
   end
 
-  def close_account
-    @account.close_account
-    @result_object = Recurly::Account.find(@account.account_code)
-    render :action => 'index'
-  end
+  #def close_account
+  #  @account.close_account
+  #  @result_object = Recurly::Account.find(@account.account_code)
+  #  render :action => 'index'
+  #end
 
   def test
     xml = <<XML

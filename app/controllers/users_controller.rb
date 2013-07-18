@@ -59,14 +59,11 @@ class UsersController < ApplicationController
     account = Recurly::Account.find(current_user.customer_id)
     # validate
     account.billing_info = params[:billing_inf]
-    puts "\n\n________Billing_________________________"
     params[:billing_inf].each { |key, value|
       if !value.blank?
         account.billing_info[key]= value
-        puts "#{key}"
       end
     }
-    puts "\n\n________________________________________"
     account.billing_info.save
     redirect_to :back
   rescue Recurly::Resource::Invalid => e

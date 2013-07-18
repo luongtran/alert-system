@@ -133,7 +133,8 @@
       <div class="accountSignUp-inner">
         <div class="row-fluid">
           <div class="span8 offset1">
-            <!--<form class="form-horizontal">-->
+            <br/>
+            <div id="card_error" class="alert alert-error" style="display:none"></div>
             <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-horizontal', 'data-subdomain' => RECURLY_SUBDOMAIN, 'data-signature' => @signature, 'data-ip_address' => request.remote_ip}) do |f| %>
                 <fieldset>
                   <% resource.errors.each do |type, message| %>
@@ -144,8 +145,8 @@
                           </div>
                       <% end %>
                   <% end %>
-                  <%#= f.error_notification %>
-                  <%#= display_base_errors resource %>
+                  <%= f.error_notification %>
+                  <%= display_base_errors resource %>
                   <%= hidden_field_tag :plan, params[:plan] %>
                   <%= f.hidden_field :customer_id %>
 
