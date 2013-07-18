@@ -120,13 +120,13 @@ class User < ActiveRecord::Base
                 # Send package mail to reciptients
                 u.packages.each do |p|
                   #unless p.items.count == 0
-                    # Generate random verify code
-                    verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
-                    p.update_attribute(:verify_recipient_code, verify_recipient_code)
-                    # Send mail
-                    recipient = Recipient.find(p.recipient_id)
-                    RecipientMailer.package_email(p, recipient).deliver
-                    number_emails_sent += 1
+                  # Generate random verify code
+                  verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
+                  p.update_attribute(:verify_recipient_code, verify_recipient_code)
+                  # Send mail
+                  recipient = Recipient.find(p.recipient_id)
+                  RecipientMailer.package_email(p, recipient).deliver
+                  number_emails_sent += 1
                   #end
                 end
               end
