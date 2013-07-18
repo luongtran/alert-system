@@ -2,8 +2,12 @@
 
 FactoryGirl.define do
   factory :package do
-    name "MyString"
-    description "MyString"
-    user_id 1
+    name "test package"
+    description "test package"
+    encrypted_key Base64.encode64(OpenSSL::Cipher.new("AES-256-ECB").random_key)
+    custom_key false
+    recipient_id :recipient_id
+    user {[FactoryGirl.create(:user)]}
+    
   end
 end

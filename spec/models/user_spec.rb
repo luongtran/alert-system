@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   before(:each) do
     @attr = {
       :first_name => "Example",
@@ -131,6 +130,15 @@ describe User do
     it "wont remove original role from database" do
       @user.update_plan(@role2)
       Role.all.count.should == 2
+    end
+  end
+  
+  describe "daily_checker" do
+    it "should send email to recipient" do
+      @user = FactoryGirl.create(:user)
+      @recipient = FactoryGirl.create(:recipient)
+      @package = FactoryGirl.create(:package, :recipient_id => @recipient.id, :user => @user)
+      User.daily_checker.should be > 0
     end
   end
 

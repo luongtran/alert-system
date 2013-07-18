@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :confirmable
 
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me,
-                  :card_token, :customer_id, :frequency, :status, :check_date_time, :validate_code, :blocked
+                  :card_token, :customer_id, :frequency, :status, :check_date_time, :validate_code, :blocked, :send_validate_mail_at
 
   attr_accessor :card_token, :skip_check_recurly
 
@@ -95,6 +95,7 @@ class User < ActiveRecord::Base
   end
 
   def self.daily_checker
+    number_emails_sent = 0
     @users = User.all
     @users.each do |u|
       unless u.has_role? :admin
@@ -108,6 +109,7 @@ class User < ActiveRecord::Base
               u.update_attribute(:validate_code, validate_code)
               # Send validate mail
               UserMailer.validate_email(u).deliver
+              number_emails_sent += 1
               u.update_attribute(:send_validate_mail_at, DateTime.now)
             end
           when 'validating'
@@ -117,14 +119,15 @@ class User < ActiveRecord::Base
                 u.update_attributes :status => 'died', :validate_code => nil, :blocked => true
                 # Send package mail to reciptients
                 u.packages.each do |p|
-                  unless p.items.count == 0
+                  #unless p.items.count == 0
                     # Generate random verify code
                     verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
                     p.update_attribute(:verify_recipient_code, verify_recipient_code)
                     # Send mail
                     recipient = Recipient.find(p.recipient_id)
                     RecipientMailer.package_email(p, recipient).deliver
-                  end
+                    number_emails_sent += 1
+                  #end
                 end
               end
             end
@@ -132,5 +135,6 @@ class User < ActiveRecord::Base
         end
       end # End check role
     end
+    number_emails_sent
   end
 end
