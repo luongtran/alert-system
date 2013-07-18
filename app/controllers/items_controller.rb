@@ -24,13 +24,6 @@ class ItemsController < ApplicationController
     #redirect_to
   end
 
-  def new_independent
-    @item = Item.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @item }
-    end
-  end
 
   def edit
     @item = Item.find(params[:id])
@@ -117,12 +110,12 @@ class ItemsController < ApplicationController
       flash[:notice] = "Item was created successfuly !"
       redirect_to package_path(@package)
     else
-      i = 0
-      @item.errors.full_messages.each do |message|
-        flash["error#{i}"] = message
-        i+=1
-      end
-      flash[:notice] = "Update failed !"
+      #i = 0
+      #@item.errors.full_messages.each do |message|
+      #  flash["error#{i}"] = message
+      #  i+=1
+      #end
+      flash[:alert] = "Item was created failed !"
       render action: :new
     end
     # respond_with @package

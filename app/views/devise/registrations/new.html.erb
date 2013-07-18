@@ -22,7 +22,6 @@
             $.cookie('card_code', '')
             $.cookie('country', '')
         })
-
     });
 </script>
 
@@ -39,8 +38,10 @@
 
         if ($.cookie('card_number') != '')
             $('#card_number').val($.cookie('card_number'));
+
         if ($.cookie('card_code') != '')
             $('#card_code').val($.cookie('card_code'));
+
         if ($.cookie('country') != '')
             $('#country').val($.cookie('country'));
 

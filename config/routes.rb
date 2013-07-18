@@ -2,6 +2,8 @@ AlertSystem::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  post "dashboard/create_new_item"
+  get "dashboard/new_item"
   get "dashboard/items"
   get "dashboard/packages"
   get "dashboard/index", :as => :dashboard
@@ -41,6 +43,9 @@ AlertSystem::Application.routes.draw do
   resources :packages do
     resources :items
   end
+
+  get "/packages/check-custom-key/(:id)" => "packages#check_package_custom_key"
+
   as :user do
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
   end

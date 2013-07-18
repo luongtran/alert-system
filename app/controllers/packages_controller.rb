@@ -135,6 +135,15 @@ class PackagesController < ApplicationController
 
   end
 
+  def check_package_custom_key
+    @package = Package.find(params[:id])
+    is_customer_key = false
+    if !@package.nil?
+      is_customer_key = @package.custom_key
+    end
+    render :json => {:customer_key => is_customer_key}
+  end
+
   private
   def get_addresses
     @recipients = Recipient.where(:user_id => current_user.id)
