@@ -133,12 +133,52 @@
               <% if !@homepage_content.nil? %>
                   <p class="lead"><%= raw @homepage_content.signupquick_lead %></p>
               <% else %>
-                  <p class="lead"> Easy to sign up! Choose a membership plan bellow, fill out the form and ...</p>
+                  <p class="lead"> Easy to sign up! Choose a plan bellow, fill out the form and ...</p>
               <% end %>
 
+              <table class="table table-hover">
+                <tr>
+                  <th></th>
+                  <th>Amount</th>
+                  <th>Packages</th>
+                  <th>Encryption</th>
+                </tr>
+                <tr class="infor">
+                  <td><a href="<%= new_user_registration_path(:plan => 'free') %> "><b>Free</b></a></td>
+                  <td>$0</td>
+                  <td>1</td>
+                  <td>Standard</td>
+                </tr>
+                <tr class="success">
+                  <td><a href="<%= new_user_registration_path(:plan => 'small') %> "> <b>Small</b></a></td>
+                  <td>$5</td>
+                  <td>3</td>
+                  <td>Standard</td>
+                </tr>
+                <tr class="warning">
+                  <td><a href="<%= new_user_registration_path(:plan => 'medium') %> "><b>Medium</b></a></td>
+                  <td>$10</td>
+                  <td>10</td>
+                  <td>Standard</td>
+                </tr>
+                <tr class="error">
+                  <td><a href="<%= new_user_registration_path(:plan => 'large') %> "><b>Large</b></a></td>
+                  <td>$15</td>
+                  <td>30</td>
+                  <td>Custom key</td>
+                </tr>
 
-              <a href="<%= new_user_registration_path(:plan => 'free') %>" class="btn btn-primary"><i class="icon-edit"></i>
-                Free ($0/month)</a>
+              </table>
+
+              <!--<a href="<%= new_user_registration_path(:plan => 'free') %>" class="btn btn-primary">-->
+              <!--Free $0/month</a>-->
+              <!--<a href="<%= new_user_registration_path(:plan => 'small') %>" class="btn btn-primary">-->
+              <!--Small ($5/month)</a>-->
+              <!--<br />-->
+              <!--<a href="<%= new_user_registration_path(:plan => 'medium') %>" class="btn btn-primary">-->
+              <!--Medium ($10/month)</a>-->
+              <!--<a href="<%= new_user_registration_path(:plan => 'large') %>" class="btn btn-primary">-->
+              <!--Large ($15/month)</a>-->
             </div>
           </div>
           <div class="notice">
@@ -286,7 +326,8 @@
             <% if !@homepage_content.nil? %>
                 <%= raw @homepage_content.pagefoot_inforunit4_content %>
             <% else %>
-                From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and extensions
+                From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and
+                extensions
                 not
                 excute). We will try to take more kinds of data in future to you!
             <% end %>

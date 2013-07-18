@@ -42,17 +42,16 @@
             <ul class="unstyled">
               <li><a href="<%= edit_package_item_path %>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a></li>
               <li>Package: <span> <%= @package.name %></span></li>
-
-              <li>Created at: <span><%= @item.created_at %></span></li>
+              <li>Description: <span> <%= @item.description.blank? ? "N/A" : @item.description %></span></li>
+              <li>Created at: <span><%= @item.created_at.strftime("%I:%M %p, ") + @item.created_at.strftime("%A %m/%d/%Y") %></span></li>
               <li>Type: <span><%= ItemType.find(@item.item_type).name %></span></li>
-              <li>Description: <span> <%= @item.description %></span></li>
+
               <% if @item.item_type == 1 %>
                   <% if @package.custom_key %>
                       <li>Content: <span>(Encrypted) </span></li>
                   <% else %>
                       <li>Content:<span> <%= @text_content_decrypted %> </span></li>
                   <% end %>
-
               <% else %>
                   <li><span>File name: <%= @item.file_name %> </span></li>
                   <% if !@package.custom_key %>

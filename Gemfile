@@ -5,12 +5,12 @@ gem 'heroku'
 gem 'rufus-scheduler'
 gem "activeadmin", :git => "git://github.com/gregbell/active_admin.git"
 gem 'ckeditor', :git => 'git://github.com/pshoukry/ckeditor.git'
-gem "meta_search",    '>= 1.1.0.pre'
+gem "meta_search", '>= 1.1.0.pre'
 gem 'aws-sdk'
 
 #gem 'aws-s3', :require => 'aws/s3'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -48,5 +48,5 @@ gem "httpclient", ">= 2.3.3"
 gem "quiet_assets", ">= 1.0.2", :group => :development
 gem "figaro", ">= 0.6.3"
 gem "better_errors", ">= 0.7.2", :group => :development
-gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
+gem "binding_of_caller", ">= 0.7.1"#, :group => :development, :platforms => [:mri_19, :rbx]
 

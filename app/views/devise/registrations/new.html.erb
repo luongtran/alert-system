@@ -203,7 +203,7 @@
                         <label class="control-label">Frequency <span>*</span> :</label>
 
                         <div class="controls">
-                          <%= f.select :frequency, 1..52, :prompt => "A number of weeks" %>
+                          <%= f.text_field :frequency, :type => "number", :class => "input-block-level", :value => 30 %>
                         </div>
                       </div>
                   <% end %>
