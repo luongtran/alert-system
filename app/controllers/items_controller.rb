@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_package
   #respond_to :js, :html
-
   # GET /items/1
   # GET /items/1.json
   def download
@@ -23,8 +22,6 @@ class ItemsController < ApplicationController
     end
     #redirect_to
   end
-
-
   def edit
     @item = Item.find(params[:id])
   end

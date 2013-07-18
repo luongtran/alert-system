@@ -1,12 +1,11 @@
 <script>
     $(document).ready(function () {
-       $('#label-leader').text("Dashboard");
+        $('#label-leader').text("Dashboard");
     });
 </script>
 <br/>
 <h3><p>Welcome, <%= current_user.name.titleize %></p></h3>
-<h5>You currently have <%= @packages_count %> package <%= @packages_count > 1 ? "s" : "" %> with a
+<h5>You currently have <%= @packages_count %> package<%= @packages_count > 1 ? "s" : "" %> with a
   total <%= @items_count %> item <%= @items_count > 1 ? "s" : "" %></h5>
-
 <h5>Next validate
-  time: <%= @next_validate_at.strftime("%A %m/%d/%Y") + @next_validate_at.strftime(" at %I:%M %p") %> </h5>
+  at: <%= @next_validate_at.strftime("%A %m/%d/%Y") + @next_validate_at.strftime(" at %I:%M %p") %> </h5>

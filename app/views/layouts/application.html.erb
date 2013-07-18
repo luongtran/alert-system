@@ -46,7 +46,7 @@
                   <div class="pull-left">
                     <div id="accountBox" class="text-right">
                       <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
-                      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' if user_signed_in? %>
+                      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', :class => "btn btn-mini" if user_signed_in? %>
 
                       <div class="pas">
 

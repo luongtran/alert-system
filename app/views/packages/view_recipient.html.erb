@@ -1,0 +1,17 @@
+<script>
+    $(document).ready(function () {
+        $('#label-leader').text("Recipient");
+    });
+</script>
+<br/>
+<h5><a href="<%= package_path(@current_package) %>" class="btn btn-mini"><i class="icon-chevron-left"></i> Back</a></h5>
+<hr class="divider"/>
+<h4>Recipient's information</h4>
+
+<label>Name: <%= @recipient.name %></label>
+<label>Email: <%= @recipient.email %>   </label>
+<label>Address: <%= @recipient.address.nil? ? @recipient.address : 'n/a' %>   </label>
+<label>Phone number: <%= @recipient.phone_number? ? @recipient.phone_number : 'n/a' %>    </label>
+
+
+

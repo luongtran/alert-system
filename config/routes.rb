@@ -26,7 +26,7 @@ AlertSystem::Application.routes.draw do
   match 'packages/:package_id/items/:id/download' => 'items#download', :as => :download_item
 
 
-  get 'packages/viewrecipient'
+  get 'packages/view_recipient'
   authenticated :user do
     root :to => 'home#index'
   end

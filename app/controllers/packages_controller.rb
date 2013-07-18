@@ -12,6 +12,7 @@ class PackagesController < ApplicationController
   def show
     begin
       @package = current_user.packages.find(params[:id])
+      @recipient = Recipient.find(@package.recipient_id)
       @items = Item.where(:package_id => @package.id)
       respond_to do |format|
         format.html # show.html.erb
@@ -123,9 +124,10 @@ class PackagesController < ApplicationController
     end
   end
 
-  def viewrecipient
+  def view_recipient
     begin
       @recipient = Recipient.find(params[:id])
+      @current_package = Package.find(params[:p])
       if @recipient.user_id != current_user.id # user can't view another user' recipient
         redirect_to dashboard_packages_path
       end

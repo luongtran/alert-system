@@ -32,6 +32,8 @@ class RecipientController < ApplicationController
     end
   end
 
+
+
   def show
 
   end

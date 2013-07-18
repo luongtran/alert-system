@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function () {
-        $('#label-leader').text("View Package");
+        $('#label-leader').text("Package");
     });
 </script>
 <div id="dashbody_items">
@@ -32,11 +32,11 @@
       </div>
       <div class="packageinfo"><a class="packtitle"><%= @package.name %></a>
         <ul class="unstyled">
-          <li> <a href="<%= edit_package_path%>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> </li>
+          <li><a href="<%= edit_package_path %>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a></li>
           <li>Created at: <span><%= @package.created_at %></span></li>
           <li>Items inside: <span> <%= @package.items.count %> items</span></li>
           <li>Recipient:
-            <span class="recipient mlm" style=""><a href="<%="#{packages_viewrecipient_path}?id=#{@package.recipient_id}"%>"><%= Recipient.find(@package.recipient_id).name %></a>  </span>
+            <span class="recipient mlm" style=""><a href="<%= "#{packages_view_recipient_path}?id=#{@recipient.id}&p=#{@package.id}" %>"><%= "#{@recipient.name} <#{@recipient.email}>" %></a>  </span>
           </li>
 
           <li>  <%= button_to "Delete", @package, :method => :delete, :class => "btn-danger btn-small", data: {confirm: 'Are you sure?'} %></li>
