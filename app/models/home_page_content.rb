@@ -6,6 +6,6 @@ class HomePageContent < ActiveRecord::Base
                   :pagefoot_inforunit1_head, :pagefoot_inforunit1_content,
                   :pagefoot_inforunit2_head, :pagefoot_inforunit2_content,
                   :pagefoot_inforunit3_head, :pagefoot_inforunit3_content,
-                  :pagefoot_inforunit4_head, :pagefoot_inforunit4_content
+                  :pagefoot_inforunit4_head, :pagefoot_inforunit4_content, :active
 
 end
