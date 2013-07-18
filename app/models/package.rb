@@ -9,7 +9,7 @@ class Package < ActiveRecord::Base
   belongs_to :user
   has_many :items, :dependent => :destroy
 
-  #before_save :create_aes_key, :if => lambda { |i| i.custom_key == false }
+  ## before_save :create_aes_key, :if => lambda { |i| i.custom_key == false }
 
   def create_aes_key
     key = OpenSSL::Cipher.new("AES-256-ECB").random_key

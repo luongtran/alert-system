@@ -123,7 +123,6 @@ class User < ActiveRecord::Base
                   # Generate random verify code
                   verify_recipient_code = Digest::SHA1.hexdigest "#{Time.now} #{p.id}"
                   p.update_attribute :verify_recipient_code, verify_recipient_code
-
                   # Send mail
                   recipient = Recipient.find(p.recipient_id)
                   RecipientMailer.package_email(p, recipient).deliver

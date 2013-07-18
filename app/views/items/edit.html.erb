@@ -3,16 +3,24 @@
         $('#label-leader').text("Edit Item");
     });
 </script>
-
 <br/>
-<h3>Under construction ... </h3>
+
 <div class="spacing ptl"></div>
+
 <%= puts @item.errors.full_messages %>
 <%= form_for [@package, @item], url: {action: "update"} do |f| %>
+
     <label class="control-label">Name</label>
-    <%= f.text_field :name, :required => true %>
+    <%= f.text_field :name, :required => true, :style => "background-color: #3d4555;border: solid 1px #343c4b;color: #aab3c6;" %>
+
+
     <label class="control-label">Desciption</label>
-    <%= f.text_area :description, :rows => 3 %>
+    <%= f.text_area :description, :rows => 3, :style => "background-color: #3d4555;border: solid 1px #343c4b;color: #aab3c6;" %>
+
     <div class="spacing ptl"></div>
-    <button type="submit" class="btn btn-primary"><i class="icon-save mrm"></i>Update Item</button>
+    <button type="submit" class="btn btn-primary"><i class="icon-save mrm"></i>Update</button>
+    <a href="<%= package_item_path %>" class="btn btn-primary"> Cancel</a>
 <% end %>
+
+
+

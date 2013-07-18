@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 
   validates :name, :presence => true, :length => 3...30
 
-  validates_length_of :aes_key, :is => 32
+  validates_length_of :aes_key, :is => 32, :on => :create
 
   validates_uniqueness_of :name, :scope => :package_id
 
@@ -22,7 +22,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :package
 
-  before_save :encrypt_item_contents
+  before_save :encrypt_item_contents, :if => lambda { |i| i.created_at == nil }
 
   before_destroy :delete_from_s3, :if => lambda { |i| i.item_type == 2 }
 

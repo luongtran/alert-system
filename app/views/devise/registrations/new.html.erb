@@ -157,7 +157,7 @@
                         <label class="control-label">Frequency <span>*</span> :</label>
 
                         <div class="controls">
-                          <%= f.text_field :frequency, :type => "number", :class => "input-block-level", :value => 30 %>
+                          <%= f.select :frequency, 1..52 , :prompt => "A number of weeks to validate"%>
                         </div>
                       </div>
                   <% end %>
@@ -179,7 +179,7 @@
 
                           <div class="controls">
                             <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
-                            <%= text_field_tag :card_number, nil, name: nil, :class => "input-block-level"%>
+                            <%= text_field_tag :card_number, nil, name: nil, :class => "input-block-level" %>
                           </div>
                         </div>
                         <div class="control-group">

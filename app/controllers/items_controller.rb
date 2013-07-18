@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
   include ItemsHelper
   before_filter :authenticate_user!
   before_filter :find_package
-  respond_to :js, :html
+  #respond_to :js, :html
 
-          # GET /items/1
+  # GET /items/1
   # GET /items/1.json
   def download
     @item = Item.find(params[:id])
@@ -30,13 +30,12 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    puts "\n\n__________Update"
     respond_to do |format|
-      if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+      if @item.update_attributes :name => params[:item][:name], :description => params[:item][:description]
+        format.html { redirect_to package_item_path(@package, @item), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
-        puts "\n\n#{@item.errors.full_messages}\n\n"
+        flash[:notice] = "Item updated failed ! #{@item.errors.full_messages.first}"
         format.html { render action: "edit" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
@@ -106,7 +105,6 @@ class ItemsController < ApplicationController
     else
       @item.aes_key = Base64.decode64(@package.encrypted_key)
     end
-
     if @item.save
       flash[:notice] = "Item was created successfuly !"
       redirect_to package_path(@package)
@@ -116,6 +114,7 @@ class ItemsController < ApplicationController
         flash["error#{i}"] = message
         i+=1
       end
+      flash[:notice] = "Update failed !"
       render action: :new
     end
     # respond_with @package

@@ -43,7 +43,7 @@
 
               <li><span>Created at:  <%= @item.created_at %></span></li>
               <li><span>Type:  <%= ItemType.find(@item.item_type).name %></span></li>
-
+              <li><span>Description:  <%= @item.description %></span></li>
               <% if @item.item_type == 1 %>
                   <% if @package.custom_key %>
                       <li><span>Content: (Encrypted) </span></li>
