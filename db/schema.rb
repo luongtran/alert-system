@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718044249) do
+ActiveRecord::Schema.define(:version => 20130719041635) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20130718044249) do
     t.string  "pagefoot_inforunit4_head"
     t.text    "pagefoot_inforunit4_content"
     t.boolean "active",                      :default => false
+    t.text    "share_link"
+    t.text    "blog_link"
   end
 
   create_table "item_types", :force => true do |t|

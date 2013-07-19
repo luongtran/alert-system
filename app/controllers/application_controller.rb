@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
       second = ""
     end
     @control_label = "#{first} - #{second}"
+    @homepage_content = HomePageContent.where(:active => true).first
   end
 
 

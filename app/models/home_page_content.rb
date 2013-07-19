@@ -6,7 +6,7 @@ class HomePageContent < ActiveRecord::Base
                   :pagefoot_inforunit1_head, :pagefoot_inforunit1_content,
                   :pagefoot_inforunit2_head, :pagefoot_inforunit2_content,
                   :pagefoot_inforunit3_head, :pagefoot_inforunit3_content,
-                  :pagefoot_inforunit4_head, :pagefoot_inforunit4_content, :active
+                  :pagefoot_inforunit4_head, :pagefoot_inforunit4_content, :active, :share_link, :blog_link
 
 
   validates_presence_of :name, :title, :notepad_notetext, :introduce_lead,
@@ -15,6 +15,6 @@ class HomePageContent < ActiveRecord::Base
                         :pagefoot_inforunit1_head, :pagefoot_inforunit1_content,
                         :pagefoot_inforunit2_head, :pagefoot_inforunit2_content,
                         :pagefoot_inforunit3_head, :pagefoot_inforunit3_content,
-                        :pagefoot_inforunit4_head, :pagefoot_inforunit4_content
+                        :pagefoot_inforunit4_head, :pagefoot_inforunit4_content, :share_link
   validates_uniqueness_of :name
 end

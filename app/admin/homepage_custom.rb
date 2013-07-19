@@ -20,7 +20,9 @@ ActiveAdmin.register HomePageContent do
     column :pagefoot_inforunit4_head
     column :pagefoot_inforunit4_content
     column :active
-
+    column :share_link
+    column :blog_link
+    default_actions
   end
   filter :name
   filter :active
@@ -88,7 +90,12 @@ ActiveAdmin.register HomePageContent do
     f.inputs "Active this config ?" do
       f.input :active
     end
-
+    f.inputs "Google, Tweet share link" do
+      f.text_field :share_link
+    end
+    f.inputs "Blog link" do
+      f.text_field :blog_link
+    end
     f.actions
   end
 end
