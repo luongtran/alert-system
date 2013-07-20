@@ -1,5 +1,6 @@
 ActiveAdmin.register Package do
-  actions :all, :except => [:destroy, :edit, :update, :create]
+  #  actions :all, :except => [:destroy, :edit, :update, :create]
+  actions :show, :index
   index do
     column :id
     column :user_id

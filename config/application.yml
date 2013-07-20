@@ -7,7 +7,6 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-
 ROOT_SITE_URL: alert-system.herokuapp.com
 MAIL_SENDER_ADDR: Alert System Stuff <alert-system-noreply@example.com>
 
@@ -25,7 +24,6 @@ RECURLY_SUBDOMAIN: send-switch
 
 MANDRILL_USERNAME: htluan2605@gmail.com
 MANDRILL_API_KEY: ASF7neJ4xHzq6xnDjxLkAw
-
 AWS3_BUCKET_PREFIX: alert-system-package-
 
 AWS_ACCESS_KEY_ID: AKIAIZTAI53YBVILFSTQ

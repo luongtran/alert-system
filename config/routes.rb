@@ -1,5 +1,5 @@
 AlertSystem::Application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
+   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   post "dashboard/create_new_item"
@@ -9,7 +9,7 @@ AlertSystem::Application.routes.draw do
   get "dashboard/index", :as => :dashboard
   get "dashboard/pricing"
 
-  get "recipient/get/(:code)" => "recipient#get", :as => :verify
+  get "recipient/get/(:code)" => "recipient#get", :as => "verify"
   # get "recipient/delete"
   get "recipient/download_item/(:code)" => "Recipient#download_item"
   get "check_in/welcomeback"
@@ -51,4 +51,5 @@ AlertSystem::Application.routes.draw do
   end
   devise_for :users, :controllers => {:confirmations => "confirmations"}
   ActiveAdmin.routes(self)
+  
 end
