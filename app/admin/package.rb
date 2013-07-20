@@ -1,4 +1,5 @@
 ActiveAdmin.register Package do
+  actions :all, :except => [:destroy, :edit, :update, :create]
   index do
     column :id
     column :user_id
@@ -10,4 +11,5 @@ ActiveAdmin.register Package do
     column :send_to_recipient_at
     default_actions
   end
+ 
 end

@@ -39,6 +39,8 @@ HomePageContent.create :name => 'Default', :title => 'Alert System',
                        :pagefoot_inforunit3_content => "We sure all your data save in our system is private with best security! Addition, you also have more and more functions to controll packages - items if upgrade to plane Premium Account.",
                        :pagefoot_inforunit4_head => "Rich media data",
                        :pagefoot_inforunit4_content => "From now, we provide 3 kinds of data : Textnote - Image - files (extension: zip, rar, 7zip and extensions not excute). We will try to take more kinds of data in future to you!",
+                       :blog_link => "TrentScott.blogdomain.com",
+                       :share_link => "alert-system.herokuapp.com",
                        :active => true
 
 AdminUser.create :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
