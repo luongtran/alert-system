@@ -1033,6 +1033,7 @@ body a.active {
     width: 399px;
   }
   .headerTop .container > div #headerRight #accountBox {
+    margin-left: 15px;
     text-align: center;
   }
   .headerTop .container > div #headerRight #accountBox ul li {
