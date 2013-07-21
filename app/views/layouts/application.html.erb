@@ -43,24 +43,25 @@
                   <li class="pull-left <%= ((params[:controller] == "dashboard" && params[:action] == "items") || params[:controller] == "items") ? "active" : "" %>">
                     <a href="/dashboard/items">Items</a>
                   </li>
-                  <div class="pull-left">
-                    <div id="accountBox" class="text-right">
-                      <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
-                      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', :class => "btn btn-mini" if user_signed_in? %>
-
-                      <div class="pas">
-
-                        <ul class="unstyled text-right">
-                          <li>You have <%= current_user.packages.count %> Package(s)</li>
-                          <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-
               <% end %>
             </ul>
+            <% if user_signed_in? %>
+            <div class="pull-left">
+              <div id="accountBox" class="text-right">
+                <a href="#" class="text-right accTitle">Hi, <%= "#{current_user.first_name} #{current_user.last_name}" %></a>
+                <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', :class => "btn btn-mini" if user_signed_in? %>
+
+                <div class="pas">
+
+                  <ul class="unstyled text-right">
+                    <li>You have <%= current_user.packages.count %> Package(s)</li>
+                    <li>You have <%= current_user.num_recipients %> Recipient(s)</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <% end %>
           </div>
         </div>
       </div>
