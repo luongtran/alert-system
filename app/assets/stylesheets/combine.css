@@ -1098,9 +1098,7 @@ body a.active {
     clear: both;
   }
 }
-@media (max-width: 480px) {
-  .whitebox.wizard {
-    overflow: hidden;
-  }
+.whitebox.wizard {
+  overflow: hidden;
 }
 /* Large desktop */
