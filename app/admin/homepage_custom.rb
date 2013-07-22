@@ -87,7 +87,7 @@ ActiveAdmin.register HomePageContent do
     f.inputs "Tip Unit 4 content" do
       f.input :pagefoot_inforunit4_content, :as => :ckeditor
     end
-    f.inputs "Active this config ?" do
+    f.inputs "Active the config ?" do
       f.input :active
     end
     f.inputs "Google, Tweet share link" do

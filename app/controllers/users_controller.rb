@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def update_billing
     account = Recurly::Account.find(current_user.customer_id)
     # validate
-    account.billing_info = params[:billing_inf]
+    # account.billing_info = params[:billing_inf]
     params[:billing_inf].each { |key, value|
       if !value.blank?
         account.billing_info[key]= value

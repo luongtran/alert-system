@@ -4,46 +4,47 @@
     });
 </script>
 <br/>
+<!--, :class => "form" -->
 <div id="accountEdit">
-<%= simple_form_for "billing_inf", {url: {controller: "users", action: "update_billing"}} do |b|, :class => "form" %>
-    <div class="control-group">
-      <%= label_tag :first_name, "First Name", :class => "control-label" %>
-      <div class="controls">
-        <%= b.text_field :first_name, :value => "#{@billing_infor.first_name}", :class => "input-block-level" %>
-      </div>
-    </div>
-    <div class="field">
-      <%= label_tag :last_name, "Last Name", :class => "control-label" %>
+  <%= simple_form_for "billing_inf", {:html => {:class => "form"}, url: {controller: "users", action: "update_billing"}} do |b| %>
       <div class="control-group">
-        <%= b.text_field :last_name, :value => "#{@billing_infor.last_name}", :class => "input-block-level" %>
-      </div>
-    </div>
-    <div class="field">
-      <%= label_tag :number, "Credit Card Number", :class => "control-label" %>
-      <div class="control-group">
-        <%= b.text_field :number, :value => "#{@billing_infor.first_six}****#{@billing_infor.last_four}", :class => "input-block-level" %>
-       </div>
-    </div>
-    <div class="field">
-      <%= label_tag :verification_value, "Card Security Code (CVV)", :class => "control-label" %>
-      <div class="control-group">
-        <%= b.text_field :verification_value, :type => "number", :class => "input-block-level" %>
-      </div>
-    </div>
-    <div class="field">
-      <%= label_tag :month, "Card Expiration", :class => "control-label" %>
-      <div class="control-group">
-        <div class="row-fluid">
-          <span class="span6">
-            <%= select_month @billing_infor.month, {add_month_numbers: true}, {name: nil, id: "month"}, :class => "input-block-level" %>
-          </span>
-          <span class="span6">
-            <%= select_year @billing_infor.year, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "year"}, :class => "input-block-level" %>
-          </span>
+        <%= label_tag :first_name, "First Name", :class => "control-label" %>
+        <div class="controls">
+          <%= b.text_field :first_name, :value => "#{@billing_infor.first_name}", :class => "input-block-level" %>
         </div>
       </div>
-    </div>
-    <button type="submit" class="btn btn-primary span5">Update</button>
-<% end %>
+      <div class="field">
+        <%= label_tag :last_name, "Last Name", :class => "control-label" %>
+        <div class="control-group">
+          <%= b.text_field :last_name, :value => "#{@billing_infor.last_name}", :class => "input-block-level" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= label_tag :number, "Credit Card Number", :class => "control-label" %>
+        <div class="control-group">
+          <%= b.text_field :number, :value => "#{@billing_infor.first_six}****#{@billing_infor.last_four}", :class => "input-block-level" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= label_tag :verification_value, "Card Security Code (CVV)", :class => "control-label" %>
+        <div class="control-group">
+          <%= b.text_field :verification_value, :type => "text", :class => "input-block-level" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= label_tag :month, "Card Expiration", :class => "control-label" %>
+        <div class="control-group">
+          <div class="row-fluid">
+          <span class="span6 input-block-level">
+            <%= select_month @billing_infor.month, {add_month_numbers: true}, {name: "billing_inf[month]", id: "month"} %>
+          </span>
+          <span class="span6">
+            <%= select_year @billing_infor.year, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: "billing_inf[year]", id: "year"} %>
+          </span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary span5">Update</button>
+  <% end %>
 </div>
 
