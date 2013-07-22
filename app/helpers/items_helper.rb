@@ -35,50 +35,50 @@ module ItemsHelper
 
   end
 
-  def file_AESDecryptor(source_path, key, dest_file_path)
-    aes = OpenSSL::Cipher::AES256.new(:CBC)
-    aes.decrypt
-    aes.key = key
-    buffer = "";
-    File.open(dest_file_path, "wb") do |outf|
-      File.open(source_path, "rb") do |inf|
-        while inf.read(4096, buffer)
-          outf << aes.update(buffer)
-        end
-        outf << aes.final
-      end
-    end
-  end
+  #def file_AESDecryptor(source_path, key, dest_file_path)
+  #  aes = OpenSSL::Cipher::AES256.new(:CBC)
+  #  aes.decrypt
+  #  aes.key = key
+  #  buffer = "";
+  #  File.open(dest_file_path, "wb") do |outf|
+  #    File.open(source_path, "rb") do |inf|
+  #      while inf.read(4096, buffer)
+  #        outf << aes.update(buffer)
+  #      end
+  #      outf << aes.final
+  #    end
+  #  end
+  #end
 
-  def file_DES_Encryptor(source_path, key, dest_file_path)
-    cipher = OpenSSL::Cipher.new('DES-ECB')
-    cipher.encrypt
-    cipher.key = key
-    buffer = "";
-    File.open(dest_file_path, "wb") do |outf|
-      File.open(source_path, "rb") do |inf|
-        while inf.read(4096, buffer)
-          outf << cipher.update(buffer)
-        end
-        outf << cipher.final
-      end
-    end
-  end
-
-  def file_DES_Decryptor(source_path, key, dest_file_path)
-    cipher = OpenSSL::Cipher.new('DES-ECB')
-    cipher.decrypt
-    cipher.key = key
-    buffer = "";
-    File.open(dest_file_path, "wb") do |outf|
-      File.open(source_path, "rb") do |inf|
-        while inf.read(4096, buffer)
-          outf << cipher.update(buffer)
-        end
-        outf << cipher.final
-      end
-    end
-  end
+  #def file_DES_Encryptor(source_path, key, dest_file_path)
+  #  cipher = OpenSSL::Cipher.new('DES-ECB')
+  #  cipher.encrypt
+  #  cipher.key = key
+  #  buffer = "";
+  #  File.open(dest_file_path, "wb") do |outf|
+  #    File.open(source_path, "rb") do |inf|
+  #      while inf.read(4096, buffer)
+  #        outf << cipher.update(buffer)
+  #      end
+  #      outf << cipher.final
+  #    end
+  #  end
+  #end
+  #
+  #def file_DES_Decryptor(source_path, key, dest_file_path)
+  #  cipher = OpenSSL::Cipher.new('DES-ECB')
+  #  cipher.decrypt
+  #  cipher.key = key
+  #  buffer = "";
+  #  File.open(dest_file_path, "wb") do |outf|
+  #    File.open(source_path, "rb") do |inf|
+  #      while inf.read(4096, buffer)
+  #        outf << cipher.update(buffer)
+  #      end
+  #      outf << cipher.final
+  #    end
+  #  end
+  #end
 
   def text_DES_Encryptor(source_string, key)
     cipher = OpenSSL::Cipher.new('DES-ECB')

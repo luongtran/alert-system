@@ -115,7 +115,7 @@ class User < ActiveRecord::Base
           when 'validating'
             unless u.send_validate_mail_at.nil?
               #if (u.send_validate_mail_at + @@max_validate_days.days).past?
-              if (u.send_validate_mail_at + 3600).past? #Test validating time = 300s#
+              if (u.send_validate_mail_at + 3600).past? #Test validating time
                 u.update_attributes :status => 'died', :validate_code => nil, :blocked => true
                 # Send package mail to reciptients
                 u.packages.each do |p|
