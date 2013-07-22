@@ -12,6 +12,7 @@ ActiveAdmin.register User do
     column "Usage" do |user|
       "#{user.packages.count}  packages, #{user.items.count} items"
     end
+    column :status
     column :last_sign_in_at
     column :sign_in_count
     default_actions

@@ -95,15 +95,15 @@ class User < ActiveRecord::Base
   end
 
   def self.daily_checker
-    logger.infor "\nCron job running ....."
+
     number_emails_sent = 0
     @users = User.all
     @users.each do |u|
       unless u.has_role? :admin
         case u.status
           when 'normal'
-            if (u.check_date_time + u.frequency.days).past?
-              # if (u.check_date_time + 40).past? #Test, frequency = 60 second #
+             if (u.check_date_time + u.frequency.days).past?
+           # if (u.check_date_time + 40).past? #Test, frequency = 60 second #
               u.update_attribute(:status, "validating")
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"
@@ -128,7 +128,7 @@ class User < ActiveRecord::Base
                   recipient = Recipient.find(p.recipient_id)
                   RecipientMailer.package_email(p, recipient).deliver
                   p.update_attribute :send_to_recipient_at, DateTime.now
-                  logger.infor "Package[#{p.id} - #{p.name}] was send to recipient[#{recipient.id} - #{recipient.name}]"
+                  puts "Package[#{p.id} - #{p.name}] was send to recipient[#{recipient.id} - #{recipient.name}]"
                   number_emails_sent += 1
                   #end
                 end
