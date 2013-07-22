@@ -9,12 +9,6 @@ class Recipient < ActiveRecord::Base
   #validates_numericality_of :phone_number
   validates_uniqueness_of :email, :scope => :user_id
 
-  #before_save :check_exist
-  #
-  #def check_exist
-  #  if :is_new_recipient
-  #
-  #  end
-  #end
+
 
 end

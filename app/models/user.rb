@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   has_many :packages, :dependent => :destroy
   has_many :items, :through => :packages
 
-
   def num_recipients
     recipients = Recipient.where('user_id = ?', self.id)
     return !recipients.blank? ? recipients.count : 0
@@ -102,8 +101,8 @@ class User < ActiveRecord::Base
       unless u.has_role? :admin
         case u.status
           when 'normal'
-             if (u.check_date_time + u.frequency.days).past?
-           # if (u.check_date_time + 40).past? #Test, frequency = 60 second #
+            if (u.check_date_time + u.frequency.days).past?
+              # if (u.check_date_time + 40).past? #Test, frequency = 60 second #
               u.update_attribute(:status, "validating")
               # Generate random vadidate code
               validate_code = Digest::SHA1.hexdigest "#{Time.now} #{u.email}"

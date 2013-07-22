@@ -2,7 +2,6 @@
 ActiveAdmin.register Recipient do
   index do
     column :id
-    column :user_id
     column :name
     column :email
     column :address

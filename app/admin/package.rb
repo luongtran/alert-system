@@ -6,10 +6,16 @@ ActiveAdmin.register Package do
     column :user_id
     column :name
     column :description
-    column :custom_key
+    column "Items count" do |p|
+      p.items.count
+    end
     column :encrypted_key
-    column :created_at
     column :send_to_recipient_at
+    column "Recipient Email" do |p|
+      r= Recipient.find(p.recipient_id)
+      "#{r.email}"
+    end
+    column :created_at
     default_actions
   end
   filter :name
