@@ -19,6 +19,7 @@ class DashboardController < ApplicationController
 
   def items
     @items = current_user.items
+    @packages_count = current_user.packages.count
     @text_item_count = @items.where(:item_type => 1).count
     @file_item_count = @items.where(:item_type => 2).count
     @image_item_count = @items.where(:item_type => 3).count

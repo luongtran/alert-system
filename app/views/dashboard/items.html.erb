@@ -5,57 +5,61 @@
 </script>
 
 <div id="dashbody_items">
-  <% if @items.empty? %>
-    <h4>You don't have any item!</h4>
+
+  <% if @packages_count == 0 %>
+      <h4>You don't have any item!</h4>
   <% else %>
-    <div class="dashbodyHead">
-      <div class="row-fluid">
-        <div class="span9">
-          <div class="tipbox">
-            <h4 class="pll">
-              You currently have <%= "#{@items.count} #{@items.count > 1 ? 'items' : 'item'}." %>
-            </h4>
-            <p class="pll">
-              - Text : <%= @text_item_count %>
-            </p>
-            <p class="pll">
-              - File : <%= @file_item_count %>
-            </p>
-            <p class="pll">
-              - Image : <%= @image_item_count %>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="dashbodyMain well">
-      <div id="listitems" class="clearfix">
-        <% @items.each do |i| %>
-          <%
-          css_class = ""
-          case i.item_type
-            when 1
-            css_class = "text"
-            when 2
-            css_class = "zip"
-            when 3
-            css_class = "image"
-            end
-        %>
-          <div class="item">
-            <div class="item-inner <%= css_class %>">
-              <a href="<%= package_item_path(i.package_id,i.id) %>"><span class="title"><%=i.name%></span></a>
+      <div class="dashbodyHead">
+        <div class="row-fluid">
+          <div class="span9">
+            <div class="tipbox">
+              <h4 class="pll">
+                You currently have <%= "#{@items.count} #{@items.count > 1 ? 'items' : 'item'}." %>
+              </h4>
+
+              <p class="pll">
+                - Text : <%= @text_item_count %>
+              </p>
+
+              <p class="pll">
+                - File : <%= @file_item_count %>
+              </p>
+
+              <p class="pll">
+                - Image : <%= @image_item_count %>
+              </p>
             </div>
           </div>
-        <% end %>
-        <div class="item addnew">
-          <div class="item-inner">
-            <a href="<%= dashboard_new_item_path%>"><span class="add"><i class="icon-plus mrl"></i>add</span></a>
+        </div>
+      </div>
+      <div class="dashbodyMain well">
+        <div id="listitems" class="clearfix">
+          <% @items.each do |i| %>
+              <%
+                 css_class = ""
+                 case i.item_type
+                   when 1
+                     css_class = "text"
+                   when 2
+                     css_class = "zip"
+                   when 3
+                     css_class = "image"
+                 end
+              %>
+              <div class="item">
+                <div class="item-inner <%= css_class %>">
+                  <a href="<%= package_item_path(i.package_id, i.id) %>"><span class="title"><%= i.name %></span></a>
+                </div>
+              </div>
+          <% end %>
+          <div class="item addnew">
+            <div class="item-inner">
+              <a href="<%= dashboard_new_item_path %>"><span class="add"><i class="icon-plus mrl"></i>add</span></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-<% end %>
+      </div>
+  <% end %>
 
 
