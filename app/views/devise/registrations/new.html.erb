@@ -1,283 +1,281 @@
 <style type="text/css">
-    .plan-active {
-        pointer-events: none;
-        cursor: default;
-    }
+  .plan-active {
+    pointer-events: none;
+    cursor: default;
+  }
 </style>
 <script>
-    $(document).ready(function () {
-        $('.btn-plan').click(function () {
-            $.cookie('user_first_name', $('#user_first_name').val())
-            $.cookie('user_last_name', $('#user_last_name').val())
-            $.cookie('user_email', $('#user_email').val())
-            $.cookie('card_number', $('#card_number').val())
-            $.cookie('card_code', $('#card_code').val())
-            $.cookie('country', $('#country').val())
-        })
-        $('#btn-submit').click(function () {
-            $.cookie('user_first_name', '')
-            $.cookie('user_last_name', '')
-            $.cookie('user_email', '')
-            $.cookie('card_number', '')
-            $.cookie('card_code', '')
-            $.cookie('country', '')
-        })
+  $(document).ready(function() {
+    $('.btn-plan').click(function() {
+      $.cookie('user_first_name', $('#user_first_name').val());
+      $.cookie('user_last_name', $('#user_last_name').val());
+      $.cookie('user_email', $('#user_email').val());
+      $.cookie('card_number', $('#card_number').val());
+      $.cookie('card_code', $('#card_code').val());
+      $.cookie('country', $('#country').val());
     });
+    $('#btn-submit').click(function() {
+      $.cookie('user_first_name', '');
+      $.cookie('user_last_name', '');
+      $.cookie('user_email', '');
+      $.cookie('card_number', '');
+      $.cookie('card_code', '');
+      $.cookie('country', '');
+    });
+  });
 </script>
 
 <script>
-    $(document).ready(function () {
-        if ($.cookie('user_first_name') != '')
-            $('#user_first_name').val($.cookie('user_first_name'));
+  $(document).ready(function() {
+    if ($.cookie('user_first_name') !== '')
+      $('#user_first_name').val($.cookie('user_first_name'));
 
-        if ($.cookie('user_last_name') != '')
-            $('#user_last_name').val($.cookie('user_last_name'));
+    if ($.cookie('user_last_name') !== '')
+      $('#user_last_name').val($.cookie('user_last_name'));
 
-        if ($.cookie('user_email') != '')
-            $('#user_email').val($.cookie('user_email'));
+    if ($.cookie('user_email') !== '')
+      $('#user_email').val($.cookie('user_email'));
 
-        if ($.cookie('card_number') != '')
-            $('#card_number').val($.cookie('card_number'));
+    if ($.cookie('card_number') !== '')
+      $('#card_number').val($.cookie('card_number'));
 
-        if ($.cookie('card_code') != '')
-            $('#card_code').val($.cookie('card_code'));
+    if ($.cookie('card_code') !== '')
+      $('#card_code').val($.cookie('card_code'));
 
-        if ($.cookie('country') != '')
-            $('#country').val($.cookie('country'));
-
-
-    });
+    if ($.cookie('country') !== '') 
+      $('#country').val($.cookie('country'));
+  });
 </script>
 
 <script src="/assets/jquery.cookie.js"></script>
 <script src="/assets/recurly.js?body=1" type="text/javascript"></script>
 <script src="/assets/registrations.js?body=1" type="text/javascript"></script>
 <script>
-    $(document).ready(function () {
-        $('#link_' + $('#plan').val()).addClass('plan-active').removeClass('btn-primary');
-    });
+  $(document).ready(function() {
+    $('#link_' + $('#plan').val()).addClass('plan-active').removeClass('btn-primary');
+  });
 </script>
 <div class="headerMid">
-<div class="container">
-<div class="headerMid-inner">
-<div id="dashboard">
-<div class="dashboard-head">
-  <h1 class="lead"> <%= params[:plan].titleize %> Subscription</h1>
-  <hr class="divider">
-</div>
-<div class="dashboard-body">
-<div class="row-fluid">
-
-<div class="span4">
-  <div class="">
-    <div class="pal">
-      <p>
-        With higher plan you can add unlimit addresses, unlimit package and items
-        and long config alive time!
-      </p>
-
-      <div class="spacing pbl"></div>
-      <div class="well clearfix" id="free">
-        <h2 class="pull-left">Free</h2>
-
-        <div class="pull-right">
-          <p>1 package</p>
-
-          <p><strong>$0 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary btn-plan', :id => "link_free" %>
+  <div class="container">
+    <div class="headerMid-inner">
+      <div id="dashboard">
+        <div class="dashboard-head">
+          <h1 class="lead"> <%= params[:plan].titleize %> Subscription</h1>
+          <hr class="divider">
         </div>
-      </div>
-      <div class="spacing pbl"></div>
-      <div class="well clearfix" id="small">
-        <h2 class="pull-left">Small</h2>
+        <div class="dashboard-body">
+          <div class="row-fluid">
 
-        <div class="pull-right">
-          <p>3 packages</p>
+            <div class="span4">
+              <div class="">
+                <div class="pal">
+                  <p>
+                    With higher plan you can add unlimit addresses, unlimit package and items
+                    and long config alive time!
+                  </p>
 
-          <p><strong>$5 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary btn-plan', :id => "link_small" %>
-        </div>
-      </div>
-      <div class="spacing pbl"></div>
-      <div class="well clearfix" id="medium">
-        <h3 class="pull-left">Medium</h3>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix" id="free">
+                    <h2 class="pull-left">Free</h2>
 
-        <div class="pull-right">
-          <p>10 packages</p>
+                    <div class="pull-right">
+                      <p>1 package</p>
 
-          <p><strong>$10 / month</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary btn-plan', :id => "link_medium" %>
-        </div>
-      </div>
-      <div class="spacing pbl"></div>
-      <div class="well clearfix" id="large">
-        <h2 class="pull-left">Large</h2>
-
-        <div class="pull-right">
-          <p>30 packages</p>
-
-          <p><strong>$15 / month</strong></p>
-
-          <p><strong>Custom key</strong></p>
-          <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary btn-plan', :id => "link_large" %>
-        </div>
-      </div>
-      <p></p>
-    </div>
-  </div>
-</div>
-
-<div class="span8">
-  <div class="pal tiphelp">
-    <div id="accountSignUp">
-      <div class="accountSignUp-inner">
-        <div class="row-fluid">
-          <div class="span8 offset1">
-            <br/>
-            <div id="card_error" class="alert alert-error" style="display:none"></div>
-            <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-horizontal', 'data-subdomain' => RECURLY_SUBDOMAIN, 'data-signature' => @signature, 'data-ip_address' => request.remote_ip}) do |f| %>
-                <fieldset>
-                  <% resource.errors.each do |type, message| %>
-                      <% if !message.blank? %>
-                          <div class="alert <%= bootstrap_class_for(type) %>">
-                            <a class="close" data-dismiss="alert">&#215;</a>
-                            <%= content_tag :div, "#{type} #{message}", :id => "flash_#{type}" %>
-                          </div>
-                      <% end %>
-                  <% end %>
-                  <%= f.error_notification %>
-                  <%= display_base_errors resource %>
-                  <%= hidden_field_tag :plan, params[:plan] %>
-                  <%= f.hidden_field :customer_id %>
-
-                  <legend>Account Information</legend>
-                  <div class="control-group">
-                    <label class="control-label">First name <span>*</span> :</label>
-
-                    <div class="controls">
-                      <%= f.text_field :first_name, :class => "input-block-level", :required => true %>
+                      <p><strong>$0 / month</strong></p>
+                      <%= link_to 'Subscribe', new_user_registration_path(:plan => 'free'), :class => 'btn btn-primary btn-plan', :id => "link_free" %>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Last name <span>*</span> :</label>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix" id="small">
+                    <h2 class="pull-left">Small</h2>
 
-                    <div class="controls">
-                      <%= f.text_field :last_name, :required => true, :class => "input-block-level", :required => true %>
+                    <div class="pull-right">
+                      <p>3 packages</p>
 
+                      <p><strong>$5 / month</strong></p>
+                      <%= link_to 'Subscribe', new_user_registration_path(:plan => 'small'), :class => 'btn btn-primary btn-plan', :id => "link_small" %>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Email <span>*</span> :</label>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix" id="medium">
+                    <h3 class="pull-left">Medium</h3>
 
-                    <div class="controls">
-                      <%= f.text_field :email, :required => true, :class => "input-block-level", :required => true %>
+                    <div class="pull-right">
+                      <p>10 packages</p>
 
+                      <p><strong>$10 / month</strong></p>
+                      <%= link_to 'Subscribe', new_user_registration_path(:plan => 'medium'), :class => 'btn btn-primary btn-plan', :id => "link_medium" %>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Password <span>*</span> :</label>
+                  <div class="spacing pbl"></div>
+                  <div class="well clearfix" id="large">
+                    <h2 class="pull-left">Large</h2>
 
-                    <div class="controls">
-                      <%= f.password_field :password, :required => true, :class => "input-block-level", :required => true %>
+                    <div class="pull-right">
+                      <p>30 packages</p>
 
+                      <p><strong>$15 / month</strong></p>
+
+                      <p><strong>Custom key</strong></p>
+                      <%= link_to 'Subscribe', new_user_registration_path(:plan => 'large'), :class => 'btn btn-primary btn-plan', :id => "link_large" %>
                     </div>
                   </div>
-                  <div class="control-group">
-                    <label class="control-label">Password Confirm <span>*</span> :</label>
+                  <p></p>
+                </div>
+              </div>
+            </div>
 
-                    <div class="controls">
-                      <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level", :required => true %>
+            <div class="span8">
+              <div class="pal tiphelp">
+                <div id="accountSignUp">
+                  <div class="accountSignUp-inner">
+                    <div class="row-fluid">
+                      <div class="span8 offset1">
+                        <br/>
+                        <div id="card_error" class="alert alert-error" style="display:none"></div>
+                        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-horizontal', 'data-subdomain' => RECURLY_SUBDOMAIN, 'data-signature' => @signature, 'data-ip_address' => request.remote_ip}) do |f| %>
+                          <fieldset>
+                            <% resource.errors.each do |type, message| %>
+                              <% if !message.blank? %>
+                                <div class="alert <%= bootstrap_class_for(type) %>">
+                                  <a class="close" data-dismiss="alert">&#215;</a>
+                                  <%= content_tag :div, "#{type} #{message}", :id => "flash_#{type}" %>
+                                </div>
+                              <% end %>
+                            <% end %>
+                            <%= f.error_notification %>
+                            <%= display_base_errors resource %>
+                            <%= hidden_field_tag :plan, params[:plan] %>
+                            <%= f.hidden_field :customer_id %>
 
-                    </div>
-                  </div>
-                  <% if @plan == 'free' %>
-                      <div class="control-group">
-                        <label class="control-label">Frequency <span>*</span> :</label>
+                            <legend>Account Information</legend>
+                            <div class="control-group">
+                              <label class="control-label">First name <span>*</span> :</label>
 
-                        <div class="controls">
-                          <%= f.text_field :frequency, :type => "number", :readonly => true, :class => "input-block-level", :value => 30 %>
-                          <label>Free plan can't edit this option</label>
-                        </div>
-                      </div>
-                  <% else %>
-                      <div class="control-group">
-                        <label class="control-label">Frequency <span>*</span> :</label>
-
-                        <div class="controls">
-                          <%= f.text_field :frequency, :type => "number", :class => "input-block-level", :value => 30 %>
-                        </div>
-                      </div>
-                  <% end %>
-                  <% if @user.card_token %>
-                      <p>Credit card acceptance is pending.</p>
-                  <% else %>
-
-                      <div class="billing-profile-fields">
-                        <legend>Billing Profile</legend>
-                        <div class="control-group">
-                          <label class="control-label">Country :</label>
-
-                          <div class="controls">
-                            <%= select_tag 'country', country_options_for_select(selected = 'US', priority_countries = 'US'), :class => "input-block-level" %>
-                          </div>
-                        </div>
-                        <div class="control-group">
-                          <label class="control-label">Credit card Number :</label>
-
-                          <div class="controls">
-                            <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
-                            <%= text_field_tag :card_number, nil, name: nil, :class => "input-block-level" %>
-                          </div>
-                        </div>
-                        <div class="control-group">
-                          <label class="control-label">Card Security Code :</label>
-
-                          <div class="controls">
-                            <%= text_field_tag :card_code, nil, name: nil, :class => "input-block-level" %>
-                            <!--<input type="number" name="card_security_code" class="handwrite input-block-level"/>-->
-                          </div>
-                        </div>
-                        <div class="control-group">
-                          <label class="control-label">Card Expiration :</label>
-
-                          <div class="controls">
-                            <div class="row-fluid">
-                              <!--<div class="span6">-->
-                              <%= select_month Date.today.month, {add_month_numbers: true}, {name: "card_month"} %>
-                              <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: "card_year"} %>
-                              <!--</div>-->
+                              <div class="controls">
+                                <%= f.text_field :first_name, :class => "input-block-level", :required => true %>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                        <div class="control-group">
-                          <label class="control-label">Promotion Coupon :</label>
+                            <div class="control-group">
+                              <label class="control-label">Last name <span>*</span> :</label>
 
-                          <div class="controls">
-                            <input type="number" name="promotion_coupon" class="input-block-level"/>
-                          </div>
-                        </div>
+                              <div class="controls">
+                                <%= f.text_field :last_name, :required => true, :class => "input-block-level", :required => true %>
+
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Email <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.text_field :email, :required => true, :class => "input-block-level", :required => true %>
+
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Password <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.password_field :password, :required => true, :class => "input-block-level", :required => true %>
+
+                              </div>
+                            </div>
+                            <div class="control-group">
+                              <label class="control-label">Password Confirm <span>*</span> :</label>
+
+                              <div class="controls">
+                                <%= f.password_field :password_confirmation, :required => true, :class => "input-block-level", :required => true %>
+
+                              </div>
+                            </div>
+                            <% if @plan == 'free' %>
+                              <div class="control-group">
+                                <label class="control-label">Frequency <span>*</span> :</label>
+
+                                <div class="controls">
+                                  <%= f.text_field :frequency, :type => "number", :readonly => true, :class => "input-block-level", :value => 30 %>
+                                  <label>Free plan can't edit this option</label>
+                                </div>
+                              </div>
+                            <% else %>
+                              <div class="control-group">
+                                <label class="control-label">Frequency <span>*</span> :</label>
+
+                                <div class="controls">
+                                  <%= f.text_field :frequency, :type => "number", :class => "input-block-level", :value => 30 %>
+                                </div>
+                              </div>
+                            <% end %>
+                            <% if @user.card_token %>
+                              <p>Credit card acceptance is pending.</p>
+                            <% else %>
+
+                              <div class="billing-profile-fields">
+                                <legend>Billing Profile</legend>
+                                <div class="control-group">
+                                  <label class="control-label">Country :</label>
+
+                                  <div class="controls">
+                                    <%= select_tag 'country', country_options_for_select(selected = 'US', priority_countries = 'US'), :class => "input-block-level" %>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <label class="control-label">Credit card Number :</label>
+
+                                  <div class="controls">
+                                    <!--<input type="number" name="credit_card_number" class="handwrite input-block-level"/>-->
+                                    <%= text_field_tag :card_number, nil, name: nil, :class => "input-block-level" %>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <label class="control-label">Card Security Code :</label>
+
+                                  <div class="controls">
+                                    <%= text_field_tag :card_code, nil, name: nil, :class => "input-block-level" %>
+                                    <!--<input type="number" name="card_security_code" class="handwrite input-block-level"/>-->
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <label class="control-label">Card Expiration :</label>
+
+                                  <div class="controls">
+                                    <div class="row-fluid">
+                                      <!--<div class="span6">-->
+                                      <%= select_month Date.today.month, {add_month_numbers: true}, {name: "card_month"} %>
+                                      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: "card_year"} %>
+                                      <!--</div>-->
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="control-group">
+                                  <label class="control-label">Promotion Coupon :</label>
+
+                                  <div class="controls">
+                                    <input type="number" name="promotion_coupon" class="input-block-level"/>
+                                  </div>
+                                </div>
+                              </div>
+                            <% end %>
+                            <%= f.hidden_field :card_token %>
+                            <div class="control-group">
+                              <label class="control-label"></label>
+
+                              <div class="controls">
+                                <button type="submit" class="btn btn-primary span5" id="btn-submit">Signup</button>
+                              </div>
+                            </div>
+                          </fieldset>
+                        <% end %>
                       </div>
-                  <% end %>
-                  <%= f.hidden_field :card_token %>
-                  <div class="control-group">
-                    <label class="control-label"></label>
-
-                    <div class="controls">
-                      <button type="submit" class="btn btn-primary span5" id="btn-submit">Signup</button>
                     </div>
                   </div>
-                </fieldset>
-            <% end %>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>

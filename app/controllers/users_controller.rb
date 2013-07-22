@@ -49,7 +49,6 @@ class UsersController < ApplicationController
 
   def edit_billing
     account = Recurly::Account.find(current_user.customer_id)
-
     @billing_infor = account.billing_info
   rescue Recurly::Resource::NotFound => e
     flash[:notice] = "Your account code not found!"
@@ -67,10 +66,9 @@ class UsersController < ApplicationController
       flash[:notice] = "Billing infor updated successfully!"
       redirect_to users_edit_billing_path
     else
-      flash[:notice] = "Billing infor updated failed : #{account.billing_info.errors}"
+      flash[:notice] = "Billing infor updated failed, perhaps your card informaton is invalid !"
       redirect_to :back
     end
-
   rescue Recurly::Resource::Invalid => e
     flash[:notice] = "Billing infor updated failed!"
     redirect_to dashboard_path

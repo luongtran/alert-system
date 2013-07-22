@@ -8,7 +8,7 @@
 <div id="accountEdit">
   <%= simple_form_for "billing_inf", {:html => {:class => "form"}, url: {controller: "users", action: "update_billing"}} do |b| %>
       <div class="control-group">
-        <%= label_tag :first_name, "First Name", :class => "control-label" %>
+        <%#= label_tag :first_name, "First Name", :class => "control-label" %>
         <div class="controls">
           <%= b.text_field :first_name, :value => "#{@billing_infor.first_name}", :class => "input-block-level" %>
         </div>
