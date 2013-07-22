@@ -7,28 +7,32 @@
 <div id="dashbody_items">
 
   <% if @packages_count == 0 %>
-      <h4>You don't have any item!</h4>
+      <h4>You haven't created any package yet.</h4>
   <% else %>
       <div class="dashbodyHead">
         <div class="row-fluid">
           <div class="span9">
-            <div class="tipbox">
-              <h4 class="pll">
-                You currently have <%= "#{@items.count} #{@items.count > 1 ? 'items' : 'item'}." %>
-              </h4>
+            <% if @items.count !=0 %>
+                <div class="tipbox">
+                  <h4 class="pll">
+                    You currently have <%= "#{@items.count} #{@items.count > 1 ? 'items' : 'item'}." %>
+                  </h4>
 
-              <p class="pll">
-                - Text : <%= @text_item_count %>
-              </p>
+                  <p class="pll">
+                    - Text : <%= @text_item_count %>
+                  </p>
 
-              <p class="pll">
-                - File : <%= @file_item_count %>
-              </p>
+                  <p class="pll">
+                    - File : <%= @file_item_count %>
+                  </p>
 
-              <p class="pll">
-                - Image : <%= @image_item_count %>
-              </p>
-            </div>
+                  <p class="pll">
+                    - Image : <%= @image_item_count %>
+                  </p>
+                </div>
+            <% else %>
+                <h4>You haven't created any item yet.</h4>
+            <% end %>
           </div>
         </div>
       </div>
@@ -52,6 +56,7 @@
                 </div>
               </div>
           <% end %>
+
           <div class="item addnew">
             <div class="item-inner">
               <a href="<%= dashboard_new_item_path %>"><span class="add"><i class="icon-plus mrl"></i>add</span></a>

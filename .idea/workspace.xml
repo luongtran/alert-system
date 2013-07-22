@@ -24,7 +24,6 @@
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\routing\attachments_routing_spec.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboard/items.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboard/items.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlertSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,7 +45,7 @@
     <file path="/application_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374129946917" ignored="false" />
     <file path="/item.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374133412329" ignored="false" />
     <file path="/items_helper.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373862171787" ignored="false" />
-    <file path="/items.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374466260200" ignored="false" />
+    <file path="/items.html.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374467161333" ignored="false" />
     <file path="/packages.erb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373708758905" ignored="false" />
     <file path="/items_controller.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1374144599438" ignored="false" />
     <file path="/20130627074814_create_recipients.rb" changelist="0887baa8-076f-40b3-867d-ef9e154191b3" time="1373600438567" ignored="false" />
@@ -161,8 +160,10 @@
       <file leaf-file-name="items.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/dashboard/items.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="116" selection-start="1662" selection-end="1764" vertical-scroll-proportion="0.9724771">
-              <folding />
+            <state line="33" column="48" selection-start="996" selection-end="996" vertical-scroll-proportion="0.90458715">
+              <folding>
+                <element signature="tag#div#1;tag#div#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,7 +171,7 @@
       <file leaf-file-name="dashboard_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="6" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0">
+            <state line="20" column="31" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -944,15 +945,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="6" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0">
+        <state line="20" column="31" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboard/items.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="116" selection-start="1662" selection-end="1764" vertical-scroll-proportion="0.9724771">
-          <folding />
+        <state line="33" column="48" selection-start="996" selection-end="996" vertical-scroll-proportion="0.90458715">
+          <folding>
+            <element signature="tag#div#1;tag#div#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

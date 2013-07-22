@@ -44,8 +44,6 @@ class DashboardController < ApplicationController
     @item = @package.items.new
 
 
-
-
     @item.name = params[:item][:name]
     @item.description = params[:item][:description]
     if params[:type] == "text"
