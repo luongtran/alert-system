@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20130720062750) do
     t.text     "text_content"
     t.string   "file_name"
     t.string   "file_content_type"
+    t.text     "s3_url"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
