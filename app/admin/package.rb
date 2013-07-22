@@ -12,5 +12,5 @@ ActiveAdmin.register Package do
     column :send_to_recipient_at
     default_actions
   end
- 
+  filter :name
 end
