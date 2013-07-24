@@ -33,7 +33,6 @@ class RecipientController < ApplicationController
   end
 
 
-
   def show
 
   end
@@ -45,7 +44,7 @@ class RecipientController < ApplicationController
     @item = Item.find(item_id)
     @package = Package.where(:verify_recipient_code => package_code).first
     if @package.id == @item.package_id # verify
-      if @item.item_type != 1
+      if @item.item_type != 1    # item is file or image
         if !@package.custom_key
           aes_key = Base64.decode64(@package.encrypted_key)
           data = s3_downloader("#{ENV['AWS3_BUCKET_PREFIX']}#{@package.id}", @item.file_name, aes_key)
@@ -75,7 +74,7 @@ class RecipientController < ApplicationController
     end
   rescue Exception => e
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => "#{e.message}" }
       format.xml { head :not_found }
       format.any { head :not_found }
     end

@@ -43,7 +43,6 @@ class User < ActiveRecord::Base
   def update_plan(role)
     self.role_ids = []
     self.add_role(role.name)
-
     if customer_id.nil?
       errors.add :base, "Unable to update your subscription."
       return false
@@ -52,6 +51,7 @@ class User < ActiveRecord::Base
     unless customer.nil?
       subscription = customer.subscriptions.first
       subscription.update_attributes! :timeframe => 'now', :plan_code => role.name
+
     end
     true
   rescue Recurly::Resource::Invalid => e

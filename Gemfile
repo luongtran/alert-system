@@ -8,6 +8,7 @@ gem 'ckeditor', :git => 'git://github.com/pshoukry/ckeditor.git'
 gem "meta_search", '>= 1.1.0.pre'
 gem 'aws-sdk'
 
+
 #gem 'aws-s3', :require => 'aws/s3'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

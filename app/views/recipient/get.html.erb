@@ -40,7 +40,6 @@
                       </tr>
                   <% end %>
                 </table>
-                <hr/>
                 <%= link_to 'Delete the package!', "/recipient/delete?code=#{@package.verify_recipient_code}", :class => 'btn btn-danger', data: {confirm: 'Are you sure you want to permanently delete the package?'} %>
             <% end %>
         <% else %>

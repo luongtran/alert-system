@@ -9,19 +9,16 @@ class Package < ActiveRecord::Base
   belongs_to :user
   has_many :items, :dependent => :destroy
 
-  ## before_save :create_aes_key, :if => lambda { |i| i.custom_key == false }
-
   def create_aes_key
     key = OpenSSL::Cipher.new("AES-256-ECB").random_key
-    # key = Digest::MD5.hexdigest("#{Time.now} ... #{self.name}")
     self.encrypted_key = Base64.encode64(key)
   end
 
-  after_destroy :delete_from_s3
+  #after_destroy :delete_from_s3
 
-  def delete_from_s3 # put in controller ?
-    Thread.new do
-      s3_bucket_delete("#{ENV['AWS3_BUCKET_PREFIX']}#{self.id}")
-    end
-  end
+  #def delete_from_s3 # put in controller ?
+  #  Thread.new do
+  #    s3_bucket_delete("#{ENV['AWS3_BUCKET_PREFIX']}#{self.id}")
+  #  end
+  #end
 end
