@@ -22,16 +22,7 @@
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\models\attachment_spec.rb" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\requests\attachments_spec.rb" afterPath="" />
       <change type="DELETED" beforePath="C:\Sites\AlertSystem\spec\routing\attachments_routing_spec.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AlertSystem.iml" afterPath="$PROJECT_DIR$/.idea/AlertSystem.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/edit_billing.erb" afterPath="$PROJECT_DIR$/app/views/users/edit_billing.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/recipient/get.html.erb" afterPath="$PROJECT_DIR$/app/views/recipient/get.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/package.rb" afterPath="$PROJECT_DIR$/app/models/package.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/recipient_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/recipient_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AlertSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,15 +133,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/factories/users.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="33" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -162,10 +144,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="registrations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="47" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
+            <state line="33" column="42" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.5133215">
               <folding />
             </state>
           </provider>
@@ -198,10 +180,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="package.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/package.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="55" selection-start="414" selection-end="414" vertical-scroll-proportion="0.3623446">
+            <state line="12" column="55" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -257,8 +239,8 @@
         <option value="$PROJECT_DIR$/app/controllers/recipient_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/recipient/get.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/package.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
       </list>
     </option>
   </component>
@@ -894,13 +876,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/factories/recipients.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="231" selection-end="231" vertical-scroll-proportion="0.26198632">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="31" selection-start="406" selection-end="406" vertical-scroll-proportion="0.61130136">
@@ -918,13 +893,6 @@
     <entry file="file://$PROJECT_DIR$/spec/controllers/check_in_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="33" selection-start="64" selection-end="120" vertical-scroll-proportion="0.14554794">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/factories/users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="33" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -957,25 +925,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="6" selection-start="1763" selection-end="1763" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#2876#4888#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="47" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1003,7 +955,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/package.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="55" selection-start="414" selection-end="414" vertical-scroll-proportion="0.3623446">
+        <state line="12" column="55" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/factories/users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="33" selection-start="224" selection-end="224" vertical-scroll-proportion="0.24156305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="6" selection-start="1763" selection-end="1763" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#2876#4888#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="25" selection-start="753" selection-end="753" vertical-scroll-proportion="0.3321492">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="42" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.5133215">
           <folding />
         </state>
       </provider>

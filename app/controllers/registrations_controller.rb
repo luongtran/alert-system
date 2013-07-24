@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
       # set frequency to 30 if new role is free
       if new_role.name == 'free'
-        @user.update_attribute :frequency => 30
+        @user.update_attribute :frequency, 30
       end
       redirect_to :back, :notice => "Your plan updated successfully#{have > max ? ", #{have - max} package(s) has been deleted" : ""} !"
     else
