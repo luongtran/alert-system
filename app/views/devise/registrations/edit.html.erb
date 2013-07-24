@@ -28,8 +28,10 @@
       <label>Password : (leave it blank if you don't want to change it)</label>
       <%= f.password_field :password, autocomplete: "off", required: false %>
       <%= f.input :password_confirmation, required: false %>
+
       <% if current_user.has_role? 'free' %>
-          <%= f.input :frequency, :required => true, :readonly => true, hint: " upgrade your subscription to customize " %>
+          <%= f.input :frequency, :required => true, :readonly => true %>
+          <label>(upgrade your subscription to customize)</label>
       <% else %>
           <%= f.input :frequency, :required => true %>
       <% end %>
